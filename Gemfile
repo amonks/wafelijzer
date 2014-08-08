@@ -16,7 +16,6 @@ gem 'rake'
 gem 'dotenv', :groups => [:development, :test]
 
 # Component requirements
-gem 'erubis', "~> 2.7.0"
 gem 'bcrypt'
 gem 'sass'
 gem 'haml'
@@ -24,6 +23,10 @@ gem 'kramdown'
 gem 'slim'
 gem 'pg'
 gem 'sequel'
+
+gem 'foreman'
+
+
 
 # Test requirements
 
