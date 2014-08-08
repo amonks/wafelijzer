@@ -6,7 +6,12 @@ module Wafelijzer
     		Kramdown::Document.new(Text.where(:title => title).first.body).to_html
     	end
     	def settingValue title
-			Setting.where(:title => title).first.body
+			setting = Setting.where(:title => title).first
+            if setting
+                return setting.body
+            else
+                return false
+            end
     	end
     end
 

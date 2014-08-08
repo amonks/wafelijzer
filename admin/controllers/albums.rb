@@ -15,7 +15,7 @@ Wafelijzer::Admin.controllers :albums do
     @album = Album.new(params[:album])
     if (@album.save rescue false)
       params['artists'].each do |artist_id, role|
-        if params['artistsEnabled'][artist_id]
+        if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
           if role.length > 0  
             AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
           elsif role.length == 0
@@ -51,7 +51,7 @@ Wafelijzer::Admin.controllers :albums do
     if @album
       if @album.modified! && @album.update(params[:album])
         params['artists'].each do |artist_id, role|
-          if params['artistsEnabled'][artist_id]
+          if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
             if role.length > 0  
               AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
             elsif role.length == 0

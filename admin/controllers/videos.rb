@@ -15,7 +15,7 @@ Wafelijzer::Admin.controllers :videos do
     @video = Video.new(params[:video])
     if (@video.save rescue false)
       params['artists'].each do |artist_id, role|
-        if params['artistsEnabled'][artist_id]
+        if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
           if role.length > 0  
             ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
           elsif role.length == 0
@@ -51,7 +51,7 @@ Wafelijzer::Admin.controllers :videos do
     if @video
       if @video.modified! && @video.update(params[:video])
         params['artists'].each do |artist_id, role|
-          if params['artistsEnabled'][artist_id]
+          if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
             if role.length > 0  
               ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
             elsif role.length == 0
