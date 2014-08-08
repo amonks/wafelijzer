@@ -1,4 +1,5 @@
-h3 = video.title
+h3
+	a href="/videos/#{video.id}" = video.title
 - if video.service == "youtube"
 	== youtube_embed_from_id video.youtube_id
 - if video.service == "vimeo"

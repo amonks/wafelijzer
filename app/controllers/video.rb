@@ -7,7 +7,8 @@ Wafelijzer::App.controllers :video do
   end
 
 
-  get :video, :with => :id do
+  get :index, :map => '/videos/:id' do
+  	@video = Video.where(:id => params['id']).first
     render 'video/show'
   end
   

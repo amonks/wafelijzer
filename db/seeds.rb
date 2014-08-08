@@ -52,7 +52,7 @@ album = Album.create(
 	:type => "EP",
 	:bandcamp_url => "http://leaftype.bandcamp.com/album/ltep0008"
 )
-album.get_bandcamp_id
+album.populate_from_bandcamp
 AlbumsArtists.create(
 	:artist_id => leaftype.id,
 	:album_id => album.id,
@@ -64,7 +64,7 @@ album = Album.create(
 	:type => "EP",
 	:bandcamp_url => "http://leaftype.bandcamp.com/album/flpty808"
 )
-album.get_bandcamp_id
+album.populate_from_bandcamp
 AlbumsArtists.create(
 	:artist_id => leaftype.id,
 	:album_id => album.id,
@@ -77,7 +77,7 @@ album = Album.create(
 	:type => "LP",
 	:bandcamp_url => "http://tokyomegaplex.bandcamp.com/album/the-legend-of-beefwell"
 )
-album.get_bandcamp_id
+album.populate_from_bandcamp
 AlbumsArtists.create(
 	:artist_id => tokyomegaplex.id,
 	:album_id => album.id,
@@ -89,7 +89,7 @@ album = Album.create(
 	:type => "Single",
 	:bandcamp_url => "http://music.belgianman.com/album/words"
 )
-album.get_bandcamp_id
+album.populate_from_bandcamp
 AlbumsArtists.create(
 	:artist_id => leaftype.id,
 	:album_id => album.id,

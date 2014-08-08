@@ -7,7 +7,8 @@ Wafelijzer::App.controllers :album do
   end
 
 
-  get :album, :with => :id do
+  get :index, :map => '/albums/:id' do
+  	@album = Album.where(:id => params['id']).first
     render 'album/show'
   end
 

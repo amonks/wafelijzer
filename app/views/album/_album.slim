@@ -1,2 +1,10 @@
-h3 = album.title
+h3 
+	a href="/albums/#{album.id.to_s}"
+		== album.title + " "
+	span.small
+		- if album.type
+			== album.type + " "
+	.small
+		- if album.release_date
+			== album.release_date.to_date
 == bandcamp_embed_from_id album.bandcamp_id

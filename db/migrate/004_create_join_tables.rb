@@ -15,12 +15,10 @@ Sequel.migration do
       String :role # eg "Musician", "Director", "Cinematographer", "Remixer"
     end
 
-  	create_join_table(:album_id=>:albums, :video_id=>:videos)
   end
 
   down do
     drop_table :albums_artists
     drop_table :artists_videos
-    drop_table :albums_videos
   end
 end

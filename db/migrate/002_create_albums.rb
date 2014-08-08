@@ -9,10 +9,12 @@ Sequel.migration do
 
 		# basic info
 		String	:title
-		Date 	:release_date
+		DateTime 	:release_date
 		String :cover_url
 		String :label	# eg 'Belgian Man Records'
 		String :type	# eg 'compilation'
+		String :about, :text => true
+		String :credits, :text => true
 
 		# bandcamp
 		String :bandcamp_url	# eg 'http://music.belgianman.com/album/bedroom-classics-vol-1'
