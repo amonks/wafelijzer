@@ -7,6 +7,8 @@ ruby '2.1.2'
 # Server requirements
 # gem 'thin' # or mongrel
 gem 'puma'
+gem 'newrelic_rpm', :groups => [:production]
+
 
 # Optional JSON codec (faster performance)
 gem 'oj'
