@@ -11,7 +11,7 @@ Wafelijzer::App.controllers :artist do
   #     else ...
   # end
 
-  get :index, :map => "/artists/:slug" do
+  get :index, :map => "/:slug", :priority => :low do
     @artist = Artist.where(:slug => params[:slug]).first
     render 'artist/show'
   end
