@@ -37,7 +37,7 @@ edit `.env`
 
 ## schema
 
-###	`**account**`: user accounts
+###	**`account`**: user accounts
 
 	primary_key :id
 	String :name
@@ -46,7 +46,7 @@ edit `.env`
 	String :crypted_password
 	String :role
 
-###	`**album**`: albums
+###	**`album`**: albums
 
 	primary_key :id
 
@@ -65,14 +65,14 @@ edit `.env`
 	String :bandcamp_url	# eg 'http://music.belgianman.com/album/bedroom-classics-vol-1'
 	String :bandcamp_id
 
-###	`**albums_artists**`: credit on albums
+###	**`albums_artists`**: credit on albums
 
 	foreign_key :album_id
 	foreign_key :artist_id
 
 	String :role # eg "Composer", "Producer", "Remixer", "Cover Artist"
 
-###	`**artist**`: person
+###	**`artist`**: person
 
 	primary_key :id		
 	# utility
@@ -88,14 +88,14 @@ edit `.env`
 	File	:page_image	# main artist image
 	File	:list_image	# small artist thumbnail
 
-###	`**artists_videos**`: credit on videos
+###	**`artists_videos`**: credit on videos
 
 	foreign_key :artist_id
 	foreign_key :video_id
 
 	String :role # eg "Musician", "Director", "Cinematographer", "Remixer"
 
-###	`**blog**`: news articles for front page
+###	**`blog`**: news articles for front page
 
 	primary_key	:id
 
@@ -107,7 +107,7 @@ edit `.env`
 	String	:title
 	String	:body, 	:text => true
 
-###	`**setting**`: basically environment variables except in the db and settable through the web admin
+###	**`setting`**: basically environment variables except in the db and settable through the web admin
 
 	primary_key :id
 
@@ -119,7 +119,7 @@ edit `.env`
 	String :title
 	String :body, :text => true
 
-###	`**text**`: editable text blurbs (info blurb on front page, footer, ...)
+###	**`text`**: editable text blurbs (info blurb on front page, footer, ...)
 
 	primary_key :id
 
@@ -131,7 +131,7 @@ edit `.env`
 	String :title
 	String :body, :text => true # markdown formatted
 
-###	`**video**`: videos
+###	**`video`**: videos
 
 	primary_key :id
 
@@ -158,19 +158,19 @@ They're stored in `/wafelijzer/app/assets`
 
 ### files
 
-*	`**/wafelijzer/app/assets/css**`: everything in this folder is concatenated into `../css.css`
+*	**`/wafelijzer/app/assets/css`**: everything in this folder is concatenated into `../css.css`
 
-*	`**/wafelijzer/app/assets/js**`: everything in this folder is concatenated into `../js.js`
+*	**`/wafelijzer/app/assets/js`**: everything in this folder is concatenated into `../js.js`
 
-*	`**/wafelijzer/app/assets/stylus**`: everything in this folder is compiled into `../css/stylus.css`
+*	**`/wafelijzer/app/assets/stylus`**: everything in this folder is compiled into `../css/stylus.css`
 
-*	`**/wafelijzer/app/assets/css.css**`: unminified app css. This file is copied into `/wafelijzer/public/` and minified.
+*	**`/wafelijzer/app/assets/css.css`**: unminified app css. This file is copied into `/wafelijzer/public/` and minified.
 
-*	`**/wafelijzer/app/assets/css.css**`: minified app css. This file is copied into `/wafelijzer/public/`
+*	**`/wafelijzer/app/assets/css.css`**: minified app css. This file is copied into `/wafelijzer/public/`
 
-*	`**/wafelijzer/app/assets/css.css**`: unminified app js. This file is copied into `/wafelijzer/public/` and minified.
+*	**`/wafelijzer/app/assets/css.css`**: unminified app js. This file is copied into `/wafelijzer/public/` and minified.
 
-*	`**/wafelijzer/app/assets/css.css**`: minified app js. This file is copied into `/wafelijzer/public/`
+*	**`/wafelijzer/app/assets/css.css`**: minified app js. This file is copied into `/wafelijzer/public/`
 
 
 ### setup
