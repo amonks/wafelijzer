@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
 
 # Distribute your app as a gem
 # gemspec
 
 # Server requirements
 # gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
+gem 'puma'
 
 # Optional JSON codec (faster performance)
 gem 'oj'
@@ -17,6 +16,7 @@ gem 'rake'
 gem 'dotenv', :groups => [:development, :test]
 
 # Component requirements
+gem 'erubis', "~> 2.7.0"
 gem 'bcrypt'
 gem 'sass'
 gem 'haml'

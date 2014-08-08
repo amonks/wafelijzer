@@ -127,8 +127,8 @@ Blog.create(
 	:title => 'MAYBEWISE interview in Future Classics',
 	:body => 'Future Classics posted an interview of MAYBEWISE’s EP, Welcome To The Fishbowl:
 
->	**How long has MAYBEWISE been in effect? And where did the moniker come into play?**
->	Welcome to the Fishbowl marks the first release of the MAYBEWISE venture, but Peter has been producing and djing for nearly a decade, going under a number of other monikers and concepts. Patrick is pretty new to the game, but he brings the X factor and the life of the party.'
+> **How long has MAYBEWISE been in effect? And where did the moniker come into play?**
+> Welcome to the Fishbowl marks the first release of the MAYBEWISE venture, but Peter has been producing and djing for nearly a decade, going under a number of other monikers and concepts. Patrick is pretty new to the game, but he brings the X factor and the life of the party.'
 )
 
 
