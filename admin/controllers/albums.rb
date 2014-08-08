@@ -78,6 +78,7 @@ Wafelijzer::Admin.controllers :albums do
     @title = "Albums"
     album = Album[params[:id]]
     if album
+      AlbumsArtists.where(:album_id => album.id).destroy
       if album.destroy
         flash[:success] = pat(:delete_success, :model => 'Album', :id => "#{params[:id]}")
       else
@@ -98,9 +99,10 @@ Wafelijzer::Admin.controllers :albums do
     end
     ids = params[:album_ids].split(',').map(&:strip)
     albums = Album.where(:id => ids)
-    
+    albums.each do |album|
+      AlbumsArtists.where(:album_id => album.id).destroy
+    end
     if albums.destroy
-    
       flash[:success] = pat(:destroy_many_success, :model => 'Albums', :ids => "#{ids.to_sentence}")
     end
     redirect url(:albums, :index)

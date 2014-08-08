@@ -1,11 +1,17 @@
 h3 
 	a href="/albums/#{album.id.to_s}"
 		- if album.title
-			== album.title + " "
+			= album.title + " "
 	span.small
 		- if album.type
-			== album.type + " "
+			= album.type + " "
 	.small
 		- if album.release_date
-			== album.release_date.to_date
+			= album.release_date.to_date
 == bandcamp_embed_from_id album.bandcamp_id
+.well
+	- album.artists.each do |artist|
+		p
+			a href="/#{artist.slug}" = artist.name
+			' :
+			= AlbumsArtists.where(:album_id => album.id, :artist_id => artist.id).first.role

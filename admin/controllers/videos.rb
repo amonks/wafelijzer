@@ -77,6 +77,7 @@ Wafelijzer::Admin.controllers :videos do
   delete :destroy, :with => :id do
     @title = "Videos"
     video = Video[params[:id]]
+    ArtistsVideos.where(:video_id => video.id).destroy
     if video
       if video.destroy
         flash[:success] = pat(:delete_success, :model => 'Video', :id => "#{params[:id]}")
@@ -98,6 +99,10 @@ Wafelijzer::Admin.controllers :videos do
     end
     ids = params[:video_ids].split(',').map(&:strip)
     videos = Video.where(:id => ids)
+
+    videos.each do |video|
+      ArtistsVideos.where(:video_id => video.id).destroy
+    end
     
     if videos.destroy
     

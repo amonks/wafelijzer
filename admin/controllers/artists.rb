@@ -55,8 +55,11 @@ Wafelijzer::Admin.controllers :artists do
   end
 
   delete :destroy, :with => :id do
+
     @title = "Artists"
     artist = Artist[params[:id]]
+    AlbumsArtists.where(:artist_id => artist.id).destroy
+    ArtistsVideos.where(:artist_id => artist.id).destroy
     if artist
       if artist.destroy
         flash[:success] = pat(:delete_success, :model => 'Artist', :id => "#{params[:id]}")
@@ -78,6 +81,11 @@ Wafelijzer::Admin.controllers :artists do
     end
     ids = params[:artist_ids].split(',').map(&:strip)
     artists = Artist.where(:id => ids)
+
+    artists.each do |artist|
+      AlbumsArtists.where(:artist_id => artist.id).destroy
+      ArtistsVideos.where(:artist_id => artist.id).destroy
+    end
     
     if artists.destroy
     
