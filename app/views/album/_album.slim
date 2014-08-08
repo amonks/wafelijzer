@@ -1,6 +1,7 @@
 h3 
 	a href="/albums/#{album.id.to_s}"
-		== album.title + " "
+		- if album.title
+			== album.title + " "
 	span.small
 		- if album.type
 			== album.type + " "
