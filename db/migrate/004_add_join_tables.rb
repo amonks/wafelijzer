@@ -1,17 +1,18 @@
 Sequel.migration do
   up do
-    create_table :albums_artists do
-      foreign_key :album_id, :albums
-      foreign_key :artist_id, :artists
+    create_table(:albums_artists) do
+      foreign_key :album_id
+      foreign_key :artist_id
 
       String :role
     end
-    create_table :artists_videos do
-      foreign_key :artist_id, :artists
-      foreign_key :video_id, :videos
+    create_table(:artists_videos) do
+      foreign_key :artist_id
+      foreign_key :video_id
 
       String :role
     end
+
   	create_join_table(:album_id=>:albums, :video_id=>:videos)
   end
 

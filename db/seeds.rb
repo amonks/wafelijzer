@@ -49,55 +49,94 @@ tokyomegaplex = Artist.create(
 	:bio => "Chris Rutledge has been making music since the day he was born. He's based in Providence, Rhode Island. He has released music as DJ Kristöffer and Tokyo Megaplex."
 )
 
-leaftype.add_album(
+album = Album.create(
 	:created_at => Time.now,
 	:updated_at => Time.now,
 	:title => "LTEP008",
 	:label => "Belgian Man Records",
 	:type => "EP",
 	:bandcamp_url => "http://leaftype.bandcamp.com/album/ltep0008"
-).get_bandcamp_id
-leaftype.add_album(
+)
+album.get_bandcamp_id
+AlbumsArtists.create(
+	:artist_id => leaftype.id,
+	:album_id => album.id,
+	:role => "Producer"
+)
+
+album = Album.create(
 	:created_at => Time.now,
 	:updated_at => Time.now,
 	:title => "FLPTY808",
 	:type => "EP",
 	:bandcamp_url => "http://leaftype.bandcamp.com/album/flpty808"
-).get_bandcamp_id
-tokyomegaplex.add_album(
+)
+album.get_bandcamp_id
+AlbumsArtists.create(
+	:artist_id => leaftype.id,
+	:album_id => album.id,
+	:role => "Producer"
+)
+
+album = Album.create(
 	:created_at => Time.now,
 	:updated_at => Time.now,
 	:title => "The Legend Of Beefwell",
 	:label => "Belgian Man Records",
 	:type => "LP",
 	:bandcamp_url => "http://tokyomegaplex.bandcamp.com/album/the-legend-of-beefwell"
-).get_bandcamp_id
-words = tokyomegaplex.add_album(
+)
+album.get_bandcamp_id
+AlbumsArtists.create(
+	:artist_id => tokyomegaplex.id,
+	:album_id => album.id,
+	:role => "Producer"
+)
+
+album = Album.create(
 	:created_at => Time.now,
 	:updated_at => Time.now,
 	:title => "Words",
 	:type => "Single",
 	:bandcamp_url => "http://music.belgianman.com/album/words"
 )
-leaftype.add_album(words)
-words.get_bandcamp_id
+album.get_bandcamp_id
+AlbumsArtists.create(
+	:artist_id => leaftype.id,
+	:album_id => album.id,
+	:role => "Remixer"
+)
+AlbumsArtists.create(
+	:artist_id => tokyomegaplex.id,
+	:album_id => album.id,
+	:role => "Remixer"
+)
 
-leaftype.add_video(
+
+video = Video.create(
 	:created_at => Time.now,
 	:updated_at => Time.now,
 	:title => "Bodymasters Live at Grids, Beats & Groups Showcase",
 	:service => "youtube",
 	:youtube_id => "NxGN_-mcBhQ"
 )
-nye = leaftype.add_video(
+ArtistsVideos.create(
+	:artist_id => leaftype.id,
+	:video_id => video.id,
+	:role => "Performer"
+)
+video = Video.create(
 	:created_at => Time.now,
 	:updated_at => Time.now,
 	:title => "New Years Eve 2011",
 	:service => "vimeo",
 	:vimeo_id => "34479631"
 )
-tokyomegaplex.add_video(nye)
-
+ArtistsVideos.create(
+	:artist_id => tokyomegaplex.id,
+	:video_id => video.id,
+	:role => "Performer"
+)
 
 Blog.create(
 	:title => 'MAYBEWISE interview in Future Classics',
