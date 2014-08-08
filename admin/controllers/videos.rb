@@ -15,9 +15,13 @@ Wafelijzer::Admin.controllers :videos do
     @video = Video.new(params[:video])
     if (@video.save rescue false)
       params['artists'].each do |artist_id, role|
-        if role.length > 0  
-          ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
-        end    
+        if params['artistsEnabled'][artist_id]
+          if role.length > 0  
+            ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
+          elsif role.length == 0
+            ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
+          end
+        end
       end
       @video.update(:release_date => Chronic.parse(params[:release_date]))
       @title = pat(:create_title, :model => "video #{@video.id}")

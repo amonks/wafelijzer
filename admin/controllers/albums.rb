@@ -15,9 +15,13 @@ Wafelijzer::Admin.controllers :albums do
     @album = Album.new(params[:album])
     if (@album.save rescue false)
       params['artists'].each do |artist_id, role|
-        if role.length > 0  
-          AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
-        end    
+        if params['artistsEnabled'][artist_id]
+          if role.length > 0  
+            AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
+          elsif role.length == 0
+            AlbumsArtists.where(:artist_id => artist_id, :album_id => @album.id).destroy
+          end
+        end
       end
       @album.populate_from_bandcamp
       @title = pat(:create_title, :model => "album #{@album.id}")
@@ -47,9 +51,13 @@ Wafelijzer::Admin.controllers :albums do
     if @album
       if @album.modified! && @album.update(params[:album])
         params['artists'].each do |artist_id, role|
-          if role.length > 0  
-            AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
-          end    
+          if params['artistsEnabled'][artist_id]
+            if role.length > 0  
+              AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
+            elsif role.length == 0
+              AlbumsArtists.where(:artist_id => artist_id, :album_id => @album.id).destroy
+            end
+          end
         end
         @album.populate_from_bandcamp
         flash[:success] = pat(:update_success, :model => 'Album', :id =>  "#{params[:id]}")
