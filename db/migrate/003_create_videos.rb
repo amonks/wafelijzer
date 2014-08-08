@@ -10,7 +10,7 @@ Sequel.migration do
 		# basic info
 		String	:title
 		Date 	:release_date
-		String	:service
+		String	:service	# eg "youtube", "vimeo"
 
 		# vimeo
 		String :vimeo_id

@@ -9,7 +9,7 @@ Sequel.migration do
 
 			# content
       String :title
-      String :body, :text => true
+      String :body, :text => true # markdown formatted
 
     end
   end
