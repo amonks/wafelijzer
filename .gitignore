@@ -8,3 +8,4 @@ vendor/gems/*
 db/*.db
 .*.sw*
 .env
+grunt/node_modules/
