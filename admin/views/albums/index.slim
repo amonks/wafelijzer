@@ -33,6 +33,8 @@ div class="tabs-content"
         th class='header' = mat(:album, :cover_url)
         th class='header' = mat(:album, :label)
         th class='header' = mat(:album, :type)
+        th class='header' = mat(:album, :about)
+        th class='header' = mat(:album, :credits)
         th class='header' = mat(:album, :bandcamp_url)
         th class='header' = mat(:album, :bandcamp_id)
         th class='header list-row-action-header'
@@ -49,6 +51,8 @@ div class="tabs-content"
           td class='list-column' = album.cover_url
           td class='list-column' = album.label
           td class='list-column' = album.type
+          td class='list-column' = album.about
+          td class='list-column' = album.credits
           td class='list-column' = album.bandcamp_url
           td class='list-column' = album.bandcamp_id
           td class='list-column list-row-action'

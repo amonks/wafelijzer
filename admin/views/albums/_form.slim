@@ -28,6 +28,18 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.text_area :type, :class => 'form-control input-large input-with-feedback'
     span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
+- error = @album.errors.key?(:about) && @album.errors[:about].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :about, :class => 'control-label'
+  div class='controls'
+    = f.text_area :about, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:about, :class => 'text-error') : pat(:example)
+- error = @album.errors.key?(:credits) && @album.errors[:credits].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :credits, :class => 'control-label'
+  div class='controls'
+    = f.text_area :credits, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:credits, :class => 'text-error') : pat(:example)
 - error = @album.errors.key?(:bandcamp_url) && @album.errors[:bandcamp_url].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :bandcamp_url, :class => 'control-label'
