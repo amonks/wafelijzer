@@ -31,7 +31,6 @@ GEM
     mime-types (1.25.1)
     minitest (5.4.0)
     moneta (0.7.20)
-    newrelic_rpm (3.9.1.236)
     oj (2.10.0)
     oj_mimic_json (1.0.1)
     padrino (0.12.2)
@@ -108,7 +107,6 @@ DEPENDENCIES
   foreman
   haml
   kramdown
-  newrelic_rpm
   oj
   oj_mimic_json
   padrino (= 0.12.2)
