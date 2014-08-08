@@ -1,8 +1,7 @@
 Wafelijzer::App.controllers :album do
   
   get :index, :map => '/albums' do
-    @albums = Album.order(:created_at, :id).all
-
+    @albums = Album.order(Sequel.desc(:release_date), :id).all
     render 'album/index'
   end
 

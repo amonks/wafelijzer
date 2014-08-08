@@ -40,6 +40,7 @@ leaftype = Artist.create(
 )
 tokyomegaplex = Artist.create(
 	:name => "Tokyo Megaplex",
+	:image_url => "http://belgianman.com/assets/artists/djkpage.jpg",
 	:slug => "tokyomegaplex",
 	:real_name => "Chris Rutledge",
 	:soundcloud => "tokyomegaplex",

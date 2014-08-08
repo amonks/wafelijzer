@@ -14,6 +14,7 @@ Wafelijzer::Admin.controllers :albums do
   post :create do
     @album = Album.new(params[:album])
     if (@album.save rescue false)
+      @album.populate_from_bandcamp
       @title = pat(:create_title, :model => "album #{@album.id}")
       flash[:success] = pat(:create_success, :model => 'Album')
       params[:save_and_continue] ? redirect(url(:albums, :index)) : redirect(url(:albums, :edit, :id => @album.id))
@@ -40,6 +41,7 @@ Wafelijzer::Admin.controllers :albums do
     @album = Album[params[:id]]
     if @album
       if @album.modified! && @album.update(params[:album])
+        @album.populate_from_bandcamp
         flash[:success] = pat(:update_success, :model => 'Album', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:albums, :index)) :

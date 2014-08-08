@@ -1,8 +1,7 @@
 h3 = link_to artist.name, url_for(:artist, :index, :slug => artist.slug)
-ul
-	li = artist.real_name
-	li = artist.slug
-	li
-		a href=("http://soundcloud.com/" + artist.soundcloud) soundcloud
+- if artist.image_url
+	img.img-responsive src="#{artist.image_url}"
+strong Real Name: 
+= artist.real_name
 .bio
 	== Kramdown::Document.new(artist.bio).to_html

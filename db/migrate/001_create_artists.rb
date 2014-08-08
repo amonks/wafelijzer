@@ -12,8 +12,7 @@ Sequel.migration do
 			String	:real_name	# optional
 			String	:soundcloud	# soundcloud url		
 			String	:bio, :text => true		# stored as markdown		
-			File	:page_image	# main artist image
-			File	:list_image	# small artist thumbnail
+			String	:image_url	# main artist image
 	      
     end
   end

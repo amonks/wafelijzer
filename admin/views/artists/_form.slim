@@ -28,18 +28,12 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.text_area :bio, :class => 'form-control input-large input-with-feedback'
     span class='help-inline' = error ? f.error_message_on(:bio, :class => 'text-error') : pat(:example)
-- error = @artist.errors.key?(:page_image) && @artist.errors[:page_image].count > 0
+- error = @artist.errors.key?(:image_url) && @artist.errors[:image_url].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :page_image, :class => 'control-label'
+  = f.label :image_url, :class => 'control-label'
   div class='controls'
-    = f.text_field :page_image, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:page_image, :class => 'text-error') : pat(:example)
-- error = @artist.errors.key?(:list_image) && @artist.errors[:list_image].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :list_image, :class => 'control-label'
-  div class='controls'
-    = f.text_field :list_image, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:list_image, :class => 'text-error') : pat(:example)
+    = f.text_area :image_url, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:image_url, :class => 'text-error') : pat(:example)
 
 div class="form-actions"
   = f.submit pat(:save), :class => 'btn btn-primary'

@@ -24,6 +24,7 @@ gem 'kramdown'
 gem 'slim'
 gem 'pg'
 gem 'sequel'
+gem 'typhoeus'
 
 gem 'foreman'
 
