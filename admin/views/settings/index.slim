@@ -1,0 +1,54 @@
+ul class="nav nav-tabs"
+  li class="active" = link_to tag_icon(:list, pat(:list)), url(:settings, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:settings, :new)
+
+div class="tabs-content"
+  table class="table table-striped table-hover table-condensed" id="list"
+    thead
+      tr
+        th class='header list-menu'
+          div class='dropdown'
+            a href='#' class='list-menu-toggle.dropdown-toggle dropdown-toggle' data-toggle='dropdown'
+              = tag_icon :magic
+              span class='caret'
+            ul class='list-menu dropdown-menu' role='dropdown'
+              li class='list-menu-wrapper' = link_to tag_icon(:check, pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              li class='list-menu-wrapper list-menu-wrapper-disabled' = link_to tag_icon('check-empty', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              li class='list-menu-divider divider'
+              li class='list-menu-wrapper list-menu-wrapper-disabled'
+                = link_to tag_icon(:trash, pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                div class='list-menu-popover-delete-selected popover right'
+                  div class='arrow'
+                  h3 class='popover-title' = pat(:delete_selected_title)
+                  div class='popover-content'
+                    = form_tag url(:settings, :destroy_many), :method => :delete do
+                      = hidden_field_tag :setting_ids, :'data-delete-many-ids' => true
+                      = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      div class='btn btn-default btn-small cancel' = pat(:cancel)
+        th class='header' = mat(:setting, :id)
+        th class='header' = mat(:setting, :created_at)
+        th class='header' = mat(:setting, :updated_at)
+        th class='header' = mat(:setting, :title)
+        th class='header' = mat(:setting, :body)
+        th class='header list-row-action-header'
+
+    tbody
+      -@settings.each do |setting|
+        tr class='list-row'
+          td class='list-column list-selectable' = check_box_tag 'setting_ids[]', :value => setting.id, :class => 'list-selectable-checkbox'
+          td class='list-column' = setting.id
+          td class='list-column' = setting.created_at
+          td class='list-column' = setting.updated_at
+          td class='list-column' = setting.title
+          td class='list-column' = setting.body
+          td class='list-column list-row-action'
+            div class='list-row-action-wrapper'
+              = link_to tag_icon(:edit), :href => url(:settings, :edit, :id => setting.id), :rel => :tooltip, :title => "#{pat(:edit)} setting", :class => 'list-row-action-wrapper-link'
+              = link_to tag_icon(:trash), :rel => :tooltip, :title => "#{pat(:delete)} setting", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              div class='popover list-row-action-popover-delete-one left'
+                div class='arrow'
+                h3 class='popover-title' = pat(:delete, :model => "setting")
+                div class='popover-content'
+                  = form_tag url(:settings, :destroy, :id => setting.id), :method => :delete do
+                    = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    div class='btn btn-default btn-small cancel' = pat(:cancel)

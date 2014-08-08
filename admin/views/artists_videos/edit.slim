@@ -1,0 +1,8 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:artists_videos, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:artists_videos, :new)
+  li class="active" = link_to tag_icon(:edit, pat(:edit)), url(:artists_videos, :edit, :id => @artists_videos.id)
+
+div class="tabs-content"
+  = form_for :artists_videos, url(:artists_videos, :update, :id => @artists_videos.id), :method => :put, :class => 'form-horizontal' do |f|
+    = partial 'artists_videos/form', :locals => { :f => f }

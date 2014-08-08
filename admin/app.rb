@@ -32,11 +32,13 @@ module Wafelijzer
     end
 
     access_control.roles_for :admin do |role|
-      role.project_module :blogs, '/blogs'
+      role.project_module :artists_videos, '/artists_videos'
+      role.project_module :albums_artists, '/albums_artists'
+      role.project_module :settings, '/settings'
       role.project_module :texts, '/texts'
+      role.project_module :videos, '/videos'
       role.project_module :albums, '/albums'
       role.project_module :artists, '/artists'
-      role.project_module :videos, '/videos'
       role.project_module :accounts, '/accounts'
     end
 

@@ -1,7 +1,11 @@
 wafelijzer
 ==========
 
-## setup
+wafelijzer makes running a record label website (relatively) easy.
+
+Brought to you by [Belgian Man Records](http://belgianman.com)
+
+## run locally
 
 ### install gems (ruby)
 
@@ -33,9 +37,9 @@ edit `.env`
 	cd /wafelijzer
 	padrino start
 
-[go!](http://localhost:3000)
+### [go!](http://localhost:3000)
 
-## schema
+## database schema
 
 ###	**`account`**: user accounts
 

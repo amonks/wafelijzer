@@ -1,0 +1,25 @@
+- error = @artists_videos.errors.key?(:artist_id) && @artists_videos.errors[:artist_id].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :artist_id, :class => 'control-label'
+  div class='controls'
+    = f.text_field :artist_id, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:artist_id, :class => 'text-error') : pat(:example)
+- error = @artists_videos.errors.key?(:video_id) && @artists_videos.errors[:video_id].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :video_id, :class => 'control-label'
+  div class='controls'
+    = f.text_field :video_id, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:video_id, :class => 'text-error') : pat(:example)
+- error = @artists_videos.errors.key?(:role) && @artists_videos.errors[:role].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :role, :class => 'control-label'
+  div class='controls'
+    = f.text_area :role, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:role, :class => 'text-error') : pat(:example)
+
+div class="form-actions"
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:artists_videos, :index), :class => 'btn btn-default'

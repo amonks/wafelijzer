@@ -1,0 +1,7 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:albums, :index)
+  li class="active" = link_to tag_icon(:plus, pat(:new)), url(:albums, :new)
+
+div class="tabs-content"
+  = form_for :album, url(:albums, :create), :class => 'form-horizontal' do |f|
+    = partial 'albums/form', :locals => { :f => f }

@@ -31,8 +31,6 @@ end
 shell.say ""
 
 leaftype = Artist.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:name => "LEAFTYPE",
 	:slug => "leaftype",
 	:real_name => "Christopher Knollmeyer",
@@ -40,8 +38,6 @@ leaftype = Artist.create(
 	:bio => "Leaftype is Christopher Knollmeyer, an electronic musician from Lincoln, MA. He studies music technology at Calarts. He also plays keyboards and drums."
 )
 tokyomegaplex = Artist.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:name => "Tokyo Megaplex",
 	:slug => "tokyomegaplex",
 	:real_name => "Chris Rutledge",
@@ -50,8 +46,6 @@ tokyomegaplex = Artist.create(
 )
 
 album = Album.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:title => "LTEP008",
 	:label => "Belgian Man Records",
 	:type => "EP",
@@ -65,8 +59,6 @@ AlbumsArtists.create(
 )
 
 album = Album.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:title => "FLPTY808",
 	:type => "EP",
 	:bandcamp_url => "http://leaftype.bandcamp.com/album/flpty808"
@@ -79,8 +71,6 @@ AlbumsArtists.create(
 )
 
 album = Album.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:title => "The Legend Of Beefwell",
 	:label => "Belgian Man Records",
 	:type => "LP",
@@ -94,8 +84,6 @@ AlbumsArtists.create(
 )
 
 album = Album.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:title => "Words",
 	:type => "Single",
 	:bandcamp_url => "http://music.belgianman.com/album/words"
@@ -114,8 +102,6 @@ AlbumsArtists.create(
 
 
 video = Video.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:title => "Bodymasters Live at Grids, Beats & Groups Showcase",
 	:service => "youtube",
 	:youtube_id => "NxGN_-mcBhQ"
@@ -126,8 +112,6 @@ ArtistsVideos.create(
 	:role => "Performer"
 )
 video = Video.create(
-	:created_at => Time.now,
-	:updated_at => Time.now,
 	:title => "New Years Eve 2011",
 	:service => "vimeo",
 	:vimeo_id => "34479631"
@@ -173,4 +157,3 @@ Setting.create(
 	:title => 'soundcloud_client_id',
 	:body => ENV['SOUNDCLOUD_CLIENT_ID']
 )
-
