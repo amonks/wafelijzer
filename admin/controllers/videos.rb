@@ -14,6 +14,12 @@ Wafelijzer::Admin.controllers :videos do
   post :create do
     @video = Video.new(params[:video])
     if (@video.save rescue false)
+      params['artists'].each do |artist_id, role|
+        if role.length > 0  
+          ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
+        end    
+      end
+      @video.update(:release_date => Chronic.parse(params[:release_date]))
       @title = pat(:create_title, :model => "video #{@video.id}")
       flash[:success] = pat(:create_success, :model => 'Video')
       params[:save_and_continue] ? redirect(url(:videos, :index)) : redirect(url(:videos, :edit, :id => @video.id))
@@ -40,6 +46,16 @@ Wafelijzer::Admin.controllers :videos do
     @video = Video[params[:id]]
     if @video
       if @video.modified! && @video.update(params[:video])
+        params['artists'].each do |artist_id, role|
+          if params['artistsEnabled'][artist_id]
+            if role.length > 0  
+              ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
+            elsif role.length == 0
+              ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
+            end
+          end
+        end
+        @video.update(:release_date => Chronic.parse(params[:release_date]))
         flash[:success] = pat(:update_success, :model => 'Video', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:videos, :index)) :

@@ -16,6 +16,7 @@ gem 'oj_mimic_json'
 # Project requirements
 gem 'rake'
 gem 'dotenv', :groups => [:development, :test]
+gem 'pry', :groups => [:development]
 
 # Component requirements
 gem 'bcrypt'
@@ -23,6 +24,7 @@ gem 'sass'
 gem 'haml'
 gem 'kramdown'
 gem 'newrelic_rpm'
+gem 'chronic'
 gem 'slim'
 gem 'pg'
 gem 'sequel'

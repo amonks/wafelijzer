@@ -37,6 +37,7 @@ div class="tabs-content"
         th class='header' = mat(:album, :credits)
         th class='header' = mat(:album, :bandcamp_url)
         th class='header' = mat(:album, :bandcamp_id)
+        th class='header' = mat(:album, :artists)
         th class='header list-row-action-header'
 
     tbody
@@ -55,6 +56,7 @@ div class="tabs-content"
           td class='list-column' = album.credits
           td class='list-column' = album.bandcamp_url
           td class='list-column' = album.bandcamp_id
+          td class='list-column' = album.artists.map {|a| a.name }.join(", ")
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:albums, :edit, :id => album.id), :rel => :tooltip, :title => "#{pat(:edit)} album", :class => 'list-row-action-wrapper-link'

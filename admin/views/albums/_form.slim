@@ -1,30 +1,36 @@
 / bandcamp url
 - error = @album.errors.key?(:bandcamp_url) && @album.errors[:bandcamp_url].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :bandcamp_url, :class => 'control-label'
-  div class='controls'
-    = f.text_area :bandcamp_url, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:bandcamp_url, :class => 'text-error') : pat(:example)
+	= f.label :bandcamp_url, :class => 'control-label'
+	div class='controls'
+		= f.text_area :bandcamp_url, :class => 'form-control input-large input-with-feedback'
+		span class='help-inline' = error ? f.error_message_on(:bandcamp_url, :class => 'text-error') : pat(:example)
 
 / (record) label
 - error = @album.errors.key?(:label) && @album.errors[:label].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :label, :class => 'control-label'
-  div class='controls'
-    = f.text_area :label, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:label, :class => 'text-error') : pat(:example)
+	= f.label :label, :class => 'control-label'
+	div class='controls'
+		= f.text_field :label, :class => 'form-control input-large input-with-feedback'
+		span class='help-inline' = error ? f.error_message_on(:label, :class => 'text-error') : pat(:example)
 
 / type
 - error = @album.errors.key?(:type) && @album.errors[:type].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :type, :class => 'control-label'
-  div class='controls'
-    = f.text_area :type, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
+	= f.label :type, :class => 'control-label'
+	div class='controls'
+		= f.text_field :type, :class => 'form-control input-large input-with-feedback'
+		span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
+
+/ artists
+- Artist.each do |artist|
+	fieldset class='control-group'
+		= label_tag artist.name + "'s Role", :class => 'control-label'
+		= text_field_tag 'artists[' + artist.id.to_s + ']', :placeholder => "Producer"
 
 div class="form-actions"
-  = f.submit pat(:save), :class => 'btn btn-primary'
-  |&nbsp;
-  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-  |&nbsp;
-  = link_to pat(:cancel), url(:albums, :index), :class => 'btn btn-default'
+	= f.submit pat(:save), :class => 'btn btn-primary'
+	|&nbsp;
+	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+	|&nbsp;
+	= link_to pat(:cancel), url(:albums, :index), :class => 'btn btn-default'
