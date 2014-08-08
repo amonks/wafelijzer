@@ -27,6 +27,7 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 	fieldset class='control-group'
 		= label_tag artist.name + "'s Role", :class => 'control-label'
 		= text_field_tag 'artists[' + artist.id.to_s + ']', :placeholder => "Producer"
+		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => false
 
 div class="form-actions"
 	= f.submit pat(:save), :class => 'btn btn-primary'
