@@ -8,8 +8,9 @@
 
 require 'open-uri'
 
-# load env
-Dotenv.load
+case Padrino.env
+  when :development then Dotenv.load
+end
 
 
 
