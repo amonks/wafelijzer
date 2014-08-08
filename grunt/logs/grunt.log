@@ -1,0 +1,639 @@
+2014/08/06 22:31:12
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+>> Destination not written because minified CSS was empty.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Created 5 directories, copied 3 files
+
+Done, without errors.
+2014/08/06 22:33:09
+Running "clean:build" (clean) task
+Cleaning ../public/assets...Warning: Cannot delete files outside the current working directory. Use --force to continue.
+
+Aborted due to warnings.
+2014/08/06 22:33:18
+Running "clean:build" (clean) task
+Cleaning ../public/assets...OK
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+>> Destination not written because minified CSS was empty.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Created 5 directories, copied 3 files
+
+Done, without errors.
+2014/08/06 22:34:16
+Running "clean:build" (clean) task
+Cleaning ../public/assets...Warning: Cannot delete files outside the current working directory. Use --force to continue.
+
+Aborted due to warnings.
+2014/08/06 22:34:19
+Running "clean:build" (clean) task
+Cleaning ../public/assets...OK
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+>> Destination not written because minified CSS was empty.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Created 5 directories, copied 5 files
+
+Done, without errors.
+2014/08/06 22:34:51
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+>> Destination not written because minified CSS was empty.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Created 5 directories, copied 5 files
+
+Done, without errors.
+2014/08/06 22:36:25
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Created 5 directories, copied 7 files
+
+Done, without errors.
+2014/08/06 22:38:05
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 5 files
+
+Done, without errors.
+2014/08/06 22:38:50
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 5 files
+
+Done, without errors.
+2014/08/06 22:39:04
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 5 files
+
+Done, without errors.
+2014/08/06 22:39:19
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 01:42:28
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+>> TypeError: ../app/assets/stylus/aspect_ratios.styl:14
+>>    10| 
+>>    11| .vimeo:after
+>>    12|     margin-top 75%
+>>    13| 
+>>  > 14| 
+>>    15| .bandcamp:after, .vimeo:after 
+>>    16|     content ' '
+>>    17|     display block
+>> 
+>> Cannot read property 'lineno' of undefined
+>>     at ".vimeo:after" (../app/assets/stylus/aspect_ratios.styl:12)
+Warning: Stylus failed to compile. Use --force to continue.
+
+Aborted due to warnings.
+2014/08/07 01:42:43
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/style.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 5 files
+
+Done, without errors.
+2014/08/07 01:46:08
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 01:50:35
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:40:41
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:41:46
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:43:01
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:44:35
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:45:15
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:46:46
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:47:58
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:48:11
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:49:03
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:49:16
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:49:53
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:50:19
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 21:59:45
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 22:02:11
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 22:02:23
+Running "clean:build" (clean) task
+
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Running "concat:js" (concat) task
+File "../app/assets/js.js" created.
+
+Running "uglify:js" (uglify) task
+File "../app/assets/js.min.js" created.
+
+Running "copy:assets" (copy) task
+Copied 4 files
+
+Done, without errors.
+2014/08/07 22:02:29
+Running "watch" task
+Waiting...
+>> File "../app/assets/stylus/header.styl" changed.
+2014/08/07 22:02:40
+Running "stylus:compile" (stylus) task
+File ../app/assets/css/stylus.css created.
+
+Done, without errors.
+Completed in 0.771s at Thu Aug 07 2014 22:02:40 GMT-0400 (EDT) - Waiting...
+>> File "../app/assets/css/stylus.css" changed.
+2014/08/07 22:02:41
+Running "concat:css" (concat) task
+File "../app/assets/css.css" created.
+
+Running "cssmin:css" (cssmin) task
+File ../app/assets/css.min.css created.
+
+Done, without errors.
+Completed in 0.557s at Thu Aug 07 2014 22:02:41 GMT-0400 (EDT) - Waiting...
+2014/08/07 23:24:02
+Running "watch" task
+Waiting...

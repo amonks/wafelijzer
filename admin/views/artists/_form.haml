@@ -1,0 +1,49 @@
+- error = @artist.errors.key?(:name) && @artist.errors[:name].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :name, :class => 'control-label'
+  .controls
+    ~f.text_area :name, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:name, :class => 'text-error') : pat(:example)
+- error = @artist.errors.key?(:slug) && @artist.errors[:slug].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :slug, :class => 'control-label'
+  .controls
+    ~f.text_area :slug, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:slug, :class => 'text-error') : pat(:example)
+- error = @artist.errors.key?(:real_name) && @artist.errors[:real_name].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :real_name, :class => 'control-label'
+  .controls
+    ~f.text_area :real_name, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:real_name, :class => 'text-error') : pat(:example)
+- error = @artist.errors.key?(:soundcloud) && @artist.errors[:soundcloud].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :soundcloud, :class => 'control-label'
+  .controls
+    ~f.text_area :soundcloud, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:soundcloud, :class => 'text-error') : pat(:example)
+- error = @artist.errors.key?(:bio) && @artist.errors[:bio].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :bio, :class => 'control-label'
+  .controls
+    ~f.text_area :bio, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:bio, :class => 'text-error') : pat(:example)
+- error = @artist.errors.key?(:page_image) && @artist.errors[:page_image].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :page_image, :class => 'control-label'
+  .controls
+    =f.text_field :page_image, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:page_image, :class => 'text-error') : pat(:example)
+- error = @artist.errors.key?(:list_image) && @artist.errors[:list_image].count > 0
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :list_image, :class => 'control-label'
+  .controls
+    =f.text_field :list_image, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:list_image, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:artists, :index), :class => 'btn btn-default'

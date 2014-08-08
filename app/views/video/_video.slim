@@ -1,0 +1,5 @@
+h3 = video.title
+- if video.service == "youtube"
+	== youtube_embed_from_id video.youtube_id
+- if video.service == "vimeo"
+	== vimeo_embed_from_id video.vimeo_id
