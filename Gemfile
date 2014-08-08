@@ -7,7 +7,6 @@ ruby '2.1.2'
 # Server requirements
 # gem 'thin' # or mongrel
 gem 'puma'
-# gem 'newrelic_rpm', :groups => [:production]
 
 
 # Optional JSON codec (faster performance)
@@ -23,6 +22,7 @@ gem 'bcrypt'
 gem 'sass'
 gem 'haml'
 gem 'kramdown'
+gem 'newrelic_rpm'
 gem 'slim'
 gem 'pg'
 gem 'sequel'

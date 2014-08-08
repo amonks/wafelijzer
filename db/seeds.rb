@@ -137,9 +137,7 @@ Text.create(
 	:title => 'footer',
 	:body => 'Belgian Man Records &#124; 1644 W. 21st St. &#124; Number 3R &#124; Chicago, IL 60608
 
-All music is licensed under a [Creative Commons by-nc](http://creativecommons.org/licenses/by-nc/3.0/) license.
-
-Website &copy; 2013 Andrew Monks.'
+All music is licensed under a [Creative Commons by-nc](http://creativecommons.org/licenses/by-nc/3.0/) license.'
 )
 Text.create(
 	:title => 'description',
