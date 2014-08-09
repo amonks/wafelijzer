@@ -6231,6 +6231,10 @@ button.close {
   right: 0;
 }
 
+#footer a {
+  color: #fff;
+  font-weight: bold;
+}
 #footer {
   background: -webkit-linear-gradient(#333, #111);
   background: -moz-linear-gradient(#333, #111);
