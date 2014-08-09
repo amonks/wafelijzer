@@ -13,12 +13,21 @@ html
 		#wrap
 			== partial 'includes/header'
 			.container-fluid
-				== yield
+				#holder
+					== yield
 			#push
 		.container-fluid
 			== partial 'includes/footer'
 		- if settingValue "google_analytics_code"
 			javascript:
+				var $container = $('#holder');
+				// init
+				$(document).ready( function(){
+					$container.packery({
+					  itemSelector: '.item',
+					  gutter: 10
+					});
+				})
 				(function(i, s, o, g, r, a, m) {
 					i['GoogleAnalyticsObject'] = r;
 					i[r] = i[r] || function() {

@@ -48,6 +48,11 @@
   font-size: 30px;
 }
 
+.item {
+  width: 24.5%;
+  min-width: 380px;
+}
+
 html,
 body {
   height: 100%;

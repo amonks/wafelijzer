@@ -1,23 +1,22 @@
-.row
-	.col-xs-12.col-sm-4.col-lg-3
-		- if settingValue("logo")
-			img.img-responsive src='#{settingValue("logo")}'
-		- else
-			- if name = settingValue('label_name')
-				h2 = name
-		- if databasePartial 'description'
-			== databasePartial 'description'
-		- if name = settingValue("soundcloud_name")
-			== soundcloud_embed_last_favorite_from_name(name)
-	- if Blog.all.first
-		.col-xs-12.col-sm-4.col-lg-3
-			== partial 'blog/blog', :object => @blog
-	- if @albums.length > 0
-		.col-xs-12.col-sm-4.col-lg-3
-			== partial 'album/album', :object => @albums.last
-	- if @albums.length > 1
-		.col-xs-12.col-sm-4.col-lg-3
-			== partial 'album/album', :object => @albums[-2]
-	- if @video
-		.col-xs-12.col-sm-4.col-lg-3
-			== partial 'video/video', :object => @video
+.item
+	- if settingValue("logo")
+		img.img-responsive src='#{settingValue("logo")}'
+	- else
+		- if name = settingValue('label_name')
+			h2 = name
+	- if databasePartial 'description'
+		== databasePartial 'description'
+	- if name = settingValue("soundcloud_name")
+		== soundcloud_embed_last_favorite_from_name(name)
+- if Blog.all.first
+	.item
+		== partial 'blog/blog', :object => @blog
+- if @albums.length > 0
+	.item
+		== partial 'album/album', :object => @albums.last
+- if @albums.length > 1
+	.item
+		== partial 'album/album', :object => @albums[-2]
+- if @video
+	.item
+		== partial 'video/video', :object => @video
