@@ -19,16 +19,16 @@ html
 		.container-fluid
 			== partial 'includes/footer'
 		javascript:
-			var $container = $('#holder');
-			// init
-
-			// layout Packery after all images have loaded
-			$container.imagesLoaded( function() {
-				container.packery({
-					itemSelector: '.item',
-					gutter: 10
+			// $('document').ready( function() {
+				// layout Packery after all images have loaded
+				var $container = $('#holder');
+				$container.imagesLoaded( function() {
+					$container.packery({
+						itemSelector: '.item',
+						gutter: 10
+					});
 				});
-			});
+			//})
 		- if settingValue "google_analytics_code"
 			javascript:
 				(function(i, s, o, g, r, a, m) {
