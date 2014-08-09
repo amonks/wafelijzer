@@ -33,11 +33,17 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 		= f.text_area :youtube_id, :class => 'form-control input-large input-with-feedback'
 		span class='help-inline' = error ? f.error_message_on(:youtube_id, :class => 'text-error') : pat(:example)
 
-/ artists
-- Artist.each do |artist|
+/ personnel
+= label_tag "Personnel", :class => 'control-label'
+- Artist.where(:videos => @video).each do |artist|
 	fieldset class='control-group'
 		= label_tag artist.name + "'s Role", :class => 'control-label'
-		= text_field_tag 'artists[' + artist.id.to_s + ']', :placeholder => "Director"
+		= text_field_tag 'artists[' + artist.id.to_s + ']', :value => ArtistsVideos.where(:video_id => @video.id, :artist_id => artist.id).first.role
+		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => true
+- Artist.exclude(:videos => @video).each do |artist|
+	fieldset class='control-group'
+		= label_tag artist.name + "'s Role", :class => 'control-label'
+		= text_field_tag 'artists[' + artist.id.to_s + ']', :placeholder => "Producer"
 		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => false
 
 div class="form-actions"

@@ -14,6 +14,11 @@ Wafelijzer::Admin.controllers :artists do
   post :create do
     @artist = Artist.new(params[:artist])
     if (@artist.save rescue false)
+      if params[:members]
+        params[:members].each do |member|
+          @artist.add_member(member.first)
+        end
+      end
       @title = pat(:create_title, :model => "artist #{@artist.id}")
       flash[:success] = pat(:create_success, :model => 'Artist')
       params[:save_and_continue] ? redirect(url(:artists, :index)) : redirect(url(:artists, :edit, :id => @artist.id))
@@ -40,6 +45,12 @@ Wafelijzer::Admin.controllers :artists do
     @artist = Artist[params[:id]]
     if @artist
       if @artist.modified! && @artist.update(params[:artist])
+        if params[:members]
+          @artist.remove_all_members
+          params[:members].each do |member|
+            @artist.add_member(member.first)
+          end
+        end
         flash[:success] = pat(:update_success, :model => 'Artist', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:artists, :index)) :

@@ -16,6 +16,7 @@ Wafelijzer::Admin.controllers :albums do
     if (@album.save rescue false)
       params['artists'].each do |artist_id, role|
         if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
+          @album.remove_all_artists
           if role.length > 0  
             AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
           elsif role.length == 0

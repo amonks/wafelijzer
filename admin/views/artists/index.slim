@@ -36,6 +36,8 @@ div class="tabs-content"
         th class='header' = mat(:artist, :image_url)
         th class='header' = mat(:artist, :albums)
         th class='header' = mat(:artist, :videos)
+        th class='header' = mat(:artist, :groups)
+        th class='header' = mat(:artist, :members)
         th class='header list-row-action-header'
 
     tbody
@@ -51,8 +53,10 @@ div class="tabs-content"
           td class='list-column' = artist.soundcloud
           td class='list-column' = artist.bio
           td class='list-column' = artist.image_url
-          td class='list-column' = artist.albums.map {|a| a.title }.join(", ")
-          td class='list-column' = artist.videos.map {|a| a.title }.join(", ")
+          td class='list-column' = artist.albums.map {|a| a.title + ": " + AlbumsArtists.where(:album_id => a.id, :artist_id => artist.id).first.role }.join(", ")
+          td class='list-column' = artist.videos.map {|a| a.title + ": " + ArtistsVideos.where(:video_id => a.id, :artist_id => artist.id).first.role }.join(", ")
+          td class='list-column' = artist.groups.map {|a| a.name }.join(", ")
+          td class='list-column' = artist.members.map {|a| a.name }.join(", ")
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:artists, :edit, :id => artist.id), :rel => :tooltip, :title => "#{pat(:edit)} artist", :class => 'list-row-action-wrapper-link'
