@@ -1,0 +1,32 @@
+form#imageUploadForm 
+    input#imageBrowse name="image" type="file" label="image"
+    input#imageButton name="upload" type="button" value="Upload"
+
+javascript:
+    $('#imageButton').on('click',(function(e) {
+        e.preventDefault();
+        var input = document.getElementById('imageUploadForm');
+        console.log(input.files);
+        $.ajax({
+            processData: false,
+            contentType: false,
+            type:'POST',
+            url: 'https://api.imgur.com/3/image',
+            headers: {
+                'Authorization': 'Client-ID 38f7232651ea79a'
+            },
+            data: {
+                'image': $('#imageBrowse').files[0]
+            },
+            success:function(data){
+                console.log("success");
+                console.log(data);
+                console.log(data.data.link);
+                $("#image").val(data.data.link);
+            },
+            error: function(data){
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }));
