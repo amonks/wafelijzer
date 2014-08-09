@@ -12,7 +12,8 @@ class Album < Sequel::Model
         self.this.update(:about => response["about"])
     	self.this.update(:credits => response["credits"])
     	self.this.update(:cover_url => response["large_art_url"])
-    	self.this.update(:release_date => DateTime.strptime(response["release_date"].to_s,'%s'))
+        date = DateTime.strptime(response["release_date"].to_s, '%s')
+    	self.this.update(:release_date => date) if date
 	end
 	def populate_id_from_bandcamp
     	response = ::JSON.parse(open("http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=" + self.bandcamp_url).read)
