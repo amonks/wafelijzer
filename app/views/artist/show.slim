@@ -1,14 +1,14 @@
 .row
 	.col-xs-12.col-sm-4.col-lg-3
 		== partial 'artist/artist', :object => @artist
-		- if @artist.soundcloud
+		- if @artist.soundcloud.length > 0
 				== soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
 	- @artist.albums.each do |album|
 		.col-xs-12.col-sm-4.col-lg-3
 			== partial 'album/album', :object => album
-			-if album.about
+			-if album.about.length > 0
 				== Kramdown::Document.new(album.about).to_html
-			-if album.credits
+			-if album.credits.length > 0
 				h3 Credits
 				== Kramdown::Document.new(album.credits).to_html
 	- @artist.videos.each do |video|

@@ -1,14 +1,23 @@
 .row
 	.col-xs-12.col-sm-4.col-lg-3
-		h2 Belgian Man
-		== databasePartial 'description'
-		== partial 'blog/blog', :object => @blog
-	.col-xs-12.col-sm-4.col-lg-3
-		== partial 'album/album', :object => @albums[-2]
-	.col-xs-12.col-sm-4.col-lg-3
-		== partial 'album/album', :object => @albums.last
-	.col-xs-12.col-sm-4.col-lg-3
-		== partial 'video/video', :object => @video
-	.col-xs-12.col-sm-4.col-lg-3
-		h3 New From Soundcloud
-		== soundcloud_embed_last_favorite_from_user_id(settingValue("soundcloud_user_id"))
+		- if settingValue("logo")
+			img.img-responsive src='#{settingValue("logo")}'
+		- else
+			- if name = settingValue('label_name')
+				h2 = name
+		- if databasePartial 'description'
+			== databasePartial 'description'
+		- if name = settingValue("soundcloud_name")
+			== soundcloud_embed_last_favorite_from_name(name)
+	- if Blog.all.first
+		.col-xs-12.col-sm-4.col-lg-3
+			== partial 'blog/blog', :object => @blog
+	- if @albums.length > 0
+		.col-xs-12.col-sm-4.col-lg-3
+			== partial 'album/album', :object => @albums.last
+	- if @albums.length > 1
+		.col-xs-12.col-sm-4.col-lg-3
+			== partial 'album/album', :object => @albums[-2]
+	- if @video
+		.col-xs-12.col-sm-4.col-lg-3
+			== partial 'video/video', :object => @video

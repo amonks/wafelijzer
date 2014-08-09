@@ -1,6 +1,7 @@
 #footer.row
 	.col-xs-12
-		== databasePartial 'footer'
+		- if databasePartial 'footer'
+			== databasePartial 'footer'
 		p 
 			| Powered by 
 			a href="http://github.com/belgianman/wafelijzer" Wafelijzer 

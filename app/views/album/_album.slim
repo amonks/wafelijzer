@@ -9,9 +9,10 @@ h3
 		- if album.release_date
 			= album.release_date.to_date
 == bandcamp_embed_from_id album.bandcamp_id
-.well
-	- album.artists.each do |artist|
-		p
-			a href="/#{artist.slug}" = artist.name
-			' :
-			= AlbumsArtists.where(:album_id => album.id, :artist_id => artist.id).first.role
+- if album.artists.length > 0
+	.well
+		- album.artists.each do |artist|
+			p
+				a href="/#{artist.slug}" = artist.name
+				' :
+				= AlbumsArtists.where(:album_id => album.id, :artist_id => artist.id).first.role

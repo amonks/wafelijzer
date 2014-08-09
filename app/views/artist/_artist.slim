@@ -1,22 +1,26 @@
-h3 = link_to artist.name, url_for(:artist, :index, :slug => artist.slug)
+- if artist.slug.length > 0
+	h3 = link_to artist.name, url_for(:artist, :index, :slug => artist.slug)
+- else
+	h3 = artist.name
 - if artist.image_url
 	img.img-responsive src="#{artist.image_url}"
-.well
-	- if artist.real_name.length > 0
-		p
-			strong Real Name: 
-			= artist.real_name
-	- if artist.groups.length > 0
-		p
-			strong Member Of:
-			ul
-				- artist.groups.each do |group|
-					li = group.name
-	- if artist.members.length > 0
-		p
-			strong Members:
-			ul
-				- artist.members.each do |member|
-					li = member.name
-	.bio
-		== Kramdown::Document.new(artist.bio).to_html
+- if artist.real_name.length > 0 || (artist.groups.length > 0) || (artist.members.length > 0) || artist.bio.length > 0
+	.well
+		- if artist.real_name.length > 0
+			p
+				strong Real Name: 
+				= artist.real_name
+		- if artist.groups.length > 0
+			p
+				strong Member Of:
+				ul
+					- artist.groups.each do |group|
+						li = group.name
+		- if artist.members.length > 0
+			p
+				strong Members:
+				ul
+					- artist.members.each do |member|
+						li = member.name
+		.bio
+			== Kramdown::Document.new(artist.bio).to_html

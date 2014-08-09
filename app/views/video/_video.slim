@@ -4,9 +4,10 @@ h3
 	== youtube_embed_from_id video.youtube_id
 - if video.service == "vimeo"
 	== vimeo_embed_from_id video.vimeo_id
-.well
-	- video.artists.each do |artist|
-		p
-			a href="/#{artist.slug}" = artist.name
-			' :
-			= ArtistsVideos.where(:video_id => video.id, :artist_id => artist.id).first.role
+- if video.artists.length > 0
+	.well
+		- video.artists.each do |artist|
+			p
+				a href="/#{artist.slug}" = artist.name
+				' :
+				= ArtistsVideos.where(:video_id => video.id, :artist_id => artist.id).first.role

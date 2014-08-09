@@ -3,7 +3,12 @@ module Wafelijzer
   class App
     module PartialHelper
     	def databasePartial title
-    		Kramdown::Document.new(Text.where(:title => title).first.body).to_html
+            text = Text.where(:title => title).first.body
+            if text
+        		return Kramdown::Document.new(text).to_html
+            else
+                return false
+            end
     	end
     	def settingValue title
 			setting = Setting.where(:title => title).first
