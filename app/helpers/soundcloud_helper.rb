@@ -8,7 +8,7 @@ module Wafelijzer
 			end
 			def soundcloud_get_last_favorite_from_name name
 				soundcloudClientID = settingValue("soundcloud_client_id")
-				id = soundcloud_id_from_name(name)
+				id = soundcloud_user_id_from_name(name)
 				response = typhoeus_get("http://api.soundcloud.com/users/" + id + "/favorites.json?client_id=" + soundcloudClientID)
 				::JSON.parse(response)[0]["id"].to_s
 			end
