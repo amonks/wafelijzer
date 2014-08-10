@@ -14,7 +14,7 @@
 			p
 				strong Member Of:
 				ul
-					- artist.groups.each do |groups|
+					- artist.groups.each do |group|
 						li
 							- if group.slug.length > 0
 								a href="/#{group.slug}" = group.name
