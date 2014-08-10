@@ -17,6 +17,7 @@ Wafelijzer::Admin.controllers :videos do
       params['artists'].each do |artist_id, role|
         if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
           if role.length > 0  
+            ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
             ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
           elsif role.length == 0
             ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
@@ -53,6 +54,7 @@ Wafelijzer::Admin.controllers :videos do
         params['artists'].each do |artist_id, role|
           if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
             if role.length > 0  
+              ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
               ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
             elsif role.length == 0
               ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
