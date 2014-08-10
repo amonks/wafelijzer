@@ -1,13 +1,18 @@
 .item
-	- if settingValue("logo")
-		img.img-responsive src='#{settingValue("logo")}'
-	- else
-		- if name = settingValue('label_name')
-			h2 = name
-	- if databasePartial 'description'
-		== databasePartial 'description'
-	- if name = settingValue("soundcloud_name")
-		== soundcloud_embed_last_favorite_from_name(name)
+	.thumbnail
+		- if settingValue("logo")
+			img.img-responsive src='#{settingValue("logo")}'
+		- else
+			- if name = settingValue('label_name')
+				h2 = name
+		.caption
+			- if databasePartial 'description'
+				== databasePartial 'description'
+
+- if name = settingValue("soundcloud_name")
+	.item
+		.thumbnail
+			== soundcloud_embed_last_favorite_from_name(name)
 - if Blog.all.first
 	.item
 		== partial 'blog/blog', :object => @blog

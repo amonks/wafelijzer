@@ -1,11 +1,11 @@
-h3
-	a href="/videos/#{video.id}" = video.title
-- if video.service == "youtube"
-	== youtube_embed_from_id video.youtube_id
-- if video.service == "vimeo"
-	== vimeo_embed_from_id video.vimeo_id
-- if video.artists.length > 0
-	.well
+.thumbnail
+	- if video.service == "youtube"
+		== youtube_embed_from_id video.youtube_id
+	- if video.service == "vimeo"
+		== vimeo_embed_from_id video.vimeo_id
+	.caption
+		h3
+			a href="/videos/#{video.id}" = video.title
 		- video.artists.each do |artist|
 			p
 				a href="/#{artist.slug}" = artist.name

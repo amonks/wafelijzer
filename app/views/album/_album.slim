@@ -1,18 +1,20 @@
-h3 
-	a href="/albums/#{album.id.to_s}"
-		- if album.title
-			= album.title + " "
-	span.small
-		- if album.type
-			= album.type + " "
-	.small
-		- if album.release_date
-			= album.release_date.to_date
-== bandcamp_embed_from_id album.bandcamp_id
-- if album.artists.length > 0
-	.well
-		- album.artists.each do |artist|
-			p
-				a href="/#{artist.slug}" = artist.name
-				' :
-				= AlbumsArtists.where(:album_id => album.id, :artist_id => artist.id).first.role
+.thumbnail
+	== bandcamp_embed_from_id album.bandcamp_id
+	.caption
+		h3 
+			a href="/albums/#{album.id.to_s}"
+				- if album.title
+					= album.title + " "
+			span.small
+				- if album.type
+					= album.type + " "
+			.small
+				- if album.release_date
+					= album.release_date.to_date
+		- if album.artists.length > 0
+			.well
+				- album.artists.each do |artist|
+					p
+						a href="/#{artist.slug}" = artist.name
+						' :
+						= AlbumsArtists.where(:album_id => album.id, :artist_id => artist.id).first.role
