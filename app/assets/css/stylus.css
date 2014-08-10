@@ -38,6 +38,9 @@
 .item {
   width: 100%;
 }
+.gutter-sizer {
+  width: 2%;
+}
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 750px) {
   .item {
@@ -47,13 +50,13 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 970px) {
   .item {
-    width: 32.5%;
+    width: 32%;
   }
 }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1170px) {
   .item {
-    width: 24%;
+    width: 23.5%;
   }
 }
 

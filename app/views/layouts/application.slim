@@ -15,6 +15,7 @@ html
 			== partial 'includes/header'
 			.container-fluid
 				#holder
+					.gutter-sizer
 					== yield
 			#push
 		.container-fluid
@@ -26,7 +27,7 @@ html
 				$container.imagesLoaded( function() {
 					$container.packery({
 						itemSelector: '.item',
-						gutter: 10
+						gutter: ".gutter-sizer"
 					});
 				});
 			//})
