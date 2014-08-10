@@ -9,6 +9,7 @@ html
 		script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
 		script src="/js.min.js"
 		link href="/css.min.css" rel="stylesheet"
+		== themeCss
 	body
 		#wrap
 			== partial 'includes/header'
@@ -45,5 +46,5 @@ html
 
 				ga('create', '#{settingValue "google_analytics_code"}', 'auto');
 				ga('send', 'pageview');
-
+		== themeJs
 

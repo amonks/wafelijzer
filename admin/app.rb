@@ -32,6 +32,7 @@ module Wafelijzer
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :themes, '/themes'
       role.project_module :blogs, '/blogs'
       role.project_module :settings, '/settings'
       role.project_module :texts, '/texts'
