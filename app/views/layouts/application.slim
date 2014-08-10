@@ -24,6 +24,10 @@ html
 			// $('document').ready( function() {
 				// layout Packery after all images have loaded
 				var $container = $('#holder');
+				$container.packery({
+					itemSelector: '.item',
+					gutter: ".gutter-sizer"
+				});
 				$container.imagesLoaded( function() {
 					$container.packery({
 						itemSelector: '.item',

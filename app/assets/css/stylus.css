@@ -38,6 +38,9 @@
 .item {
   width: 100%;
 }
+.item.video {
+  width: 100% !important;
+}
 .gutter-sizer {
   width: 2%;
 }
