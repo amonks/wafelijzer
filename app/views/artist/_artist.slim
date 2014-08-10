@@ -5,7 +5,7 @@
 		- if artist.slug.length > 0
 			h3 = link_to artist.name, url_for(:artist, :index, :slug => artist.slug)
 		- else
-			h3 = artist.name
+			h3 == artist.name
 		- if artist.real_name.length > 0
 			p
 				strong Real Name: 
