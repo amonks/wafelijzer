@@ -48,7 +48,7 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 
 / members
 = label_tag "members", :class => 'control-label'
-- Artist.where(:groups => @artist).each do |artist|
+- Artist.where(:groups => @artist).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
 		= label_tag artist.name, :class => 'control-label'
 		- if artist

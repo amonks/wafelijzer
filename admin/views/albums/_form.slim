@@ -24,12 +24,12 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 
 / personnel
 = label_tag "Personnel", :class => 'control-label'
-- Artist.where(:albums => @album).each do |artist|
+- Artist.where(:albums => @album).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
 		= label_tag artist.name + "'s Role", :class => 'control-label'
 		= text_field_tag 'artists[' + artist.id.to_s + ']', :value => AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role
 		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => true
-- Artist.exclude(:albums => @album).each do |artist|
+- Artist.exclude(:albums => @album).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
 		= label_tag artist.name + "'s Role", :class => 'control-label'
 		= text_field_tag 'artists[' + artist.id.to_s + ']', :placeholder => "Producer"

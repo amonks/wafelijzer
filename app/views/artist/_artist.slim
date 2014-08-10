@@ -21,6 +21,10 @@
 				strong Members:
 				ul
 					- artist.members.each do |member|
-						li = member.name
+						li
+							- if member.slug.length > 0
+								a href="/#{member.slug}" = member.name
+							- else 
+								= member.name
 		.bio
 			== Kramdown::Document.new(artist.bio).to_html
