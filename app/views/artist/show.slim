@@ -1,7 +1,8 @@
 .item
 	== partial 'artist/artist', :object => @artist
-	- if @artist.soundcloud && @artist.soundcloud.length > 0
-			== soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
+- if @artist.soundcloud && @artist.soundcloud.length > 0
+	.item
+		== soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
 - @artist.albums.each do |album|
 	.item
 		== partial 'album/album', :object => album
