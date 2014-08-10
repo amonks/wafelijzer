@@ -21,7 +21,7 @@ module Wafelijzer
         def themeCss
             themeObject = Setting.where(:title => "theme").first
             if themeObject
-                if theme_tag = themeTag(themeObject.title)
+                if theme_tag = themeCssTag(themeObject.body)
                     return theme_tag
                 else
                     return ""
@@ -42,7 +42,7 @@ module Wafelijzer
         def themeJs
             themeObject = Setting.where(:title => "theme").first
             if themeObject
-                if theme_tag = themeTag(themeObject.title)
+                if theme_tag = themeJsTag(themeObject.body)
                     return theme_tag
                 else
                     return ""
