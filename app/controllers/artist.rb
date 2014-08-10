@@ -1,7 +1,7 @@
 Wafelijzer::App.controllers :artist do
   
   get :index, :map => '/artists' do
-    @artists = Artist.all
+    @artists = Artist.order(:name, :real_name, :slug).all
     render 'artist/index'
   end
 
