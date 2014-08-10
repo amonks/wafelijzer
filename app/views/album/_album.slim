@@ -2,7 +2,7 @@
 	== bandcamp_embed_from_id album.bandcamp_id
 	.caption
 		h3 
-			a href="/albums/#{album.id.to_s}"
+			a href="{album.bandcamp_url.to_s}"
 				- if album.title
 					= album.title + " "
 			span.small
