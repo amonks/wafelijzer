@@ -14,8 +14,12 @@
 			p
 				strong Member Of:
 				ul
-					- artist.groups.each do |group|
-						li = group.name
+					- artist.groups.each do |groups|
+						li
+							- if group.slug.length > 0
+								a href="/#{group.slug}" = group.name
+							- else 
+								= group.name
 		- if artist.members.length > 0
 			p
 				strong Members:
