@@ -1,10 +1,2 @@
 .item
 	== partial 'album/album', :object => @album
-- if @album.about
-	.item
-		h3 About
-		== Kramdown::Document.new(@album.about).to_html
-- if @album.credits
-	.item
-		h3 Credits
-		== Kramdown::Document.new(@album.credits).to_html

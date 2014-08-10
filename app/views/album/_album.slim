@@ -11,10 +11,13 @@
 			.small
 				- if album.release_date
 					= album.release_date.to_date
-		- if album.artists.length > 0
-			.well
-				- album.artists.each do |artist|
-					p
-						a href="/#{artist.slug}" = artist.name
-						' :
-						= AlbumsArtists.where(:album_id => album.id, :artist_id => artist.id).first.role
+		- album.artists.each do |artist|
+			p
+				a href="/#{artist.slug}" = artist.name
+				' :
+				= AlbumsArtists.where(:album_id => album.id, :artist_id => artist.id).first.role
+		-if album.about && album.about.length > 0
+			== Kramdown::Document.new(album.about).to_html
+		-if album.credits && album.credits.length > 0
+			h4 Credits
+			== Kramdown::Document.new(album.credits).to_html

@@ -5,11 +5,6 @@
 - @artist.albums.each do |album|
 	.item
 		== partial 'album/album', :object => album
-		-if album.about && album.about.length > 0
-			== Kramdown::Document.new(album.about).to_html
-		-if album.credits && album.credits.length > 0
-			h3 Credits
-			== Kramdown::Document.new(album.credits).to_html
 - @artist.videos.each do |video|
 	.item
 		== partial 'video/video', :object => video
