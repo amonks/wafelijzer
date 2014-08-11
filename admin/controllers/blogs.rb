@@ -45,6 +45,7 @@ Wafelijzer::Admin.controllers :blogs do
     @blog = Blog[params[:id]]
     if @blog
       if @blog.modified! && @blog.update(params[:blog])
+        @blog.update(:post_date => Chronic.parse(params[:post_date]))
         if params[:artists]
           @blog.remove_all_artists
           params[:artists].each do |artist|

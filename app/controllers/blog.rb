@@ -1,9 +1,9 @@
 Wafelijzer::App.controllers do
   
   get :index do
-    @blog = Blog.order(:created_at, :id).all.last
-    @albums = Album.order(:release_date, :id).all
-    @video = Video.order(:created_at, :id).all.last
+    @blog = Blog.order(Sequel.desc(:post_date), :id).all.last
+    @albums = Album.order(Sequel.desc(:release_date), :id).all
+    @videos = Video.order(Sequel.desc(:release_date), :id).all
     render 'index'
   end
 
