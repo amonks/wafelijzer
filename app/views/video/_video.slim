@@ -10,7 +10,7 @@
 			/ a href="/videos/#{video.id}" = video.title
 			.small
 				- if video.release_date
-					= video.release_date.to_date
+					= video.release_date
 		- video.artists.each do |artist|
 			p
 				a href="/#{artist.slug}" = artist.name

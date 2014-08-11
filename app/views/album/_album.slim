@@ -10,7 +10,7 @@
 					= album.type + " "
 			.small
 				- if album.release_date
-					= album.release_date.to_date
+					= album.release_date
 		- album.artists.each do |artist|
 			p
 				a href="/#{artist.slug}" = artist.name

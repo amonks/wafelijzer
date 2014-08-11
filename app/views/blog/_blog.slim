@@ -3,4 +3,7 @@
 		img.img-responsive src="#{blog.image_url}"
 	.caption
 		h3 = blog.title
+			.small
+				- if blog.release_date
+					= blog.release_date
 		== Kramdown::Document.new( blog.body ).to_html
