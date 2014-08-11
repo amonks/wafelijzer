@@ -10,13 +10,18 @@
 	.item
 		.thumbnail
 			== soundcloud_embed_last_favorite_from_name(name)
-- if Blog.all.first
+
+- if @blogs.length > 0
 	.item
-		== partial 'blog/blog', :object => @blog
+		== partial 'blog/blog', :object => @blogs[0]
 
 - if @albums.length > 0
 	.item
 		== partial 'album/album', :object => @albums[0]
+
+- if @blogs.length > 1
+	.item
+		== partial 'blog/blog', :object => @blogs[1]
 
 - if @albums.length > 1
 	.item
