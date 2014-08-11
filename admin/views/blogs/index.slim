@@ -29,7 +29,7 @@ div class="tabs-content"
         th class='header' = mat(:blog, :created_at)
         th class='header' = mat(:blog, :updated_at)
         th class='header' = mat(:blog, :title)
-        th class='header' = mat(:blog, :post_date)
+        th class='header' = mat(:blog, :release_date)
         th class='header' = mat(:blog, :image_url)
         th class='header' = mat(:blog, :body)
         th class='header' = mat(:blog, :artists)
@@ -43,7 +43,7 @@ div class="tabs-content"
           td class='list-column' = blog.created_at
           td class='list-column' = blog.updated_at
           td class='list-column' = blog.title
-          td class='list-column' = blog.post_date
+          td class='list-column' = blog.release_date
           td class='list-column' = blog.image_url
           td class='list-column' = blog.body
           td class='list-column' = blog.artists.map {|a| a.name }.join(", ")

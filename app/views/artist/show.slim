@@ -3,12 +3,15 @@
 - if @artist.soundcloud && @artist.soundcloud.length > 0
 	.item
 		== soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
-- @artist.albums.each do |album|
-	.item
-		== partial 'album/album', :object => album
-- @artist.videos.each do |video|
-	.item
-		== partial 'video/video', :object => video
-- @artist.blogs.each do |blog|
-	.item
-		== partial 'blog/blog', :object => blog
+- @combined = (@artist.albums + @artist.videos + @artist.blogs).sort_by(&:release_date).reverse
+- @combined.each do |item|
+	- if item.class == Album
+		.item
+			== partial 'album/album', :object => item
+	- if item.class == Video
+		.item
+			== partial 'video/video', :object => item
+	- if item.class == Blog
+		- binding.pry
+		.item
+			== partial 'blog/blog', :object => item

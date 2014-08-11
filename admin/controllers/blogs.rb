@@ -14,7 +14,7 @@ Wafelijzer::Admin.controllers :blogs do
   post :create do
     @blog = Blog.new(params[:blog])
     if (@blog.save rescue false)
-      @blog.update(:post_date => Chronic.parse(params[:post_date]))
+      @blog.update(:release_date => Chronic.parse(params[:release_date]))
       if params[:artists]
         params[:artists].each do |artist|
           @blog.add_artist(artist.first)
@@ -46,7 +46,7 @@ Wafelijzer::Admin.controllers :blogs do
     @blog = Blog[params[:id]]
     if @blog
       if @blog.modified! && @blog.update(params[:blog])
-        @blog.update(:post_date => Chronic.parse(params[:post_date]))
+        @blog.update(:release_date => Chronic.parse(params[:release_date]))
         if params[:artists]
           @blog.remove_all_artists
           params[:artists].each do |artist|
