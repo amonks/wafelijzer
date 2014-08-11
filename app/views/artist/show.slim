@@ -9,3 +9,6 @@
 - @artist.videos.each do |video|
 	.item
 		== partial 'video/video', :object => video
+- @artist.blogs.each do |blog|
+	.item
+		== partial 'blog/blog', :object => blog

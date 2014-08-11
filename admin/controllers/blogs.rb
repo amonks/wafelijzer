@@ -14,6 +14,11 @@ Wafelijzer::Admin.controllers :blogs do
   post :create do
     @blog = Blog.new(params[:blog])
     if (@blog.save rescue false)
+      if params[:artists]
+        params[:artists].each do |artist|
+          @blog.add_artist(artist.first)
+        end
+      end
       @title = pat(:create_title, :model => "blog #{@blog.id}")
       flash[:success] = pat(:create_success, :model => 'Blog')
       params[:save_and_continue] ? redirect(url(:blogs, :index)) : redirect(url(:blogs, :edit, :id => @blog.id))
@@ -40,6 +45,12 @@ Wafelijzer::Admin.controllers :blogs do
     @blog = Blog[params[:id]]
     if @blog
       if @blog.modified! && @blog.update(params[:blog])
+        if params[:artists]
+          @blog.remove_all_artists
+          params[:artists].each do |artist|
+            @blog.add_artist(artist.first)
+          end
+        end
         flash[:success] = pat(:update_success, :model => 'Blog', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:blogs, :index)) :

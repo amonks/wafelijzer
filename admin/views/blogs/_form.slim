@@ -12,6 +12,19 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 		= f.text_area :body
 		span class='help-inline' = error ? f.error_message_on(:body, :class => 'text-error') : pat(:example)
 
+/ artists
+= label_tag "artists", :class => 'control-label'
+- Artist.where(:blogs => @blog).order(:name, :name, :slug).each do |artist|
+	fieldset class='control-group'
+		= label_tag artist.name, :class => 'control-label'
+		- if artist
+		= check_box_tag 'artists[' + artist.id.to_s + ']', :checked => true
+- Artist.exclude(:blogs => @blog).each do |artist|
+	fieldset class='control-group'
+		= label_tag artist.name, :class => 'control-label'
+		- if artist
+		= check_box_tag 'artists[' + artist.id.to_s + ']', :checked => false
+
 div class="form-actions"
 	= f.submit pat(:save), :class => 'btn btn-primary'
 	|&nbsp;
