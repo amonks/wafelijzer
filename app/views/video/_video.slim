@@ -11,3 +11,5 @@
 				a href="/#{artist.slug}" = artist.name
 				' :
 				= ArtistsVideos.where(:video_id => video.id, :artist_id => artist.id).first.role
+		-if video.about && video.about.length > 0
+			== Kramdown::Document.new(video.about).to_html

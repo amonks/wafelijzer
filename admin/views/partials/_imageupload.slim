@@ -1,12 +1,14 @@
 form#imageUploadForm 
     input#imageBrowse name="image" type="file" label="image"
-    input#imageButton name="upload" type="button" value="Upload"
-
+    input#imageButton name="upload" type="submit" value="Upload"
+input#image type="text"
 javascript:
-    $('#imageButton').on('click',(function(e) {
+    $('#imageUploadForm').submit(function(e) {
         e.preventDefault();
+
         var input = document.getElementById('imageUploadForm');
-        console.log(input.files);
+        data = new FormData(input);
+        console.log(data);
         $.ajax({
             processData: false,
             contentType: false,
@@ -16,7 +18,7 @@ javascript:
                 'Authorization': 'Client-ID 38f7232651ea79a'
             },
             data: {
-                'image': $('#imageBrowse').files[0]
+                "image": data
             },
             success:function(data){
                 console.log("success");
@@ -29,4 +31,4 @@ javascript:
                 console.log(data);
             }
         });
-    }));
+    });

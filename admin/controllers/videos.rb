@@ -24,7 +24,8 @@ Wafelijzer::Admin.controllers :videos do
           end
         end
       end
-      @video.update(:release_date => Chronic.parse(params[:release_date]))
+      @video.populate_from_vimeo if (@video.service == "vimeo")
+      @video.populate_from_youtube if (@video.service == "youtube")
       @title = pat(:create_title, :model => "video #{@video.id}")
       flash[:success] = pat(:create_success, :model => 'Video')
       params[:save_and_continue] ? redirect(url(:videos, :index)) : redirect(url(:videos, :edit, :id => @video.id))
@@ -61,7 +62,9 @@ Wafelijzer::Admin.controllers :videos do
             end
           end
         end
-        @video.update(:release_date => Chronic.parse(params[:release_date]))
+        @video.populate_from_vimeo if (@video.service == "vimeo")
+        @video.populate_from_youtube if (@video.service == "youtube")
+
         flash[:success] = pat(:update_success, :model => 'Video', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:videos, :index)) :

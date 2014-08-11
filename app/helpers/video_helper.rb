@@ -7,7 +7,7 @@ module Wafelijzer
       # ...
       # end
 			def vimeo_embed_from_id id
-				'<div class="video"><iframe src="//player.vimeo.com/video/' + id.to_s + '" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>'
+				'<div class="video"><iframe src="//player.vimeo.com/video/' + id.to_s + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>'
 			end
 
 			def youtube_embed_from_id id
