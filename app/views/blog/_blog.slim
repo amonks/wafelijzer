@@ -4,6 +4,9 @@
 	.caption
 		h3 
 			= blog.title
+			span.small
+				- if blog.type
+					= " " + blog.type.titlecase
 			.small
 				- if blog.release_date
 					= blog.release_date

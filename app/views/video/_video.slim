@@ -6,8 +6,9 @@
 	.caption
 		h3
 			a href="#{video_url(video)}" = video.title
-
-			/ a href="/videos/#{video.id}" = video.title
+			span.small
+				- if video.type
+					= " " + video.type.titlecase
 			.small
 				- if video.release_date
 					= video.release_date

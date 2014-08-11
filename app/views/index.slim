@@ -10,15 +10,7 @@
 	.item
 		.thumbnail
 			== soundcloud_embed_last_favorite_from_name(name)
-
+- count = settingValue("frontpage_item_count") || "10"
 - @combined = (Album.all + Video.all + Blog.all).sort_by(&:release_date).reverse
-- @combined[0..10].each do |item|
-	- if item.class == Album
-		.item
-			== partial 'album/album', :object => item
-	- if item.class == Video
-		.item
-			== partial 'video/video', :object => item
-	- if item.class == Blog
-		.item
-			== partial 'blog/blog', :object => item
+- @combined[0..count.to_i].each do |item|
+	== partial 'partials/item', :object => item

@@ -4,10 +4,10 @@
 		h3 
 			a href="#{album.bandcamp_url.to_s}"
 				- if album.title
-					= album.title + " "
+					= album.title
 			span.small
 				- if album.type
-					= album.type + " "
+					= " " + album.type
 			.small
 				- if album.release_date
 					= album.release_date

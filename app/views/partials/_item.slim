@@ -1,0 +1,12 @@
+- if item.class == Album
+	.item
+		== partial 'album/album', :object => item
+- if item.class == Video
+	.item
+		== partial 'video/video', :object => item
+- if item.class == Blog
+	.item
+		== partial 'blog/blog', :object => item
+- if item.class == Artist
+	.item
+		== partial 'artist/artist', :object => item
