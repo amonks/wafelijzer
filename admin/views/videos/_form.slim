@@ -1,10 +1,4 @@
-- error = @video.errors.key?(:title) && @video.errors[:title].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :title, :class => 'control-label'
-	div class='controls'
-		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
-		span class='help-inline' = error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
-
+/ service
 - error = @video.errors.key?(:service) && @video.errors[:service].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
 	= f.label :service, :class => 'control-label'
@@ -12,6 +6,7 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 		= f.text_field :service, :class => 'form-control input-large input-with-feedback'
 		span class='help-inline' = error ? f.error_message_on(:service, :class => 'text-error') : pat(:example)
 
+/ vimeo_id
 - error = @video.errors.key?(:vimeo_id) && @video.errors[:vimeo_id].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
 	= f.label :vimeo_id, :class => 'control-label'
@@ -19,6 +14,7 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 		= f.text_field :vimeo_id, :class => 'form-control input-large input-with-feedback'
 		span class='help-inline' = error ? f.error_message_on(:vimeo_id, :class => 'text-error') : pat(:example)
 
+/ youtube_id
 - error = @video.errors.key?(:youtube_id) && @video.errors[:youtube_id].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
 	= f.label :youtube_id, :class => 'control-label'
