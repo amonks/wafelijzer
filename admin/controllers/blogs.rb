@@ -14,6 +14,7 @@ Wafelijzer::Admin.controllers :blogs do
   post :create do
     @blog = Blog.new(params[:blog])
     if (@blog.save rescue false)
+      @blog.update(:post_date => Chronic.parse(params[:post_date]))
       if params[:artists]
         params[:artists].each do |artist|
           @blog.add_artist(artist.first)
