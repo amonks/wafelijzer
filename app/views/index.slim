@@ -11,38 +11,14 @@
 		.thumbnail
 			== soundcloud_embed_last_favorite_from_name(name)
 
-- if @blogs.length > 0
-	.item
-		== partial 'blog/blog', :object => @blogs[0]
-
-- if @albums.length > 0
-	.item
-		== partial 'album/album', :object => @albums[0]
-
-- if @albums.length > 1
-	.item
-		== partial 'album/album', :object => @albums[1]
-
-- if @albums.length > 2
-	.item
-		== partial 'album/album', :object => @albums[2]
-
-- if @videos.length > 0
-	.item
-		== partial 'video/video', :object => @videos[0]
-
-- if @videos.length > 1
-	.item
-		== partial 'video/video', :object => @videos[1]
-
-- if @albums.length > 3
-	.item
-		== partial 'album/album', :object => @albums[3]
-
-- if @videos.length > 2
-	.item
-		== partial 'video/video', :object => @videos[2]
-
-- if @blogs.length > 1
-	.item
-		== partial 'blog/blog', :object => @blogs[1]
+- @combined = (Album.all + Video.all + Blog.all).sort_by(&:release_date).reverse
+- @combined[0..10].each do |item|
+	- if item.class == Album
+		.item
+			== partial 'album/album', :object => item
+	- if item.class == Video
+		.item
+			== partial 'video/video', :object => item
+	- if item.class == Blog
+		.item
+			== partial 'blog/blog', :object => item
