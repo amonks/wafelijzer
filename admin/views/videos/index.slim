@@ -34,6 +34,7 @@ div class="tabs-content"
         th class='header' = mat(:video, :vimeo_id)
         th class='header' = mat(:video, :youtube_id)
         th class='header' = mat(:video, :about)
+        th class='header' = mat(:video, "personnel")
         th class='header list-row-action-header'
 
     tbody
@@ -49,6 +50,8 @@ div class="tabs-content"
           td class='list-column' = video.vimeo_id
           td class='list-column' = video.youtube_id
           td class='list-column' = video.about
+          td class='list-column' = video.artists.map {|a| a.name + ": " + ArtistsVideos.where(:video_id => video.id, :artist_id => a.id).first.role }.join(", ")
+
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:videos, :edit, :id => video.id), :rel => :tooltip, :title => "#{pat(:edit)} video", :class => 'list-row-action-wrapper-link'
