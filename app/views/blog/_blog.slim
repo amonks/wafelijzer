@@ -1,4 +1,6 @@
 .thumbnail
+	- if blog.image_url
+		img.img-responsive src="#{blog.image_url}"
 	.caption
 		h3 = blog.title
 		== Kramdown::Document.new( blog.body ).to_html

@@ -1,3 +1,4 @@
+/ title
 - error = @blog.errors.key?(:title) && @blog.errors[:title].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
 	= f.label :title, :class => 'control-label'
@@ -5,13 +6,23 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
 		span class='help-inline' = error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
 
+/ post_date
 - error = @blog.errors.key?(:post_date) && @blog.errors[:post_date].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
 	= f.label :post_date, :class => 'control-label'
 	div class='controls'
-		input#post_date class="form-control input-large input-with-feedback" type="date" name="post_date" value="#{@blog.post_date}"
+	input#post_date class="form-control input-large input-with-feedback" type="date" name="post_date" value="#{@blog.post_date}"
 		span class='help-inline' = error ? f.error_message_on(:post_date, :class => 'text-error') : pat(:example)
 		
+/ image_url
+- error = @blog.errors.key?(:image_url) && @blog.errors[:image_url].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+	= f.label :image_url, :class => 'control-label'
+	div class='controls'
+		= f.text_field :image_url, :class => 'form-control input-large input-with-feedback', :autofocus => true
+		span class='help-inline' = error ? f.error_message_on(:image_url, :class => 'text-error') : pat(:example)
+
+/ body (markdown)
 - error = @blog.errors.key?(:body) && @blog.errors[:body].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
 	= f.label :body, :class => 'control-label'
