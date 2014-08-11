@@ -28,11 +28,12 @@ div class="tabs-content"
         th class='header' = mat(:video, :id)
         th class='header' = mat(:video, :created_at)
         th class='header' = mat(:video, :updated_at)
+        th class='header' = mat(:video, :type)
         th class='header' = mat(:video, :title)
         th class='header' = mat(:video, :release_date)
         th class='header' = mat(:video, :service)
-        th class='header' = mat(:video, :vimeo_id)
-        th class='header' = mat(:video, :youtube_id)
+        th class='header' = mat(:video, "vimeo id")
+        th class='header' = mat(:video, "youtube id")
         th class='header' = mat(:video, :about)
         th class='header' = mat(:video, "personnel")
         th class='header list-row-action-header'
@@ -44,6 +45,7 @@ div class="tabs-content"
           td class='list-column' = video.id
           td class='list-column' = video.created_at
           td class='list-column' = video.updated_at
+          td class='list-column' = video.type
           td class='list-column' = video.title
           td class='list-column' = video.release_date
           td class='list-column' = video.service
