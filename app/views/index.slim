@@ -1,10 +1,7 @@
 .item
 	.thumbnail
-		- if logo = settingValue("logo")
-			img.img-responsive src='#{logo}'
-		- else
-			- if name = settingValue('label_name')
-				h2 = name
+		- if name = settingValue('label_name')
+			h2 = name
 		.caption
 			- if databasePartial 'description'
 				== databasePartial 'description'
