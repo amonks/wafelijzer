@@ -34,6 +34,14 @@
 .navbar-brand {
   font-size: 30px;
 }
+.navbar-brand img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-top: -40px;
+}
+.navbar-brand {
+  margin-top: 0;
+}
 
 .item {
   width: 100%;
