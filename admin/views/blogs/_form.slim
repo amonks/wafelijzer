@@ -6,6 +6,14 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
 		span class='help-inline' = error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
 
+/ type
+- error = @blog.errors.key?(:type) && @blog.errors[:type].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+	= f.label :type, :class => 'control-label'
+	div class='controls'
+	input#type class="form-control input-large input-with-feedback" type="date" name="type" value="#{@blog.type}"
+		span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
+
 / release_date
 - error = @blog.errors.key?(:release_date) && @blog.errors[:release_date].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'

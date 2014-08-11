@@ -12,5 +12,5 @@
 			== soundcloud_embed_last_favorite_from_name(name)
 - count = settingValue("frontpage_item_count") || "10"
 - @combined = (Album.all + Video.all + Blog.all).sort_by(&:release_date).reverse
-- @combined[0..count.to_i].each do |item|
+- @combined[0..count.to_i - 1].each do |item|
 	== partial 'partials/item', :object => item
