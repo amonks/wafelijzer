@@ -13,6 +13,14 @@ module Wafelijzer
 			def youtube_embed_from_id id
 				'<div class="video"><iframe width="100%" src="//www.youtube.com/embed/' + id.to_s + '" frameborder="0" allowfullscreen></iframe></div>'
 			end
+
+      def video_url video
+        if video.service == "vimeo"
+          return "http://vimeo.com/" + video.vimeo_id
+        elsif video.service == "youtube"
+          return "http://youtube.com/watch?" + video.youtube_id
+        end
+      end
     end
 
     helpers VideoHelper
