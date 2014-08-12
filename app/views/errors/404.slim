@@ -1,4 +1,15 @@
-- if slug = @params[:slug]
-	= slug + " not found."
-- else
-	| Page not found.
+h2
+	- if slug = @params[:slug]
+		= '"' + slug + '"' + " not found."
+	- else
+		| Page not found.
+| Maybe check out one of these artists instead:
+ul
+	- @artists = Artist.order(:name, :real_name, :slug).all
+	- @artists.each do |artist|
+		li
+			a href="/#{artist.slug}"
+				= artist.name
+			- if artist.real_name.length > 0
+				' , a.k.a.
+				= artist.real_name
