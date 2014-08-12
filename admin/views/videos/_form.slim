@@ -1,47 +1,51 @@
 / service
-- error = @video.errors.key?(:service) && @video.errors[:service].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
+fieldset.control-group
 	= f.label :service, :class => 'control-label'
 	div class='controls'
-		= f.text_field :service, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:service, :class => 'text-error') : pat(:example)
+		label.radio-inline
+			input type="radio" name="video[service]" value="vimeo" Vimeo
+		label.radio-inline
+			input type="radio" name="video[service]" value="youtube" Youtube
 
 / type
-- error = @video.errors.key?(:type) && @video.errors[:type].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
+fieldset.control-group
 	= f.label :type, :class => 'control-label'
 	div class='controls'
 		= f.text_field :type, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
+		.help-block 'Music Video', 'Live Video', ...
 
 / vimeo_id
-- error = @video.errors.key?(:vimeo_id) && @video.errors[:vimeo_id].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :vimeo_id, :class => 'control-label'
+fieldset.control-group
+	label.control-label for="album[vimeo_id]" Vimeo ID (if applicable)
 	div class='controls'
-		= f.text_field :vimeo_id, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:vimeo_id, :class => 'text-error') : pat(:example)
+		= f.text_field :vimeo_id, :class => 'form-control input-large input-with-feedback', :placeholder => "34479631"
+		.help-block Check your video's URL, it's after 'http://vimeo.com/'
 
-/ youtube_id
-- error = @video.errors.key?(:youtube_id) && @video.errors[:youtube_id].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :youtube_id, :class => 'control-label'
+/ youtube_idcount > 0
+fieldset.control-group
+	label.control-label for="album[youtube_id]" Youtube ID (if applicable)
 	div class='controls'
-		= f.text_field :youtube_id, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:youtube_id, :class => 'text-error') : pat(:example)
+		= f.text_field :youtube_id, :class => 'form-control input-large input-with-feedback', :placeholder => "RGY9kzy0zVE"
+		.help-block Check your video's URL, it's after 'youtube.com/watch?v='
 
 / personnel
 = label_tag "Personnel", :class => 'control-label'
 - Artist.where(:videos => @video).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
-		= label_tag artist.name + "'s Role", :class => 'control-label'
-		= text_field_tag 'artists[' + artist.id.to_s + ']', :value => ArtistsVideos.where(:video_id => @video.id, :artist_id => artist.id).first.role
-		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => true
+		label.control-label
+			= artist.name + "'s Role"
+		.input-group
+			span.input-group-addon
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
+			input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' value="#{ArtistsVideos.where(:video_id => @video.id, :artist_id => artist.id).first.role}"
 - Artist.exclude(:videos => @video).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
-		= label_tag artist.name + "'s Role", :class => 'control-label'
-		= text_field_tag 'artists[' + artist.id.to_s + ']', :placeholder => "Producer"
-		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => false
+		label.control-label
+			= artist.name + "'s Role"
+		.input-group
+			span.input-group-addon
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
+			input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' placeholder="Producer"
 
 div class="form-actions"
 	= f.submit pat(:save), :class => 'btn btn-primary'

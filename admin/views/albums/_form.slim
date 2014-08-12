@@ -1,39 +1,45 @@
 / bandcamp url
-- error = @album.errors.key?(:bandcamp_url) && @album.errors[:bandcamp_url].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :bandcamp_url, :class => 'control-label'
+fieldset.control-group
+	label.control-label for="bandcamp_url" Bandcamp Url (required):
 	div class='controls'
-		= f.text_field :bandcamp_url, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:bandcamp_url, :class => 'text-error') : pat(:example)
+		= f.url_field :bandcamp_url, :class => 'form-control input-medium input-with-feedback', :placeholder => "http://music.belgianman.com/album/..."
+		.help-block Any Bandcamp album (not track)
+
 
 / (record) label
-- error = @album.errors.key?(:label) && @album.errors[:label].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :label, :class => 'control-label'
+fieldset.control-group
+	label.control-label for="label" Record Label:
 	div class='controls'
-		= f.text_field :label, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:label, :class => 'text-error') : pat(:example)
+		- placeholder = settingValue("label_name") || ""
+		= f.text_field :label, :class => 'form-control input-medium input-with-feedback', :value => @album.label || placeholder
+		.help-block Record Label
 
 / type
-- error = @album.errors.key?(:type) && @album.errors[:type].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :type, :class => 'control-label'
+fieldset.control-group
+	label.control-label for="type" Release Type:
 	div class='controls'
-		= f.text_field :type, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
+		= f.text_field :type, :class => 'form-control input-medium input-with-feedback'
+		.help-block 'Single', 'EP', 'Sweet Jam', 'DJ Mix', ...
 
 / personnel
 = label_tag "Personnel", :class => 'control-label'
 - Artist.where(:albums => @album).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
-		= label_tag artist.name + "'s Role", :class => 'control-label'
-		= text_field_tag 'artists[' + artist.id.to_s + ']', :value => AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role
-		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => true
+		label.control-label
+			= artist.name + "'s Role"
+		.input-group
+			span.input-group-addon
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
+			input.form-control.input-medium type="text"  name='artists["#{ artist.id.to_s }"]' value="#{AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role}"
+
 - Artist.exclude(:albums => @album).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
-		= label_tag artist.name + "'s Role", :class => 'control-label'
-		= text_field_tag 'artists[' + artist.id.to_s + ']', :placeholder => "Producer"
-		= check_box_tag 'artistsEnabled[' + artist.id.to_s + ']', :checked => false
+		label.control-label
+			= artist.name + "'s Role"
+		.input-group
+			span.input-group-addon
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
+			input.form-control.input-medium type="text"  name='artists["#{ artist.id.to_s }"]' placeholder="Producer"
 
 div class="form-actions"
 	= f.submit pat(:save), :class => 'btn btn-primary'

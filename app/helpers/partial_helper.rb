@@ -2,9 +2,6 @@
 module Wafelijzer
   class App
     module PartialHelper
-        def renderItem item 
-
-        end
     	def databasePartial title
             text = Text.where(:title => title).first
             if text && text.body

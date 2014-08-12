@@ -19,7 +19,7 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
 fieldset class='control-group#{error ? ' has-error' : ''}'
 	= f.label :release_date, :class => 'control-label'
 	div class='controls'
-		input#release_date class="form-control input-large input-with-feedback" type="date" name="release_date" value="#{@blog.release_date}"
+		input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@blog.release_date}"
 		span class='help-inline' = error ? f.error_message_on(:release_date, :class => 'text-error') : pat(:example)
 		
 / image_url
