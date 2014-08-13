@@ -1,7 +1,7 @@
 Wafelijzer::App.controllers :video do
   
   get :index, :map => "/videos" do
-    @title = @page_header = "Videos"
+    @title = "Videos"
     @videos = Video.order(Sequel.desc(:release_date), :id).all
 
     render 'video/index'

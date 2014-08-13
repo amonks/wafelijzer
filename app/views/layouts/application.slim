@@ -21,10 +21,10 @@ html
 					.row
 						.col-xs-12
 							.alert class="alert-#{@alert_type}" = @alert
-				- if @page_header
+				- if @title
 					.row 
 						.col-xs-12
-							h2 = @page_header
+							h2.text-center = @title
 				#holder
 					.gutter-sizer
 					== yield
