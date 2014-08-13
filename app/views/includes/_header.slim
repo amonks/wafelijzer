@@ -17,9 +17,14 @@ nav.navbar.navbar-default.navbar-static-top.plain-navbar role="navigation"
 							| Wafelijzer
 		#navbar.collapse.navbar-collapse
 			ul.nav.navbar-nav.navbar-right
-				li = link_to "Artists", url_for(:artist, :index)
-				li = link_to "Albums", "/albums"
-				li = link_to "Videos", "/videos"
+				- if Artist.all.length > 0
+					li = link_to "Artists", url_for(:artist, :index)
+				- if Album.all.length > 0
+					li = link_to "Albums", "/albums"
+				- if Video.all.length > 0
+					li = link_to "Videos", "/videos"
+				- if Merch.all.length > 0
+					li = link_to "Merch", "/merch"
 				- if store = settingValue('store_url')
 					li = link_to "Store", store
 				- if facebook = settingValue('facebook')

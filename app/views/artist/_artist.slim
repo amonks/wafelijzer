@@ -1,4 +1,4 @@
-.thumbnail
+article.thumbnail
 	- if artist.image_url
 		img.img-responsive src="#{artist.image_url}"
 	.caption
@@ -30,5 +30,6 @@
 								a href="/#{member.slug}" = member.name
 							- else 
 								= member.name
-		.bio
-			== Kramdown::Document.new(artist.bio).to_html
+		- if artist.bio.length > 0
+			.bio
+				== Kramdown::Document.new(artist.bio).to_html

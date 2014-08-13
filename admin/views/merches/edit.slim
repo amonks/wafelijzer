@@ -1,0 +1,8 @@
+ul class="nav nav-tabs"
+  li = link_to tag_icon(:list, pat(:list)), url(:merches, :index)
+  li = link_to tag_icon(:plus, pat(:new)), url(:merches, :new)
+  li class="active" = link_to tag_icon(:edit, pat(:edit)), url(:merches, :edit, :id => @merch.id)
+
+div class="tabs-content"
+  = form_for :merch, url(:merches, :update, :id => @merch.id), :method => :put, :class => 'form-horizontal' do |f|
+    = partial 'merches/form', :locals => { :f => f }

@@ -2,7 +2,9 @@ doctype html
 html
 	head
 		title 
-			- if name = settingValue('label_name')
+			- if @title && name = settingValue('label_name') 
+				= @title + " | " + name
+			- elsif name = settingValue('label_name')
 				= name
 			- else
 				| Wafelijzer
@@ -15,6 +17,14 @@ html
 		#wrap
 			== partial 'includes/header'
 			.container-fluid
+				- if @alert
+					.row
+						.col-xs-12
+							.alert class="alert-#{@alert_type}" = @alert
+				- if @page_header
+					.row 
+						.col-xs-12
+							h2 = @page_header
 				#holder
 					.gutter-sizer
 					== yield

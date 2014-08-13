@@ -10,3 +10,6 @@
 - if item.class == Artist
 	.item
 		== partial 'artist/artist', :object => item
+- if item.class == Merch
+	.item
+		== partial 'merch/merch', :object => item

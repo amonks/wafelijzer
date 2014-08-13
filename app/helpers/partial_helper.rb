@@ -2,6 +2,7 @@
 module Wafelijzer
   class App
     module PartialHelper
+
     	def databasePartial title
             text = Text.where(:title => title).first
             if text && text.body
@@ -10,6 +11,7 @@ module Wafelijzer
                 return false
             end
     	end
+
         def settingValue title
             setting = Setting.where(:title => title).first
             if setting && setting.body
@@ -18,6 +20,7 @@ module Wafelijzer
                 return false
             end
         end
+
         def themeCss
             themeObject = Setting.where(:title => "theme").first
             if themeObject && themeObject.body
@@ -30,6 +33,7 @@ module Wafelijzer
                 return ""
             end
         end
+
         def themeCssTag title
             theme = Theme.where(:title => title).first
             if theme && theme.css
@@ -39,6 +43,7 @@ module Wafelijzer
                 return false
             end
         end
+
         def themeJs
             themeObject = Setting.where(:title => "theme").first
             if themeObject && themeObject.body
@@ -51,6 +56,7 @@ module Wafelijzer
                 return ""
             end
         end
+
         def themeJsTag title
             theme = Theme.where(:title => title).first
             if theme && theme.js
@@ -60,6 +66,7 @@ module Wafelijzer
                 return false
             end
         end
+        
         def typeKit
             typekit = Setting.where(:title => "typekit").first
             if typekit && typekit.body

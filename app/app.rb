@@ -59,11 +59,19 @@ module Wafelijzer
         render 'errors/404'
     end
 
+    error 400 do
+        render 'errors/404'
+    end
+
     error 500 do
         render 'errors/404'
     end
 
     error 505 do
+        render 'errors/404'
+    end
+
+    error Sequel::DatabaseError do
         render 'errors/404'
     end
     #
