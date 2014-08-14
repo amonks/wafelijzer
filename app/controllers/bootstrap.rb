@@ -13,7 +13,7 @@ Wafelijzer::App.controllers :bootstrap do
 					:slug => "leaftype",
 					:real_name => "Christopher Knollmeyer",
 					:soundcloud => "leaftype",
-					:bio => "Leaftype is Christopher Knollmeyer, an electronic musician from Lincoln, MA. He studies music technology at Calarts. He also plays keyboards and drums."
+					:bio => "Leaftype is Christopher Knollmeyer, an electronic musician from Lincoln, MA. He studies music technology at Calarts. He also plays keyboards and drums.",
 					:image_url => "http://i.imgur.com/3XAhXnD.jpg"
 
 				)
@@ -60,7 +60,7 @@ Wafelijzer::App.controllers :bootstrap do
 				)
 				Setting.create(
 					:title => 'logo',
-					:body => "http://imgur.com/TUvQfGd"
+					:body => "http://imgur.com/TUvQfGd",
 				)
 
 			    Setting.create(:title => "bootstrapped", :body => "true")
