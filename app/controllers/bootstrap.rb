@@ -26,7 +26,6 @@ Wafelijzer::App.controllers :bootstrap do
 				video = Video.create(
 					:service => "vimeo",
 					:vimeo_id => "34479631",
-					:bandcamp_url => "http://leaftype.bandcamp.com/album/ltep0008"
 				)
 				video.populate_from_vimeo
 				ArtistsVideos.create(
