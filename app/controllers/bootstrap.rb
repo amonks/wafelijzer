@@ -39,12 +39,12 @@ Wafelijzer::App.controllers :bootstrap do
 					:album_id => album.id,
 					:role => "Producer"
 				)
-				Blog.create(
+				blog = Blog.create(
 					:title => 'Example Blog Post about LEAFTYPE',
 					:body => '# This is an example blog post.',
 					:image_url => "http://imgur.com/xEFhhNq",
-					:artists => leaftype.id
 				)
+				blog.add_artist(leaftype)
 				Text.create(
 					:title => 'footer',
 					:body => 'All music is licensed under a [Creative Commons by-nc](http://creativecommons.org/licenses/by-nc/3.0/) license.'
