@@ -105,4 +105,6 @@ Videos can be pulled from Youtube or Vimeo.
 
 Add merch here. If you add sign up for a [Square](http://square.com) account and set the `square_publishable_key` and `square_private_key` settings, you can take credit cards right from your website.
 
+## Help
 
+If you have any issues with Wafelijzer, either [send me an email](mailto:a@monks.co) or create an issue [on github](https://github.com/belgianman/wafelijzer/issues).
