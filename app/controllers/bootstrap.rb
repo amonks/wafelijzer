@@ -42,7 +42,7 @@ Wafelijzer::App.controllers :bootstrap do
 				blog = Blog.create(
 					:title => 'Example Blog Post about LEAFTYPE',
 					:body => '# This is an example blog post.',
-					:image_url => "http://imgur.com/xEFhhNq",
+					:image_url => "http://i.imgur.com/TUvQfGd.png",
 				)
 				blog.add_artist(leaftype)
 				Text.create(
