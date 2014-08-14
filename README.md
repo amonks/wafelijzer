@@ -19,6 +19,12 @@ Wafelijzer's development is guided by 3 principles:
 
 3.	**Stay lazy:** You already use services like bandcamp, soundcloud, vimeo, and youtube. Wafelijzer automatically pulls your content from these services so you don't have to type the same shit over and over.
 
+## Demo
+
+There's a demo running at [http://wafelijzer-demo.herokuapp.com/](http://wafelijzer-demo.herokuapp.com/)
+
+You can log into the [admin page](http://wafelijzer-demo.herokuapp.com/) with the username `admin@example.com` and the password `password`.
+
 ## 5-Minute Install
 
 To set up Wafelijzer you'll need a Mac. Or any other computer, provided it has [git](http://git-scm.com/downloads) installed, and a working `ruby` environment. 
