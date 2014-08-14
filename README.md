@@ -57,7 +57,7 @@ Title 					| Value
 label_name				| eg "Belgian Man Records"
 logo					| A url for your label's logo. It'll show up at the top right side of every page.
 theme 					| If you've added a theme, you can enter its title here.
-google_analytics_code	| If you use google analytics, you can enter your code here.
+google_analytics_code	| If you use google analytics, you can enter your code here. It looks something like `UA-22952798-15`.
 store_url				| If you already have a store, you can enter the url here and a link will be added in the navigation bar.
 facebook				| If you have a facebook page, enter the shortname here (whatever comes after `http://www.facebook.com/`) and a link will be added in the navigation bar.
 frontpage_item_count	| This is the number of recent things that show up on your front page. Default is 10. 
