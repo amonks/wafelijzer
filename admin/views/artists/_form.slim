@@ -1,53 +1,47 @@
 / name
-- error = @artist.errors.key?(:name) && @artist.errors[:name].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :name, :class => 'control-label'
+fieldset.control-group
+	label.control-label for="name" Artist Name
 	div class='controls'
 		= f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true
-		span class='help-inline' = error ? f.error_message_on(:name, :class => 'text-error') : pat(:example)
+		.help-block Properly formatted, eg "The Big Trucks"
 
 / slug
-- error = @artist.errors.key?(:slug) && @artist.errors[:slug].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :slug, :class => 'control-label'
+fieldset.control-group
+	label.control-label for="slug" Artist Slug (url)
 	div class='controls'
 		= f.text_field :slug, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:slug, :class => 'text-error') : pat(:example)
+		.help-block Easy to type, eg "trucks"
 
-/ real_name
-- error = @artist.errors.key?(:real_name) && @artist.errors[:real_name].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :real_name, :class => 'control-label'
+/ real_namecount > 0
+fieldset.control-group
+	label.control-label for="real_name" Artist Real Name, if applicable
 	div class='controls'
 		= f.text_field :real_name, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:real_name, :class => 'text-error') : pat(:example)
+		.help-block 
 
-/ soundcloud
-- error = @artist.errors.key?(:soundcloud) && @artist.errors[:soundcloud].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :soundcloud, :class => 'control-label'
+/ soundcloudcount > 0
+fieldset.control-group
+	label.control-label for="soundcloud" Soundcloud Name
 	div class='controls'
 		= f.text_field :soundcloud, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:soundcloud, :class => 'text-error') : pat(:example)
+		.help-block This should be the name used in your soundcloud URL
 
 / bio
-- error = @artist.errors.key?(:bio) && @artist.errors[:bio].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :bio, :class => 'control-label'
+fieldset.control-group
+	label.control-label for="bio" Artist Bio
 	div class='controls'
 		= f.text_area :bio, :class => 'form-control input-large input-with-feedback'
-		span class='help-inline' = error ? f.error_message_on(:bio, :class => 'text-error') : pat(:example)
+		.help-block You can use Markdown formatting
 
-/ image_url
-- error = @artist.errors.key?(:image_url) && @artist.errors[:image_url].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-	= f.label :image_url, :class => 'control-label'
+/ image_urlcount > 0
+fieldset.control-group
+	label.control-label for="image_url" Image URL
 	div class='controls'
 		= f.text_field :image_url, :class => 'form-control input-large input-with-feedback', :id=> 'image'
-		span class='help-inline' = error ? f.error_message_on(:image_url, :class => 'text-error') : pat(:example)
+		.help-block eg http://i.imgur.com/TUvQfGd.png
 
 / members
-= label_tag "members", :class => 'control-label'
+= label_tag "Members (if artist is a band)", :class => 'control-label'
 - Artist.where(:groups => @artist).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
 	fieldset class='control-group'
