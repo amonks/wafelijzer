@@ -10,3 +10,4 @@ db/*.db
 .env
 grunt/node_modules
 grunt/logs/*
+config/newrelic.yml
