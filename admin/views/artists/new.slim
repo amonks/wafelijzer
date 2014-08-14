@@ -1,7 +1,7 @@
-ul class="nav nav-tabs"
+ul.nav.nav-tabs
   li = link_to tag_icon(:list, pat(:list)), url(:artists, :index)
-  li class="active" = link_to tag_icon(:plus, pat(:new)), url(:artists, :new)
+  li.active = link_to tag_icon(:plus, pat(:new)), url(:artists, :new)
 
-div class="tabs-content"
-  = form_for :artist, url(:artists, :create), :class => 'form-horizontal' do |f|
+div.tabs-content
+  = form_for :artist, url(:artists, :create),  :class => 'form-horizontal' do |f|
     = partial 'artists/form', :locals => { :f => f }

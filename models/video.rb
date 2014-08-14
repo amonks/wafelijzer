@@ -12,11 +12,13 @@ class Video < Sequel::Model
 	end
 	def populate_from_youtube
     	response = ::JSON.parse(open("https://gdata.youtube.com/feeds/api/videos/" + self.youtube_id + "?v=2&alt=json").read)["entry"]
-    	title = response["title"]['$t']
-    	self.this.update(:title => title) if title
-    	about = response['media$group']["media$description"]['$t']
-    	self.this.update(:about => about ) if about
-        date = DateTime.strptime(response['published']['$t'].to_s.split("T")[0], '%Y-%m-%d')
-    	self.this.update(:release_date => date) if date
+        if response
+        	title = response["title"]['$t']
+        	self.this.update(:title => title) if title
+        	about = response['media$group']["media$description"]['$t']
+        	self.this.update(:about => about ) if about
+            date = DateTime.strptime(response['published']['$t'].to_s.split("T")[0], '%Y-%m-%d')
+        	self.this.update(:release_date => date) if date
+        end
 	end
 end

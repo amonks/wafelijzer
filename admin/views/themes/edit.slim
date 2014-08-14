@@ -1,8 +1,8 @@
-ul class="nav nav-tabs"
-  li = link_to tag_icon(:list, pat(:list)), url(:themes, :index)
-  li = link_to tag_icon(:plus, pat(:new)), url(:themes, :new)
-  li class="active" = link_to tag_icon(:edit, pat(:edit)), url(:themes, :edit, :id => @theme.id)
+ul.nav.nav-tabs
+	li = link_to tag_icon(:list, pat(:list)), url(:themes, :index)
+	li = link_to tag_icon(:plus, pat(:new)), url(:themes, :new)
+	li.active = link_to tag_icon(:edit, pat(:edit)), url(:themes, :edit, :id => @theme.id)
 
-div class="tabs-content"
-  = form_for :theme, url(:themes, :update, :id => @theme.id), :method => :put, :class => 'form-horizontal' do |f|
-    = partial 'themes/form', :locals => { :f => f }
+.tabs-content
+	= form_for :theme, url(:themes, :update, :id => @theme.id), :method => :put, :class => 'form-horizontal' do |f|
+		= partial 'themes/form', :locals => { :f => f }

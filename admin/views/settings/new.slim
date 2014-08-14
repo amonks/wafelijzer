@@ -1,7 +1,7 @@
-ul class="nav nav-tabs"
-  li = link_to tag_icon(:list, pat(:list)), url(:settings, :index)
-  li class="active" = link_to tag_icon(:plus, pat(:new)), url(:settings, :new)
+ul.nav.nav-tabs
+	li = link_to tag_icon(:list, pat(:list)), url(:settings, :index)
+	li.active = link_to tag_icon(:plus, pat(:new)), url(:settings, :new)
 
-div class="tabs-content"
-  = form_for :setting, url(:settings, :create), :class => 'form-horizontal' do |f|
-    = partial 'settings/form', :locals => { :f => f }
+.tabs-content
+	= form_for :setting, url(:settings, :create), 'parsley-validate' => '',  :class => 'form-horizontal' do |f|
+		= partial 'settings/form', :locals => { :f => f }

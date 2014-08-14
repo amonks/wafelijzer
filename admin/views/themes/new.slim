@@ -1,7 +1,7 @@
-ul class="nav nav-tabs"
-  li = link_to tag_icon(:list, pat(:list)), url(:themes, :index)
-  li class="active" = link_to tag_icon(:plus, pat(:new)), url(:themes, :new)
+ul.nav.nav-tabs
+	li = link_to tag_icon(:list, pat(:list)), url(:themes, :index)
+	li.active = link_to tag_icon(:plus, pat(:new)), url(:themes, :new)
 
-div class="tabs-content"
-  = form_for :theme, url(:themes, :create), :class => 'form-horizontal' do |f|
-    = partial 'themes/form', :locals => { :f => f }
+.tabs-content
+	= form_for :theme, url(:themes, :create), :class => 'form-horizontal' do |f|
+		= partial 'themes/form', :locals => { :f => f }

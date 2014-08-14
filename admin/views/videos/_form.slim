@@ -3,7 +3,7 @@ fieldset.control-group
 	= f.label :service, :class => 'control-label'
 	div class='controls'
 		label.radio-inline
-			input type="radio" name="video[service]" value="vimeo" Vimeo
+			input required='' type="radio" name="video[service]" value="vimeo" Vimeo
 		label.radio-inline
 			input type="radio" name="video[service]" value="youtube" Youtube
 
@@ -18,7 +18,7 @@ fieldset.control-group
 fieldset.control-group
 	label.control-label for="album[vimeo_id]" Vimeo ID (if applicable)
 	div class='controls'
-		= f.text_field :vimeo_id, :class => 'form-control input-large input-with-feedback', :placeholder => "34479631"
+		= f.number_field :vimeo_id, :class => 'form-control input-large input-with-feedback', :placeholder => "34479631"
 		.help-block Check your video's URL, it's after 'http://vimeo.com/'
 
 / youtube_idcount > 0

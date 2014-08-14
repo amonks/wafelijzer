@@ -2,14 +2,14 @@
 fieldset.control-group
 	label.control-label for="name" Artist Name
 	div class='controls'
-		= f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true
+		= f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
 		.help-block Properly formatted, eg "The Big Trucks"
 
 / slug
 fieldset.control-group
 	label.control-label for="slug" Artist Slug (url)
 	div class='controls'
-		= f.text_field :slug, :class => 'form-control input-large input-with-feedback'
+		= f.text_field :slug, :class => 'form-control input-large input-with-feedback', "data-parsley-type" => 'alphanum'
 		.help-block Easy to type, eg "trucks"
 
 / real_namecount > 0
@@ -37,7 +37,7 @@ fieldset.control-group
 fieldset.control-group
 	label.control-label for="image_url" Image URL
 	div class='controls'
-		= f.text_field :image_url, :class => 'form-control input-large input-with-feedback', :id=> 'image'
+		= f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :id=> 'image'
 		.help-block eg http://i.imgur.com/TUvQfGd.png
 
 / members
