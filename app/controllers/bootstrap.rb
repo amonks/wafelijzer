@@ -43,6 +43,7 @@ Wafelijzer::App.controllers :bootstrap do
 					:title => 'Example Blog Post about LEAFTYPE',
 					:body => '# This is an example blog post.',
 					:image_url => "http://i.imgur.com/TUvQfGd.png",
+					:release_date => Date.today
 				)
 				blog.add_artist(leaftype)
 				Text.create(
