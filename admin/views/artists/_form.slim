@@ -43,14 +43,15 @@ fieldset.control-group
 / members
 = label_tag "Members (if artist is a band)", :class => 'control-label'
 - Artist.where(:groups => @artist).order(:name, :name, :slug).each do |artist|
-	fieldset class='control-group'
-	fieldset class='control-group'
-		= label_tag artist.name, :class => 'control-label'
-		= check_box_tag 'members[' + artist.id.to_s + ']', :checked => true
+	fieldset.control-group.checkbox
+		label
+			= check_box_tag 'members[' + artist.id.to_s + ']', :checked => true
+			= artist.name
 - Artist.exclude(:groups => @artist).each do |artist|
-	fieldset class='control-group'
-		= label_tag artist.name, :class => 'control-label'
-		= check_box_tag 'members[' + artist.id.to_s + ']', :checked => false
+	fieldset.control-group.checkbox
+		label
+			= check_box_tag 'members[' + artist.id.to_s + ']', :checked => false
+			= artist.name
 
 div class="form-actions"
 	= f.submit pat(:save), :class => 'btn btn-primary'
