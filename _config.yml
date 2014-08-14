@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         kramdown
+highlighter:	  pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Wafelijzer
+tagline:          'Easy Record Label Websites'
+description:      'Brought to you by <a href="http://belgianman.com">Belgian Man Records</a>'
+url:              http://wafelijzer.belgianman.com
+baseurl:          /
+
+author:
+  name:           'Andrew Monks'
+  url:            https://monks.co
+
+paginate:         5
+
+# Custom vars
+version:          0.1.0
+
+github:
+  repo:           https://github.com/belgianman/wafelijzer

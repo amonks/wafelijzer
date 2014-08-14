@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Wafelijzer</title>
+ <link href="http://wafelijzer.belgianman.com/atom.xml" rel="self"/>
+ <link href="http://wafelijzer.belgianman.com/"/>
+ <updated>2014-08-14T18:40:39-04:00</updated>
+ <id>http://wafelijzer.belgianman.com</id>
+ <author>
+   <name>Andrew Monks</name>
+   <email></email>
+ </author>
+
+ 
+
+</feed>
