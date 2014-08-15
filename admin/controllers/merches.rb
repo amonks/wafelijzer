@@ -14,6 +14,7 @@ Wafelijzer::Admin.controllers :merches do
   post :create do
     @merch = Merch.new(params[:merch])
     if (@merch.save rescue false)
+      Wafelijzer::Admin.cache.flush
       @title = pat(:create_title, :model => "merch #{@merch.id}")
       flash[:success] = pat(:create_success, :model => 'Merch')
       params[:save_and_continue] ? redirect(url(:merches, :index)) : redirect(url(:merches, :edit, :id => @merch.id))
@@ -40,6 +41,7 @@ Wafelijzer::Admin.controllers :merches do
     @merch = Merch[params[:id]]
     if @merch
       if @merch.modified! && @merch.update(params[:merch])
+        Wafelijzer::Admin.cache.flush
         flash[:success] = pat(:update_success, :model => 'Merch', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:merches, :index)) :

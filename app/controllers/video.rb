@@ -1,6 +1,6 @@
 Wafelijzer::App.controllers :video do
   
-  get :index, :map => "/videos" do
+  get :index, :cache => true, :map => "/videos" do
     @title = "Videos"
     @videos = Video.order(Sequel.desc(:release_date), :id).all
 
@@ -8,7 +8,7 @@ Wafelijzer::App.controllers :video do
   end
 
 
-  get :index, :map => '/videos/:id' do
+  get :index, :cache => true, :map => '/videos/:id' do
   	@video = Video.where(:id => params['id']).first
   	@title = @video.title
     render 'video/show'

@@ -1,6 +1,6 @@
 Wafelijzer::App.controllers :merch do
 	
-	get :index, :map => '/merch' do
+	get :index, :cache => true, :map => '/merch' do
 		@title = @page_header = "Merch"
 		@merches = Merch.order(Sequel.desc(:release_date), :id).all
 		render 'merch/index'

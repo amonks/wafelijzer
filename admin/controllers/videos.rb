@@ -14,6 +14,7 @@ Wafelijzer::Admin.controllers :videos do
   post :create do
     @video = Video.new(params[:video])
     if (@video.save rescue false)
+      Wafelijzer::Admin.cache.flush
       params['artists'].each do |artist_id, role|
         if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
           if role.length > 0  
@@ -52,6 +53,7 @@ Wafelijzer::Admin.controllers :videos do
     @video = Video[params[:id]]
     if @video
       if @video.modified! && @video.update(params[:video])
+        Wafelijzer::Admin.cache.flush
         params['artists'].each do |artist_id, role|
           if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
             if role.length > 0  

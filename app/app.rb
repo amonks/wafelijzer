@@ -6,25 +6,18 @@ module Wafelijzer
 
     enable :sessions
 
-    ##
-    # Caching support.
-    #
-    # register Padrino::Assets
-    # enable :caching
-    #
-    # You can customize caching store engines:
-    #
-    # set :cache, Padrino::Cache.new(:LRUHash) # Keeps cached values in memory
-    # set :cache, Padrino::Cache.new(:Memcached) # Uses default server at localhost
-    # set :cache, Padrino::Cache.new(:Memcached, '127.0.0.1:11211', :exception_retry_limit => 1)
-    # set :cache, Padrino::Cache.new(:Memcached, :backend => memcached_or_dalli_instance)
-    # set :cache, Padrino::Cache.new(:Redis) # Uses default server at localhost
-    # set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 6379, :db => 0)
-    # set :cache, Padrino::Cache.new(:Redis, :backend => redis_instance)
-    # set :cache, Padrino::Cache.new(:Mongo) # Uses default server at localhost
-    # set :cache, Padrino::Cache.new(:Mongo, :backend => mongo_client_instance)
-    # set :cache, Padrino::Cache.new(:File, :dir => Padrino.root('tmp', app_name.to_s, 'cache')) # default choice
-    #
+
+    # enable caching
+    unless Padrino.env == :test
+      register Padrino::Cache
+      enable :caching
+    end
+
+    case Padrino.env
+      when :development then set :cache, Padrino::Cache.new(:Memcached) # Uses default server at localhost
+      when :production  then set :cache, Padrino::Cache.new(:Memcached, ENV['MEMCACHEDCLOUD_SERVERS'], :exception_retry_limit => 1)
+    end
+
 
     ##
     # Application configuration options.

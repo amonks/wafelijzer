@@ -1,6 +1,6 @@
 Wafelijzer::App.controllers :artist do
   
-  get :index, :map => '/artists' do
+  get :index, :cache => true, :map => '/artists' do
     @title = @page_header = "Artists"
     @artists = Artist.order(:name, :real_name, :slug).all
     render 'artist/index'
@@ -12,7 +12,7 @@ Wafelijzer::App.controllers :artist do
   #     else ...
   # end
 
-  get :index, :map => "/:slug", :priority => :low do
+  get :index, :cache => true, :map => "/:slug", :priority => :low do
     if @artist = Artist.where(:slug => params[:slug]).first
       @title = @artist.name
       render 'artist/show'

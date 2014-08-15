@@ -14,6 +14,7 @@ Wafelijzer::Admin.controllers :texts do
   post :create do
     @text = Text.new(params[:text])
     if (@text.save rescue false)
+      Wafelijzer::Admin.cache.flush
       @title = pat(:create_title, :model => "text #{@text.id}")
       flash[:success] = pat(:create_success, :model => 'Text')
       params[:save_and_continue] ? redirect(url(:texts, :index)) : redirect(url(:texts, :edit, :id => @text.id))
@@ -40,6 +41,7 @@ Wafelijzer::Admin.controllers :texts do
     @text = Text[params[:id]]
     if @text
       if @text.modified! && @text.update(params[:text])
+        Wafelijzer::Admin.cache.flush
         flash[:success] = pat(:update_success, :model => 'Text', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:texts, :index)) :

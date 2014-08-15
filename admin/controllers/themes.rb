@@ -14,6 +14,7 @@ Wafelijzer::Admin.controllers :themes do
   post :create do
     @theme = Theme.new(params[:theme])
     if (@theme.save rescue false)
+      Wafelijzer::Admin.cache.flush
       @title = pat(:create_title, :model => "theme #{@theme.id}")
       flash[:success] = pat(:create_success, :model => 'Theme')
       params[:save_and_continue] ? redirect(url(:themes, :index)) : redirect(url(:themes, :edit, :id => @theme.id))
@@ -40,6 +41,7 @@ Wafelijzer::Admin.controllers :themes do
     @theme = Theme[params[:id]]
     if @theme
       if @theme.modified! && @theme.update(params[:theme])
+        Wafelijzer::Admin.cache.flush
         flash[:success] = pat(:update_success, :model => 'Theme', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:themes, :index)) :

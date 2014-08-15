@@ -26,6 +26,17 @@ module Wafelijzer
     enable  :sessions
     disable :store_location
 
+    # enable caching
+    unless Padrino.env == :test
+      register Padrino::Cache
+      enable :caching
+    end
+
+    case Padrino.env
+      when :development then set :cache, Padrino::Cache.new(:Memcached) # Uses default server at localhost
+      when :production  then set :cache, Padrino::Cache.new(:Memcached, ENV['MEMCACHEDCLOUD_SERVERS'], :exception_retry_limit => 1)
+    end
+
     access_control.roles_for :any do |role|
       role.protect '/'
       role.allow   '/sessions'

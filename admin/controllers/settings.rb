@@ -14,6 +14,7 @@ Wafelijzer::Admin.controllers :settings do
   post :create do
     @setting = Setting.new(params[:setting])
     if (@setting.save rescue false)
+      Wafelijzer::Admin.cache.flush
       @title = pat(:create_title, :model => "setting #{@setting.id}")
       flash[:success] = pat(:create_success, :model => 'Setting')
       params[:save_and_continue] ? redirect(url(:settings, :index)) : redirect(url(:settings, :edit, :id => @setting.id))
@@ -40,6 +41,7 @@ Wafelijzer::Admin.controllers :settings do
     @setting = Setting[params[:id]]
     if @setting
       if @setting.modified! && @setting.update(params[:setting])
+        Wafelijzer::Admin.cache.flush
         flash[:success] = pat(:update_success, :model => 'Setting', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:settings, :index)) :
