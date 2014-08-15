@@ -7,7 +7,7 @@ if uri = URI.parse(ENV['DATABASE_URL'])
 end
 
 Sequel::Model.db = case Padrino.env
-  when :development then Sequel.connect("jdbc:postgresql://localhost/wafelijzer_development", :loggers => [logger])
+  when :development then Sequel.connect("jdbc:postgresql://localhost/wafelijzer_development", :max_connections => Integer(ENV['MAX_THREADS'] || 16), :loggers => [logger])
   when :production  then Sequel.connect(parsed,  :loggers => [logger])
   when :test        then Sequel.connect("jdbc:postgresql://localhost/wafelijzer_test",        :loggers => [logger])
 end
