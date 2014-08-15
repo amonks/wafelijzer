@@ -7,6 +7,7 @@ ruby '2.1.2'
 # Server requirements
 # gem 'thin' # or mongrel
 gem 'puma'
+gem 'memcached', :groups => [:development]
 
 
 # Optional JSON codec (faster performance)
@@ -26,7 +27,6 @@ gem 'kramdown'
 gem 'newrelic_rpm'
 gem 'chronic'
 gem 'titleize'
-gem 'memcached'
 gem 'stripe'
 gem 'slim'
 gem 'pg'
