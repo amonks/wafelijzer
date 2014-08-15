@@ -8,6 +8,7 @@ require 'bundler/setup'
 Bundler.require(:default, RACK_ENV)
 require 'date'
 require 'open-uri'
+require 'uri'
 
 ##
 # ## Enable devel logging
