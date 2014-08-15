@@ -16,7 +16,7 @@ gem 'oj_mimic_json'
 # Project requirements
 gem 'rake'
 gem 'dotenv', :groups => [:development, :test]
-gem 'pry', :groups => [:development]
+gem 'pry', :groups => [:development, :test]
 
 # Component requirements
 gem 'bcrypt'
@@ -37,6 +37,9 @@ gem 'foreman'
 
 
 # Test requirements
+gem 'minitest', :require => 'minitest/autorun', :group => 'test'
+gem 'capybara_minitest_spec', :group => 'test'
+gem 'rack-test', :require => 'rack/test', :group => 'test'
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.2'
