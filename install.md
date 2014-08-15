@@ -3,7 +3,7 @@ layout: page
 title: 5-Minute Install
 ---
 
-To set up Wafelijzer you'll need a Mac. Or any other computer, provided it has [git](http://git-scm.com/downloads) installed, and a working `ruby` environment. 
+To set up Wafelijzer you'll need a Mac. Or any other computer, provided it has [git](http://git-scm.com/downloads) installed.
 
 First off, you'll need a free [Heroku](https://www.heroku.com/) account and to install the [Heroku toolbelt](https://toolbelt.heroku.com/).
 
@@ -18,6 +18,7 @@ One by one, copy-and-paste the following lines into the Terminal, pressing enter
 	git clone https://github.com/belgianman/wafelijzer.git
 	heroku create
 	git push heroku master
+	heroku addons:add heroku-postgresql
 	heroku run rake sq:migrate:up
 	heroku addons:add memcachedcloud
 	heroku addons:add newrelic:stark
@@ -32,3 +33,13 @@ Boom! Safari (or Chrome, or some browser) just opened and you can see a really e
 ### You're done!
 
 You should click the "Admin Page" link on the bottom right and log in. Your username is `admin@example.com` and your password is `password`. Change them.
+
+### One more thing...
+
+Heroku automatically puts apps to sleep that don't get any traffic for a few minutes.
+
+Fortunately, they make it easy to set up a service to visit your website every minute to keep it awake.
+
+Go to your Heroku dashboard, click on the app, and click New Relic. This takes you to the New Relic dashboard, where you can monitor your website's performance.
+
+Now go to settings > availability monitoring, and enter your website's url (that opened up when you ran 'heroku open') and save.
