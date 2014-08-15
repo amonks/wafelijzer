@@ -19,7 +19,12 @@ One by one, copy-and-paste the following lines into the Terminal, pressing enter
 	heroku create
 	git push heroku master
 	heroku run rake sq:migrate:up
+	heroku addons:add memcachedcloud
+	heroku addons:add newrelic:stark
 	heroku restart
+
+It'll take a minute or so to start the server...
+
 	heroku open
 
 Boom! Safari (or Chrome, or some browser) just opened and you can see a really empty-lookin' website. Add `/bootstrap` to the URL in your browser's location bar to add some content and set up your account.
