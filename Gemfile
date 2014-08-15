@@ -19,7 +19,7 @@ gem 'bcrypt'
 gem 'sass'
 gem 'haml'
 gem 'kramdown'
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', :groups => [:production]
 gem 'chronic'
 gem 'titleize'
 gem 'stripe'
