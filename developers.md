@@ -5,7 +5,7 @@ title: Developers
 
 If you're into this kind of thing, and you'd like to hack on Wafelijzer, please do!
 
-[Fork](https://github.com/belgianman/wafelijzer/fork) the project repository, make and commit your changes, and submit a pull request.
+[Fork](https://github.com/belgianman/wafelijzer/fork) the project repository, make and commit your changes, and submit a pull request if you make anything cool.
 
 Wafelijzer is built with Ruby, using the [http://www.padrinorb.com/](Padrino) framework. It uses [http://slim-lang.com/](Slim) and [http://sass-lang.com/](Sass) for templating. It uses [Sequel](http://sequel.jeremyevans.net/) to connect to a PostgreSQL database. 
 
