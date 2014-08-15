@@ -42,6 +42,13 @@ Wafelijzer::App.controllers :bootstrap do
 				blog = Blog.create(
 					:title => 'Example Blog Post about LEAFTYPE',
 					:body => '# This is an example blog post.',
+					:type => 'press',
+					:release_date => Date.today
+				)
+				blog = Blog.create(
+					:title => 'Example Blog Post about LEAFTYPE',
+					:body => '# This is another example blog post.',
+					:type => 'events',
 					:release_date => Date.today
 				)
 				blog.add_artist(leaftype)
