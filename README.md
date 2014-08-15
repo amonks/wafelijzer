@@ -1,6 +1,6 @@
-![Wafelijzer Logo](http://wafelijzer.belgianman.com/public/logo-white.png)
+[![Wafelijzer Logo](http://wafelijzer.belgianman.com/public/logo-white.png)](http://wafelijzer.belgianman.com)
 
-## Brought to you by [Belgian Man Records](http://belgianman.com)
+Brought to you by [Belgian Man Records](http://belgianman.com)
 
 ### Check out the [Wafelijzer website](http://wafelijzer.belgianman.com) for documentation and more info.
 
