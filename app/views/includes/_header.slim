@@ -19,8 +19,7 @@ nav.navbar.navbar-default.navbar-static-top.plain-navbar role="navigation"
 			ul.nav.navbar-nav.navbar-right
 				- if Artist.all.length > 0
 					li = link_to "Artists", url_for(:artist, :index)
-				- if Blog.all.length > 0
-					- types = Blog.distinct(:type)
+				- if types = Blog.distinct(:type)
 					- types.each do |type|
 						li = link_to type.type.titleize, "/news/" + type.type
 				- if Album.all.length > 0
