@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.9'
 
 # Distribute your app as a gem
 # gemspec
@@ -7,13 +7,8 @@ ruby '2.1.2'
 # Server requirements
 # gem 'thin' # or mongrel
 gem 'puma'
-gem 'memcached', :groups => [:development]
+gem 'jruby-memcached', :groups => [:development]
 gem 'dalli', :groups => [:production]
-
-
-# Optional JSON codec (faster performance)
-gem 'oj'
-gem 'oj_mimic_json'
 
 # Project requirements
 gem 'rake'
@@ -30,7 +25,7 @@ gem 'chronic'
 gem 'titleize'
 gem 'stripe'
 gem 'slim'
-gem 'pg'
+gem 'jdbc-postgresql'
 gem 'sequel'
 gem 'typhoeus'
 
