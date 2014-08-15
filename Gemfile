@@ -12,7 +12,6 @@ gem 'dalli', :groups => [:production]
 
 # Project requirements
 gem 'rake'
-gem 'dotenv', :groups => [:development, :test]
 gem 'pry', :groups => [:development, :test]
 
 # Component requirements

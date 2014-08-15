@@ -158,7 +158,6 @@ DEPENDENCIES
   capybara_minitest_spec
   chronic
   dalli
-  dotenv
   foreman
   haml
   jdbc-postgresql

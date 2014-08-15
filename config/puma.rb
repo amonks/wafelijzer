@@ -1,1 +1,6 @@
-threads (0 || ENV["MIN_PUMA_THREADS"]), (5 || ENV["MAX_PUMA_THREADS"])
+threads Integer(ENV['MIN_THREADS']  || 1), Integer(ENV['MAX_THREADS'] || 16)
+
+preload_app!
+
+port        ENV['PORT']     || 3000
+environment ENV['RACK_ENV'] || 'development'
