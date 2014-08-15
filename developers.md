@@ -15,14 +15,15 @@ Wafelijzer is built with Ruby, using the [http://www.padrinorb.com/](Padrino) fr
 
 Wafelijzer uses memcached for caching.
 
+Install it using [https://github.com/Homebrew/homebrew](homebrew)
+
 ### ruby
 
 Wafelijzer uses ruby version 1.9.3, hosted by version 1.7.9 of the jruby engine.
 
-You'll probably want to use [rbenv](https://github.com/sstephenson/rbenv) to handle installng jruby.
+You'll probably want to use [rbenv](https://github.com/sstephenson/rbenv) to handle installng jruby. You can install it using homebrew.
 
 Run `bundle install` from the wafelijzer root folder to install all the dependencies, which are listed in the `Gemfile`
-
 
 ### postgres
 
@@ -57,7 +58,9 @@ The front-end assets are compiled and minified from the `app/assets` folder.
 
 compiling the assets requires Grunt, a javascript task runner.
 
-First, install [node.js](http://nodejs.org/), then run `npm install -g grunt-cli` to install grunt.
+First, install [node.js](http://nodejs.org/). You can also install it using Homebrew.
+
+Then run `npm install -g grunt-cli` to install grunt.
 
 Then, run `npm install` from `wafelijzer/grunt` to install the build dependencies.
 
