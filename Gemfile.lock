@@ -19,6 +19,7 @@ GEM
       minitest (>= 2)
     chronic (0.10.2)
     coderay (1.1.0)
+    dalli (2.7.2)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -140,6 +141,7 @@ DEPENDENCIES
   bcrypt
   capybara_minitest_spec
   chronic
+  dalli
   dotenv
   foreman
   haml

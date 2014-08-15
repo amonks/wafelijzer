@@ -8,6 +8,7 @@ ruby '2.1.2'
 # gem 'thin' # or mongrel
 gem 'puma'
 gem 'memcached', :groups => [:development]
+gem 'dalli', :groups => [:production]
 
 
 # Optional JSON codec (faster performance)

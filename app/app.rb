@@ -8,16 +8,20 @@ module Wafelijzer
 
 
     # enable caching
+
+    # enable caching
     unless Padrino.env == :test
       register Padrino::Cache
       enable :caching
+      if ENV["MEMCACHEDCLOUD_SERVERS"]
+          $cache = Dalli::Client.new(ENV["MEMCACHEDCLOUD_SERVERS"].split(','), :username => ENV["MEMCACHEDCLOUD_USERNAME"], :password => ENV["MEMCACHEDCLOUD_PASSWORD"])
+      end
     end
 
     case Padrino.env
       when :development then set :cache, Padrino::Cache.new(:Memcached) # Uses default server at localhost
-      when :production  then set :cache, Padrino::Cache.new(:Memcached, ENV['MEMCACHEDCLOUD_SERVERS'])
+      when :production  then set :cache, Padrino::Cache.new(:Memcached, :backend => $cache)
     end
-
 
     ##
     # Application configuration options.
