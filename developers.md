@@ -7,23 +7,42 @@ If you're into this kind of thing, and you'd like to hack on Wafelijzer, please 
 
 [Fork](https://github.com/belgianman/wafelijzer/fork) the project repository, make and commit your changes, and submit a pull request.
 
-Wafelijzer is built with Ruby, using the [http://www.padrinorb.com/](Padrino) framework. It uses [http://slim-lang.com/](Slim) and [http://sass-lang.com/](Sass) for templating. It uses [Sequel](http://sequel.jeremyevans.net/) to connect to a PostgreSQL database.
+Wafelijzer is built with Ruby, using the [http://www.padrinorb.com/](Padrino) framework. It uses [http://slim-lang.com/](Slim) and [http://sass-lang.com/](Sass) for templating. It uses [Sequel](http://sequel.jeremyevans.net/) to connect to a PostgreSQL database. 
 
 ## Dependencies
 
+### memcached
+
+Wafelijzer uses memcached for caching.
+
+### ruby
+
+Wafelijzer uses ruby version 1.9.3, hosted by version 1.7.9 of the jruby engine.
+
+You'll probably want to use [rbenv](https://github.com/sstephenson/rbenv) to handle installng jruby.
+
 Run `bundle install` from the wafelijzer root folder to install all the dependencies, which are listed in the `Gemfile`
 
-## Local database setup
+
+### postgres
 
 First, you'll need postgres running. If you're on a mac, install [postgres.app](http://postgresapp.com/)
 
-### Pull remote database to local PostgreSQL
+#### Start from scratch with a local postgres database
+
+from the wafelijzer root folder:
+
+	bundle exec padrino rake sq:migrate:auto
+
+#### Reference a remote postgres database
+
+##### Pull remote database to local PostgreSQL
 
 From the wafelijzer root folder:
 
 	heroku pg:pull DATABASE_URL wafelijzer_development
 
-### Push local database to remote PostgreSQL
+##### Push local database to remote PostgreSQL
 
 from the wafelijzer root folder:
 

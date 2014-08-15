@@ -15,12 +15,12 @@ Type `cd ` (with a space after), drag the folder icon right onto the Terminal wi
 
 One by one, copy-and-paste the following lines into the Terminal, pressing enter after each.
 
-  git clone https://github.com/belgianman/wafelijzer.git
-  heroku create
-  git push heroku master
-  heroku run rake sq:migrate:up
-  heroku restart
-  heroku open
+	git clone https://github.com/belgianman/wafelijzer.git
+	heroku create
+	git push heroku master
+	heroku run rake sq:migrate:up
+	heroku restart
+	heroku open
 
 Boom! Safari (or Chrome, or some browser) just opened and you can see a really empty-lookin' website. Add `/bootstrap` to the URL in your browser's location bar to add some content and set up your account.
 
