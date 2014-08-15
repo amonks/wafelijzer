@@ -2,7 +2,8 @@ Sequel::Model.plugin(:schema)
 Sequel::Model.plugin(:timestamps)
 Sequel::Model.raise_on_save_failure = false # Do not throw exceptions on failure
 
-if uri = URI.parse(ENV['DATABASE_URL'])
+if dburl = ENV['DATABASE_URL']
+	uri = URI.parse(dburl)
 	parsed = "jdbc:postgresql://" + uri.host + ":" + uri.port.to_s + uri.path + "?user=" + uri.user + "&password=" + uri.password
 end
 

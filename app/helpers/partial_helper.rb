@@ -6,6 +6,7 @@ module Wafelijzer
     	def databasePartial title
             text = Text.where(:title => title).first
             if text && text.body
+                require 'kramdown'
         		return Kramdown::Document.new(text.body).to_html
             else
                 return false

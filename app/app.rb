@@ -5,6 +5,7 @@ module Wafelijzer
     register Padrino::Helpers
 
     enable :sessions
+    require 'kramdown'
 
 
     # enable caching
