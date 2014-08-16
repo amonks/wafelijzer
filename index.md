@@ -3,11 +3,15 @@ layout: default
 title: Wafelijzer
 ---
 
+# Wafelijzer
+
+<p class="lead">
 Wafelijzer is web software you can use to make a beautiful and easy-to-run website for your record label or collective.
+</p>
 
 You can get it up and running in 5 minutes or less, and add artists, albums, news, videos, or even sell merch using the simple online interface.
 
-Wafelijzer looks fantastic out-of-the-box, but it's also totally customizable. Theme it up to your heart's content. 
+Wafelijzer looks fantastic out-of-the-box, but it's also totally customizable. Theme it up to your heart's content.
 
 ## Goals
 

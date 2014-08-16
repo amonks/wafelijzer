@@ -11,7 +11,7 @@
 
   <title>
     
-      5-Minute Install &middot; Wafelijzer
+      Liége &middot; Wafelijzer
     
   </title>
 
@@ -69,13 +69,13 @@
       
         
           
-            <a class="sidebar-nav-item active" href="/install/">5-Minute Install</a>
+            <a class="sidebar-nav-item" href="/install/">5-Minute Install</a>
           
         
       
         
           
-            <a class="sidebar-nav-item" href="/liege/">Liége</a>
+            <a class="sidebar-nav-item active" href="/liege/">Liége</a>
           
         
       
@@ -97,49 +97,22 @@
 
     <div class="content container">
       <div class="page">
-  <h1 class="page-title">5-Minute Install</h1>
-  <p>To set up Wafelijzer you’ll need a Mac. Or any other computer, provided it has <a href="http://git-scm.com/downloads">git</a> installed.</p>
+  <h1 class="page-title">Liége</h1>
+  <p><a href="https://github.com/belgianman/liege">Liége</a> is the Wafelijzer theme used on the <a href="http://belgianman.com">Belgian Man Records</a> website.</p>
 
-<p>First off, you’ll need a free <a href="https://www.heroku.com/">Heroku</a> account and to install the <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a>.</p>
+<p>You can find the theme files in the <a href="https://github.com/belgianman/liege/tree/master/build">build</a> folder.</p>
 
-<p>We’re gonna have to use the Terminal real quick, but only just this once. And it’s easy, I swear. On a Mac, you’ll find it in the <code>Utilities</code> folder within your <code>Applications</code> folder. </p>
+<h2 id="development">Development</h2>
 
-<p>Find the folder on your computer where you’d like to keep Wafelijzer, open the Terminal, and get your copy-and-paste fingers ready.</p>
+<p>You can use Liége as a template for building your own Wafelijzer theme.</p>
 
-<p>Type <code>cd </code> (with a space after), drag the folder icon right onto the Terminal window, and press enter.</p>
+<p>Add files to the <code>css/</code>, <code>js/</code>, or <code>stylus/</code> directories, then run <code>npm install</code> and <code>grunt</code> to combine and compress all the files together.</p>
 
-<p>One by one, copy-and-paste the following lines into the Terminal, pressing enter after each.</p>
+<p>You’ll find your compressed files in <code>build/</code>: <code>css.min.css</code> and <code>js.min.js</code>.</p>
 
-<pre><code>git clone https://github.com/belgianman/wafelijzer.git
-heroku create
-git push heroku master
-heroku addons:add heroku-postgresql
-heroku run rake sq:migrate:up
-heroku addons:add memcachedcloud
-heroku addons:add newrelic:stark
-heroku restart
-</code></pre>
+<h3 id="stylus">Stylus</h3>
 
-<p>It’ll take a minute or so to start the server…</p>
-
-<pre><code>heroku open
-</code></pre>
-
-<p>Boom! Safari (or Chrome, or some browser) just opened and you can see a really empty-lookin’ website. Add <code>/bootstrap</code> to the URL in your browser’s location bar to add some content and set up your account.</p>
-
-<h3 id="youre-done">You’re done!</h3>
-
-<p>You should click the “Admin Page” link on the bottom right and log in. Your username is <code>admin@example.com</code> and your password is <code>password</code>. Change them.</p>
-
-<h3 id="one-more-thing">One more thing…</h3>
-
-<p>Heroku automatically puts apps to sleep that don’t get any traffic for a few minutes.</p>
-
-<p>Fortunately, they make it easy to set up a service to visit your website every minute to keep it awake.</p>
-
-<p>Go to your Heroku dashboard, click on the app, and click New Relic. This takes you to the New Relic dashboard, where you can monitor your website’s performance.</p>
-
-<p>Now go to settings &gt; availability monitoring, and enter your website’s url (that opened up when you ran ‘heroku open’) and save.</p>
+<p>Liége uses <a href="http://learnboost.github.io/stylus/">Stylus</a> for CSS templating. Stylus files in <code>stylus/</code> are compiled to <code>css/stylus.css</code>, then combined and compressed with the rest of your CSS files.</p>
 
 </div>
 
