@@ -12,7 +12,8 @@ article.thumbnail
       h3 == artist.name
     - if artist.real_name.length > 0
       p
-        strong Real Name:
+        strong
+          ' Real Name:
         = artist.real_name
     - if artist.groups.length > 0
       p
