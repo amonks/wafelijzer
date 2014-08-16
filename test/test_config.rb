@@ -8,8 +8,8 @@ class MiniTest::Spec
   Capybara.app = Padrino.application
 
   Sequel.extension :migration
-  Sequel::Migrator.run(Sequel.connect("postgres://localhost/wafelijzer_test", :loggers => [logger]), "db/migrate", target: 0)
-  Sequel::Migrator.run(Sequel.connect("postgres://localhost/wafelijzer_test", :loggers => [logger]), "db/migrate")
+  Sequel::Migrator.run(Sequel.connect("jdbc:postgresql://localhost/wafelijzer_test", :loggers => [logger]), "db/migrate", target: 0)
+  Sequel::Migrator.run(Sequel.connect("jdbc:postgresql://localhost/wafelijzer_test", :loggers => [logger]), "db/migrate")
 
   # You can use this method to custom specify a Rack app
   # you want rack-test to invoke:
@@ -24,4 +24,15 @@ class MiniTest::Spec
     @app ||= block_given? ? app.instance_eval(&blk) : app
     @app ||= Padrino.application
   end
+
+  def login
+    visit '/bootstrap'
+    visit '/admin/sessions/new'
+    within(".login-body") do
+      fill_in 'Email', :with => 'admin@example.com'
+      fill_in 'Password', :with => 'password'
+    end
+    click_button 'Sign In'
+  end
+
 end

@@ -14,7 +14,7 @@ Wafelijzer::Admin.controllers :settings do
   post :create do
     @setting = Setting.new(params[:setting])
     if (@setting.save rescue false)
-      Wafelijzer::Admin.cache.flush
+      flush_cache
       @title = pat(:create_title, :model => "setting #{@setting.id}")
       flash[:success] = pat(:create_success, :model => 'Setting')
       params[:save_and_continue] ? redirect(url(:settings, :index)) : redirect(url(:settings, :edit, :id => @setting.id))
@@ -41,7 +41,7 @@ Wafelijzer::Admin.controllers :settings do
     @setting = Setting[params[:id]]
     if @setting
       if @setting.modified! && @setting.update(params[:setting])
-        Wafelijzer::Admin.cache.flush
+        flush_cache
         flash[:success] = pat(:update_success, :model => 'Setting', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:settings, :index)) :
@@ -61,6 +61,7 @@ Wafelijzer::Admin.controllers :settings do
     setting = Setting[params[:id]]
     if setting
       if setting.destroy
+        flush_cache
         flash[:success] = pat(:delete_success, :model => 'Setting', :id => "#{params[:id]}")
       else
         flash[:error] = pat(:delete_error, :model => 'setting')
@@ -80,9 +81,9 @@ Wafelijzer::Admin.controllers :settings do
     end
     ids = params[:setting_ids].split(',').map(&:strip)
     settings = Setting.where(:id => ids)
-    
+
     if settings.destroy
-    
+      flush_cache
       flash[:success] = pat(:destroy_many_success, :model => 'Settings', :ids => "#{ids.to_sentence}")
     end
     redirect url(:settings, :index)

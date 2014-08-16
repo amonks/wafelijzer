@@ -14,12 +14,12 @@ Wafelijzer::Admin.controllers :videos do
   post :create do
     @video = Video.new(params[:video])
     if (@video.save rescue false)
-      Wafelijzer::Admin.cache.flush
+      flush_cache
       params['artists'].each do |artist_id, role|
         if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
-          if role.length > 0  
+          if role.length > 0
             ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
-            ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
+            ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)
           elsif role.length == 0
             ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
           end
@@ -53,12 +53,12 @@ Wafelijzer::Admin.controllers :videos do
     @video = Video[params[:id]]
     if @video
       if @video.modified! && @video.update(params[:video])
-        Wafelijzer::Admin.cache.flush
+        flush_cache
         params['artists'].each do |artist_id, role|
           if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
-            if role.length > 0  
+            if role.length > 0
               ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
-              ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
+              ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)
             elsif role.length == 0
               ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
             end
@@ -110,9 +110,9 @@ Wafelijzer::Admin.controllers :videos do
     videos.each do |video|
       ArtistsVideos.where(:video_id => video.id).destroy
     end
-    
+
     if videos.destroy
-    
+
       flash[:success] = pat(:destroy_many_success, :model => 'Videos', :ids => "#{ids.to_sentence}")
     end
     redirect url(:videos, :index)

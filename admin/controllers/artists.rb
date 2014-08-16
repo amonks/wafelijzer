@@ -14,7 +14,7 @@ Wafelijzer::Admin.controllers :artists do
   post :create do
     @artist = Artist.new(params[:artist])
     if (@artist.save rescue false)
-      Wafelijzer::Admin.cache.flush
+      flush_cache
       if params[:members]
         params[:members].each do |member|
           @artist.add_member(member.first)
@@ -46,7 +46,7 @@ Wafelijzer::Admin.controllers :artists do
     @artist = Artist[params[:id]]
     if @artist
       if @artist.modified! && @artist.update(params[:artist])
-        Wafelijzer::Admin.cache.flush
+        flush_cache
         if params[:members]
           @artist.remove_all_members
           params[:members].each do |member|
@@ -75,6 +75,7 @@ Wafelijzer::Admin.controllers :artists do
     ArtistsVideos.where(:artist_id => artist.id).destroy
     if artist
       if artist.destroy
+        flush_cache
         flash[:success] = pat(:delete_success, :model => 'Artist', :id => "#{params[:id]}")
       else
         flash[:error] = pat(:delete_error, :model => 'artist')
@@ -99,9 +100,9 @@ Wafelijzer::Admin.controllers :artists do
       AlbumsArtists.where(:artist_id => artist.id).destroy
       ArtistsVideos.where(:artist_id => artist.id).destroy
     end
-    
+
     if artists.destroy
-    
+      flosh_cache
       flash[:success] = pat(:destroy_many_success, :model => 'Artists', :ids => "#{ids.to_sentence}")
     end
     redirect url(:artists, :index)

@@ -14,7 +14,7 @@ Wafelijzer::Admin.controllers :merches do
   post :create do
     @merch = Merch.new(params[:merch])
     if (@merch.save rescue false)
-      Wafelijzer::Admin.cache.flush
+      flush_cache
       @title = pat(:create_title, :model => "merch #{@merch.id}")
       flash[:success] = pat(:create_success, :model => 'Merch')
       params[:save_and_continue] ? redirect(url(:merches, :index)) : redirect(url(:merches, :edit, :id => @merch.id))
@@ -41,7 +41,7 @@ Wafelijzer::Admin.controllers :merches do
     @merch = Merch[params[:id]]
     if @merch
       if @merch.modified! && @merch.update(params[:merch])
-        Wafelijzer::Admin.cache.flush
+        flush_cache
         flash[:success] = pat(:update_success, :model => 'Merch', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:merches, :index)) :
@@ -61,6 +61,7 @@ Wafelijzer::Admin.controllers :merches do
     merch = Merch[params[:id]]
     if merch
       if merch.destroy
+        flush_cache
         flash[:success] = pat(:delete_success, :model => 'Merch', :id => "#{params[:id]}")
       else
         flash[:error] = pat(:delete_error, :model => 'merch')
@@ -80,9 +81,9 @@ Wafelijzer::Admin.controllers :merches do
     end
     ids = params[:merch_ids].split(',').map(&:strip)
     merches = Merch.where(:id => ids)
-    
+
     if merches.destroy
-    
+      flush_cache
       flash[:success] = pat(:destroy_many_success, :model => 'Merches', :ids => "#{ids.to_sentence}")
     end
     redirect url(:merches, :index)

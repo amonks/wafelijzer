@@ -29,7 +29,7 @@ fieldset.control-group
 			= artist.name + "'s Role"
 		.input-group
 			span.input-group-addon
-				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' id='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
 			input.form-control.input-medium type="text"  name='#{"artists[" + artist.id.to_s + "]"}' value="#{AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role}"
 
 - Artist.exclude(:albums => @album).order(:name, :name, :slug).each do |artist|
@@ -38,8 +38,8 @@ fieldset.control-group
 			= artist.name + "'s Role"
 		.input-group
 			span.input-group-addon
-				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
-			input.form-control.input-medium type="text"   name='#{"artists[" + artist.id.to_s + "]"}' placeholder="Producer"
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' id='#{"artistsEnabled[" + artist.id.to_s + "]"}'
+			input.form-control.input-medium type="text"   id='#{"artists[" + artist.id.to_s + "]"}' name='#{"artists[" + artist.id.to_s + "]"}' placeholder="Producer"
 
 div class="form-actions"
 	= f.submit pat(:save), :class => 'btn btn-primary'

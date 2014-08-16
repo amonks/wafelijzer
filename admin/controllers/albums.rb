@@ -14,7 +14,7 @@ Wafelijzer::Admin.controllers :albums do
   post :create do
     @album = Album.new(params[:album])
     if (@album.save rescue false)
-      Wafelijzer::Admin.cache.flush
+      flush_cache
       params['artists'].each do |artist_id, role|
         if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
           if role.length > 0
@@ -52,7 +52,7 @@ Wafelijzer::Admin.controllers :albums do
     @album = Album[params[:id]]
     if @album
       if @album.modified! && @album.update(params[:album])
-        Wafelijzer::Admin.cache.flush
+        flush_cache
         params['artists'].each do |artist_id, role|
           if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
             if role.length > 0
@@ -84,6 +84,7 @@ Wafelijzer::Admin.controllers :albums do
     if album
       AlbumsArtists.where(:album_id => album.id).destroy
       if album.destroy
+        flush_cache
         flash[:success] = pat(:delete_success, :model => 'Album', :id => "#{params[:id]}")
       else
         flash[:error] = pat(:delete_error, :model => 'album')
@@ -107,6 +108,7 @@ Wafelijzer::Admin.controllers :albums do
       AlbumsArtists.where(:album_id => album.id).destroy
     end
     if albums.destroy
+      flush_cache
       flash[:success] = pat(:destroy_many_success, :model => 'Albums', :ids => "#{ids.to_sentence}")
     end
     redirect url(:albums, :index)

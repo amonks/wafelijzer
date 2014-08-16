@@ -14,7 +14,7 @@ Wafelijzer::Admin.controllers :blogs do
   post :create do
     @blog = Blog.new(params[:blog])
     if (@blog.save rescue false)
-      Wafelijzer::Admin.cache.flush
+      flush_cache
       @blog.update(:release_date => Chronic.parse(params[:release_date]))
       if params[:artists]
         params[:artists].each do |artist|
@@ -47,7 +47,7 @@ Wafelijzer::Admin.controllers :blogs do
     @blog = Blog[params[:id]]
     if @blog
       if @blog.modified! && @blog.update(params[:blog])
-        Wafelijzer::Admin.cache.flush
+        flush_cache
         @blog.update(:release_date => Chronic.parse(params[:release_date]))
         if params[:artists]
           @blog.remove_all_artists
@@ -74,6 +74,7 @@ Wafelijzer::Admin.controllers :blogs do
     blog = Blog[params[:id]]
     if blog
       if blog.destroy
+        flush_cache
         flash[:success] = pat(:delete_success, :model => 'Blog', :id => "#{params[:id]}")
       else
         flash[:error] = pat(:delete_error, :model => 'blog')
@@ -93,9 +94,9 @@ Wafelijzer::Admin.controllers :blogs do
     end
     ids = params[:blog_ids].split(',').map(&:strip)
     blogs = Blog.where(:id => ids)
-    
+
     if blogs.destroy
-    
+      flush_cache
       flash[:success] = pat(:destroy_many_success, :model => 'Blogs', :ids => "#{ids.to_sentence}")
     end
     redirect url(:blogs, :index)

@@ -14,7 +14,7 @@ Wafelijzer::Admin.controllers :texts do
   post :create do
     @text = Text.new(params[:text])
     if (@text.save rescue false)
-      Wafelijzer::Admin.cache.flush
+      flush_cache
       @title = pat(:create_title, :model => "text #{@text.id}")
       flash[:success] = pat(:create_success, :model => 'Text')
       params[:save_and_continue] ? redirect(url(:texts, :index)) : redirect(url(:texts, :edit, :id => @text.id))
@@ -41,7 +41,7 @@ Wafelijzer::Admin.controllers :texts do
     @text = Text[params[:id]]
     if @text
       if @text.modified! && @text.update(params[:text])
-        Wafelijzer::Admin.cache.flush
+        flush_cache
         flash[:success] = pat(:update_success, :model => 'Text', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:texts, :index)) :
@@ -61,6 +61,7 @@ Wafelijzer::Admin.controllers :texts do
     text = Text[params[:id]]
     if text
       if text.destroy
+        flush_cache
         flash[:success] = pat(:delete_success, :model => 'Text', :id => "#{params[:id]}")
       else
         flash[:error] = pat(:delete_error, :model => 'text')
@@ -80,9 +81,9 @@ Wafelijzer::Admin.controllers :texts do
     end
     ids = params[:text_ids].split(',').map(&:strip)
     texts = Text.where(:id => ids)
-    
+
     if texts.destroy
-    
+      flush_cache
       flash[:success] = pat(:destroy_many_success, :model => 'Texts', :ids => "#{ids.to_sentence}")
     end
     redirect url(:texts, :index)
