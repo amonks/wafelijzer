@@ -7,7 +7,9 @@ javascript:
     itemSelector: '.item',
     gutter: ".gutter-sizer"
   });
-  $("img").unveil(200, function() {
+  var imgLoad = imagesLoaded( $container );
+  // bind with .on()
+  imgLoad.on( 'progress', function() {
     $container.packery({
       itemSelector: '.item',
       gutter: ".gutter-sizer"
