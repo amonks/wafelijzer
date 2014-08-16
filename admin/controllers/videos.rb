@@ -19,7 +19,7 @@ Wafelijzer::Admin.controllers :videos do
         if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
           if role.length > 0  
             ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
-            ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)  
+            ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
           elsif role.length == 0
             ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
           end
@@ -53,24 +53,24 @@ Wafelijzer::Admin.controllers :videos do
     @video = Video[params[:id]]
     if @video
       if @video.modified! && @video.update(params[:video])
-      Wafelijzer::Admin.cache.flush
-      params['artists'].each do |artist_id, role|
-        if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
-          if role.length > 0  
-            ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
-            ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)  
-          elsif role.length == 0
-            ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
+        Wafelijzer::Admin.cache.flush
+        params['artists'].each do |artist_id, role|
+          if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
+            if role.length > 0  
+              ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
+              ArtistsVideos.create(:artist_id => artist_id, :video_id => @video.id, :role => role)    
+            elsif role.length == 0
+              ArtistsVideos.where(:artist_id => artist_id, :video_id => @video.id).destroy
+            end
           end
         end
-      end
-      @video.populate_from_vimeo if (@video.service == "vimeo")
-      @video.populate_from_youtube if (@video.service == "youtube")
+        @video.populate_from_vimeo if (@video.service == "vimeo")
+        @video.populate_from_youtube if (@video.service == "youtube")
 
-      flash[:success] = pat(:update_success, :model => 'Video', :id =>  "#{params[:id]}")
-      params[:save_and_continue] ?
-        redirect(url(:videos, :index)) :
-        redirect(url(:videos, :edit, :id => @video.id))
+        flash[:success] = pat(:update_success, :model => 'Video', :id =>  "#{params[:id]}")
+        params[:save_and_continue] ?
+          redirect(url(:videos, :index)) :
+          redirect(url(:videos, :edit, :id => @video.id))
       else
         flash.now[:error] = pat(:update_error, :model => 'video')
         render 'videos/edit'
@@ -112,6 +112,7 @@ Wafelijzer::Admin.controllers :videos do
     end
     
     if videos.destroy
+    
       flash[:success] = pat(:destroy_many_success, :model => 'Videos', :ids => "#{ids.to_sentence}")
     end
     redirect url(:videos, :index)

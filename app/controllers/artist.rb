@@ -1,9 +1,9 @@
 # # This is our Artist controller
-# 
+#
 # We'll use this file to handle routing for Artists.
 
 Wafelijzer::App.controllers :artist do
-  
+
   # This route is for the artists index at `/artists`
   get :index, :cache => true, :map => '/artists' do
 
@@ -23,7 +23,7 @@ Wafelijzer::App.controllers :artist do
 
     # If there's an artist with that slug, get it from the database
     if @artist = Artist.where(:slug => params[:slug]).first
-      
+
       # set the title
       @title = @artist.name
 

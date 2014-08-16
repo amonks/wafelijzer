@@ -1,8 +1,8 @@
 ul.nav.nav-tabs
-  li = link_to tag_icon(:list, pat(:list)), url(:videos, :index)
-  li = link_to tag_icon(:plus, pat(:new)), url(:videos, :new)
-  li.active = link_to tag_icon(:edit, pat(:edit)), url(:videos, :edit, :id => @video.id)
+	li = link_to tag_icon(:list, pat(:list)), url(:videos, :index)
+	li = link_to tag_icon(:plus, pat(:new)), url(:videos, :new)
+	li.active = link_to tag_icon(:edit, pat(:edit)), url(:videos, :edit, :id => @video.id)
 
 .tabs-content"
-  = form_for :video, url(:videos, :update, :id => @video.id), :method => :putwafelijzer, :class => 'form-horizontal' do |f|
-    = partial 'videos/form', :locals => { :f => f }
+	= form_for :video, url(:videos, :update, :id => @video.id), :method => :putwafelijzer, :class => 'form-horizontal' do |f|
+		= partial 'videos/form', :locals => { :f => f }

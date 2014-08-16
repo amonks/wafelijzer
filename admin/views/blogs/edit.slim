@@ -5,4 +5,4 @@ ul.nav.nav-tabs
 
 .tabs-content
   = form_for :blog, url(:blogs, :update, :id => @blog.id), :method => :put, :class => 'form-horizontal' do |f|
-  = partial 'blogs/form', :locals => { :f => f }
+    = partial 'blogs/form', :locals => { :f => f }

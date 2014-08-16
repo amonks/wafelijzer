@@ -1,18 +1,18 @@
 fieldset.control-group
-  label.control-label Setting Title
-  .controls
-    = f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, 'required' => ''
-    .help-block eg label_name
+	label.control-label Setting Title
+	.controls
+		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, 'required' => ''
+		.help-block eg label_name
 
 fieldset.control-group
-  label.control-label Setting Value
-  .controls
-    = f.text_field :body, :class => 'form-control input-large input-with-feedback', 'required' => ''
-    .help-block eg Belgian Man Records
+	label.control-label Setting Value
+	.controls
+		= f.text_field :body, :class => 'form-control input-large input-with-feedback', 'required' => ''
+		.help-block eg Belgian Man Records
 
 .form-actions
-  = f.submit pat(:save), :class => 'btn btn-primary'
-  |&nbsp;
-  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-  |&nbsp;
-  = link_to pat(:cancel), url(:settings, :index), :class => 'btn btn-default'
+	= f.submit pat(:save), :class => 'btn btn-primary'
+	|&nbsp;
+	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+	|&nbsp;
+	= link_to pat(:cancel), url(:settings, :index), :class => 'btn btn-default'

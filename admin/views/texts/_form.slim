@@ -1,23 +1,23 @@
 /title
 fieldset.control-group
-  label.control-label Text Title
-  div class='controls'
-    = f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => ''
-    .help-block eg 'footer'
-    
+	label.control-label Text Title
+	div class='controls'
+		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => ''
+		.help-block eg 'footer'
+		
 fieldset.control-group
-  label.control-label Text Body
-  div class='controls'
-    = f.text_area :body, :class => 'form-control input-large input-with-feedback'
-    .help-block eg 'Copyright *2014* Belgian Man Records'. You can use Markdown formatting here.
+	label.control-label Text Body
+	div class='controls'
+		= f.text_area :body, :class => 'form-control input-large input-with-feedback'
+		.help-block eg 'Copyright *2014* Belgian Man Records'. You can use Markdown formatting here.
 
 div class="form-actions"
-  = f.submit pat(:save), :class => 'btn btn-primary'
-  |&nbsp;
-  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-  |&nbsp;
-  = link_to pat(:cancel), url(:texts, :index), :class => 'btn btn-default'
+	= f.submit pat(:save), :class => 'btn btn-primary'
+	|&nbsp;
+	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+	|&nbsp;
+	= link_to pat(:cancel), url(:texts, :index), :class => 'btn btn-default'
 
 javascript:
-  var editor = new Editor();
-  editor.render();
+	var editor = new Editor();
+	editor.render();

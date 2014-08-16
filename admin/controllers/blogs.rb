@@ -95,6 +95,7 @@ Wafelijzer::Admin.controllers :blogs do
     blogs = Blog.where(:id => ids)
     
     if blogs.destroy
+    
       flash[:success] = pat(:destroy_many_success, :model => 'Blogs', :ids => "#{ids.to_sentence}")
     end
     redirect url(:blogs, :index)

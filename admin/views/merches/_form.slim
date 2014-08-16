@@ -2,50 +2,50 @@
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :title, :class => 'control-label'
   div class='controls'
-  = f.text_area :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
-  span class='help-inline' = error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
+    = f.text_area :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
 - error = @merch.errors.key?(:slug) && @merch.errors[:slug].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :slug, :class => 'control-label'
   div class='controls'
-  = f.text_area :slug, :class => 'form-control input-large input-with-feedback'
-  span class='help-inline' = error ? f.error_message_on(:slug, :class => 'text-error') : pat(:example)
+    = f.text_area :slug, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:slug, :class => 'text-error') : pat(:example)
 - error = @merch.errors.key?(:release_date) && @merch.errors[:release_date].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :release_date, :class => 'control-label'
   div class='controls'
-  = f.text_field :release_date, :class => 'form-control input-large input-with-feedback'
-  span class='help-inline' = error ? f.error_message_on(:release_date, :class => 'text-error') : pat(:example)
+    = f.text_field :release_date, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:release_date, :class => 'text-error') : pat(:example)
 - error = @merch.errors.key?(:image_url) && @merch.errors[:image_url].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :image_url, :class => 'control-label'
   div class='controls'
-  = f.text_area :image_url, :class => 'form-control input-large input-with-feedback'
-  span class='help-inline' = error ? f.error_message_on(:image_url, :class => 'text-error') : pat(:example)
+    = f.text_area :image_url, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:image_url, :class => 'text-error') : pat(:example)
 - error = @merch.errors.key?(:type) && @merch.errors[:type].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :type, :class => 'control-label'
   div class='controls'
-  = f.text_area :type, :class => 'form-control input-large input-with-feedback'
-  span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
+    = f.text_area :type, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
 - error = @merch.errors.key?(:about) && @merch.errors[:about].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :about, :class => 'control-label'
   div class='controls'
-  = f.text_area :about, :class => 'form-control input-large input-with-feedback'
-  span class='help-inline' = error ? f.error_message_on(:about, :class => 'text-error') : pat(:example)
+    = f.text_area :about, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:about, :class => 'text-error') : pat(:example)
 - error = @merch.errors.key?(:price_in_cents) && @merch.errors[:price_in_cents].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :price_in_cents, :class => 'control-label'
   div class='controls'
-  = f.text_field :price_in_cents, :class => 'form-control input-large input-with-feedback'
-  span class='help-inline' = error ? f.error_message_on(:price_in_cents, :class => 'text-error') : pat(:example)
+    = f.text_field :price_in_cents, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:price_in_cents, :class => 'text-error') : pat(:example)
 - error = @merch.errors.key?(:quantity) && @merch.errors[:quantity].count > 0
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :quantity, :class => 'control-label'
   div class='controls'
-  = f.text_field :quantity, :class => 'form-control input-large input-with-feedback'
-  span class='help-inline' = error ? f.error_message_on(:quantity, :class => 'text-error') : pat(:example)
+    = f.text_field :quantity, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:quantity, :class => 'text-error') : pat(:example)
 
 div class="form-actions"
   = f.submit pat(:save), :class => 'btn btn-primary'

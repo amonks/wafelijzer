@@ -6,9 +6,9 @@ Padrino.configure_apps do
   set :protection, :except => :path_traversal
   set :protect_from_csrf, true
 end
+# Now we'll mount the admin interface to /admin
+Padrino.mount("Wafelijzer::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
+
 
 # First we'll mount the main app to /
 Padrino.mount('Wafelijzer::App', :app_file => Padrino.root('app/app.rb')).to('/')
-
-# Now we'll mount the admin interface to /admin
-Padrino.mount("Wafelijzer::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")

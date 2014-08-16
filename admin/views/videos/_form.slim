@@ -1,55 +1,55 @@
 / service
 fieldset.control-group
-  = f.label :service, :class => 'control-label'
-  div class='controls'
-    label.radio-inline
-      input required='' type="radio" name="video[service]" value="vimeo" Vimeo
-    label.radio-inline
-      input type="radio" name="video[service]" value="youtube" Youtube
+	= f.label :service, :class => 'control-label'
+	div class='controls'
+		label.radio-inline
+			input required='' type="radio" name="video[service]" value="vimeo" Vimeo
+		label.radio-inline
+			input type="radio" name="video[service]" value="youtube" Youtube
 
 / type
 fieldset.control-group
-  = f.label :type, :class => 'control-label'
-  div class='controls'
-    = f.text_field :type, :class => 'form-control input-large input-with-feedback'
-    .help-block 'Music Video', 'Live Video', ...
+	= f.label :type, :class => 'control-label'
+	div class='controls'
+		= f.text_field :type, :class => 'form-control input-large input-with-feedback'
+		.help-block 'Music Video', 'Live Video', ...
 
 / vimeo_id
 fieldset.control-group
-  label.control-label for="album[vimeo_id]" Vimeo ID (if applicable)
-  div class='controls'
-    = f.number_field :vimeo_id, :class => 'form-control input-large input-with-feedback', :placeholder => "34479631"
-    .help-block Check your video's URL, it's after 'http://vimeo.com/'
+	label.control-label for="album[vimeo_id]" Vimeo ID (if applicable)
+	div class='controls'
+		= f.number_field :vimeo_id, :class => 'form-control input-large input-with-feedback', :placeholder => "34479631"
+		.help-block Check your video's URL, it's after 'http://vimeo.com/'
 
 / youtube_idcount > 0
 fieldset.control-group
-  label.control-label for="album[youtube_id]" Youtube ID (if applicable)
-  div class='controls'
-    = f.text_field :youtube_id, :class => 'form-control input-large input-with-feedback', :placeholder => "RGY9kzy0zVE"
-    .help-block Check your video's URL, it's after 'youtube.com/watch?v='
+	label.control-label for="album[youtube_id]" Youtube ID (if applicable)
+	div class='controls'
+		= f.text_field :youtube_id, :class => 'form-control input-large input-with-feedback', :placeholder => "RGY9kzy0zVE"
+		.help-block Check your video's URL, it's after 'youtube.com/watch?v='
 
 / personnel
 = label_tag "Personnel", :class => 'control-label'
 - Artist.where(:videos => @video).order(:name, :name, :slug).each do |artist|
-  fieldset class='control-group'
-    label.control-label
-      = artist.name + "'s Role"
-    .input-group
-      span.input-group-addon
-        input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
-      input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' value="#{ArtistsVideos.where(:video_id => @video.id, :artist_id => artist.id).first.role}"
+	fieldset class='control-group'
+		label.control-label
+			= artist.name + "'s Role"
+		.input-group
+			span.input-group-addon
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
+			input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' value="#{ArtistsVideos.where(:video_id => @video.id, :artist_id => artist.id).first.role}"
 - Artist.exclude(:videos => @video).order(:name, :name, :slug).each do |artist|
-  fieldset class='control-group'
-    label.control-label
-      = artist.name + "'s Role"
-    .input-group
-      span.input-group-addon
-        input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
-      input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' placeholder="Producer"
+	fieldset class='control-group'
+		label.control-label
+			= artist.name + "'s Role"
+		.input-group
+			span.input-group-addon
+				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
+			input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' placeholder="Producer"
 
 div class="form-actions"
-  = f.submit pat(:save), :class => 'btn btn-primary'
-  |&nbsp;
-  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-  |&nbsp;
-  = link_to pat(:cancel), url(:videos, :index), :class => 'btn btn-default'
+	= f.submit pat(:save), :class => 'btn btn-primary'
+	|&nbsp;
+	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+	|&nbsp;
+	= link_to pat(:cancel), url(:videos, :index), :class => 'btn btn-default'
