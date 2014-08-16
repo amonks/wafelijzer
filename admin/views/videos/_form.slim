@@ -37,7 +37,7 @@ fieldset.control-group
 		.input-group
 			span.input-group-addon
 				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
-			input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' value="#{ArtistsVideos.where(:video_id => @video.id, :artist_id => artist.id).first.role}"
+			input.form-control.input-large type="text" name='#{"artists[" + artist.id.to_s + "]"}' value="#{ArtistsVideos.where(:video_id => @video.id, :artist_id => artist.id).first.role}"
 - Artist.exclude(:videos => @video).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
 		label.control-label
@@ -45,7 +45,7 @@ fieldset.control-group
 		.input-group
 			span.input-group-addon
 				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
-			input.form-control.input-large type="text"  name='artists["#{ artist.id.to_s }"]' placeholder="Producer"
+			input.form-control.input-large type="text" name='#{"artists[" + artist.id.to_s + "]"}' placeholder="Producer"
 
 div class="form-actions"
 	= f.submit pat(:save), :class => 'btn btn-primary'
