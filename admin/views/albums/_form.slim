@@ -30,7 +30,7 @@ fieldset.control-group
 		.input-group
 			span.input-group-addon
 				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
-			input.form-control.input-medium type="text"  name='artists["#{ artist.id.to_s }"]' value="#{AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role}"
+			input.form-control.input-medium type="text"  name='artists[#{ artist.id.to_s }]' value="#{AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role}"
 
 - Artist.exclude(:albums => @album).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
