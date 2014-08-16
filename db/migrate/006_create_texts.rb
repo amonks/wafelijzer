@@ -3,11 +3,11 @@ Sequel.migration do
     create_table :texts do
       primary_key :id
 
-			# utility
-			DateTime	:created_at
-			DateTime	:updated_at
+      # utility
+      DateTime  :created_at
+      DateTime  :updated_at
 
-			# content
+      # content
       String :title
       String :body, :text => true # markdown formatted
 

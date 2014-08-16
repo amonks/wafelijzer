@@ -80,9 +80,7 @@ Wafelijzer::Admin.controllers :texts do
     end
     ids = params[:text_ids].split(',').map(&:strip)
     texts = Text.where(:id => ids)
-    
     if texts.destroy
-    
       flash[:success] = pat(:destroy_many_success, :model => 'Texts', :ids => "#{ids.to_sentence}")
     end
     redirect url(:texts, :index)

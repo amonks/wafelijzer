@@ -1,67 +1,33 @@
 doctype html
 html
-	head
-		title 
-			- if @title && name = settingValue('label_name') 
-				= @title + " | " + name
-			- elsif name = settingValue('label_name')
-				= name
-			- else
-				| Wafelijzer
-		meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-		script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-		script src="/js.min.js"
-		link href="/css.min.css" rel="stylesheet"
-		== themeCss
-	body
-		#wrap
-			== partial 'includes/header'
-			.container-fluid
-				- if @alert
-					.row
-						.col-xs-12
-							.alert class="alert-#{@alert_type}" = @alert
-				- if @title
-					.row 
-						.col-xs-12
-							h2.text-center = @title
-				#holder
-					.gutter-sizer
-					== yield
-			#push
-		.container-fluid
-			== partial 'includes/footer'
-		javascript:
-			// $('document').ready( function() {
-				// layout Packery after all images have loaded
-				var $container = $('#holder');
-				$container.packery({
-					itemSelector: '.item',
-					gutter: ".gutter-sizer"
-				});
-				$container.imagesLoaded( function() {
-					$container.packery({
-						itemSelector: '.item',
-						gutter: ".gutter-sizer"
-					});
-				});
-			//})
-		- if settingValue "google_analytics_code"
-			javascript:
-				(function(i, s, o, g, r, a, m) {
-					i['GoogleAnalyticsObject'] = r;
-					i[r] = i[r] || function() {
-						(i[r].q = i[r].q || []).push(arguments)
-					}, i[r].l = 1 * new Date();
-					a = s.createElement(o),
-					m = s.getElementsByTagName(o)[0];
-					a.async = 1;
-					a.src = g;
-					m.parentNode.insertBefore(a, m)
-				})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-				ga('create', '#{settingValue "google_analytics_code"}', 'auto');
-				ga('send', 'pageview');
-		== themeJs
-		== typeKit
-
+  head
+    title
+      - if @title && name = setting_value('label_name')
+        = @title + " | " + name
+      - elsif name = setting_value('label_name')
+        = name
+      - else
+        | Wafelijzer
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    link href="/css.min.css" rel="stylesheet"
+    script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+    == theme_css
+  body
+    #wrap
+      == partial 'includes/header'
+      .container-fluid
+        - if @alert
+          .row
+            .col-xs-12
+              .alert class="alert-#{@alert_type}" = @alert
+        - if @title
+          .row
+            .col-xs-12
+              h2.text-center = @title
+        #holder
+          .gutter-sizer
+          == yield
+      #push
+    .container-fluid
+      == partial 'includes/footer'
+    == partial 'includes/scripts'

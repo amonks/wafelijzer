@@ -4,13 +4,13 @@
 # Helper methods defined here can be accessed in any controller or view in the application
 
 module Wafelijzer
-	class App
-		module BlogHelper
+  class App
+    module BlogHelper
 
-			# methods go here
-			
-		end
+      # methods go here
+      
+    end
 
-		helpers BlogHelper
-	end
+    helpers BlogHelper
+  end
 end

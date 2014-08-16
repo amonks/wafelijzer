@@ -46,7 +46,7 @@ Wafelijzer::Admin.controllers :merches do
         params[:save_and_continue] ?
           redirect(url(:merches, :index)) :
           redirect(url(:merches, :edit, :id => @merch.id))
-      else
+        else
         flash.now[:error] = pat(:update_error, :model => 'merch')
         render 'merches/edit'
       end
@@ -80,9 +80,7 @@ Wafelijzer::Admin.controllers :merches do
     end
     ids = params[:merch_ids].split(',').map(&:strip)
     merches = Merch.where(:id => ids)
-    
     if merches.destroy
-    
       flash[:success] = pat(:destroy_many_success, :model => 'Merches', :ids => "#{ids.to_sentence}")
     end
     redirect url(:merches, :index)

@@ -1,49 +1,49 @@
 / bandcamp url
 fieldset.control-group
-	label.control-label for="bandcamp_url" Bandcamp Url (required):
-	div class='controls'
-		= f.url_field :bandcamp_url, :class => 'form-control input-medium input-with-feedback', :placeholder => "http://music.belgianman.com/album/..."
-		.help-block Any Bandcamp album (not track)
+  label.control-label for="bandcamp_url" Bandcamp Url (required):
+  div class='controls'
+    = f.url_field :bandcamp_url, :class => 'form-control input-medium input-with-feedback', :placeholder => "http://music.belgianman.com/album/..."
+    .help-block Any Bandcamp album (not track)
 
 
 / (record) label
 fieldset.control-group
-	label.control-label for="label" Record Label:
-	div class='controls'
-		- placeholder = settingValue("label_name") || ""
-		= f.text_field :label, :class => 'form-control input-medium input-with-feedback', :value => @album.label || placeholder
-		.help-block Record Label
+  label.control-label for="label" Record Label:
+  div class='controls'
+    - placeholder = setting_value("label_name") || ""
+    = f.text_field :label, :class => 'form-control input-medium input-with-feedback', :value => @album.label || placeholder
+    .help-block Record Label
 
 / type
 fieldset.control-group
-	label.control-label for="type" Release Type:
-	div class='controls'
-		= f.text_field :type, :class => 'form-control input-medium input-with-feedback'
-		.help-block 'Single', 'EP', 'Sweet Jam', 'DJ Mix', ...
+  label.control-label for="type" Release Type:
+  div class='controls'
+    = f.text_field :type, :class => 'form-control input-medium input-with-feedback'
+    .help-block 'Single', 'EP', 'Sweet Jam', 'DJ Mix', ...
 
 / personnel
 = label_tag "Personnel", :class => 'control-label'
 - Artist.where(:albums => @album).order(:name, :name, :slug).each do |artist|
-	fieldset class='control-group'
-		label.control-label
-			= artist.name + "'s Role"
-		.input-group
-			span.input-group-addon
-				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
-			input.form-control.input-medium type="text"  name='artists["#{ artist.id.to_s }"]' value="#{AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role}"
+  fieldset class='control-group'
+    label.control-label
+      = artist.name + "'s Role"
+    .input-group
+      span.input-group-addon
+        input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}' checked="true"
+      input.form-control.input-medium type="text"  name='artists["#{ artist.id.to_s }"]' value="#{AlbumsArtists.where(:album_id => @album.id, :artist_id => artist.id).first.role}"
 
 - Artist.exclude(:albums => @album).order(:name, :name, :slug).each do |artist|
-	fieldset class='control-group'
-		label.control-label
-			= artist.name + "'s Role"
-		.input-group
-			span.input-group-addon
-				input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
-			input.form-control.input-medium type="text"  name='artists["#{ artist.id.to_s }"]' placeholder="Producer"
+  fieldset class='control-group'
+    label.control-label
+      = artist.name + "'s Role"
+    .input-group
+      span.input-group-addon
+        input type="checkbox" name='#{"artistsEnabled[" + artist.id.to_s + "]"}'
+      input.form-control.input-medium type="text"  name='artists["#{ artist.id.to_s }"]' placeholder="Producer"
 
 div class="form-actions"
-	= f.submit pat(:save), :class => 'btn btn-primary'
-	|&nbsp;
-	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-	|&nbsp;
-	= link_to pat(:cancel), url(:albums, :index), :class => 'btn btn-default'
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:albums, :index), :class => 'btn btn-default'

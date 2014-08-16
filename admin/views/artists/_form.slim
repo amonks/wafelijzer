@@ -1,65 +1,65 @@
 / name
 fieldset.control-group
-	label.control-label for="name" Artist Name
-	div class='controls'
-		= f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
-		.help-block Properly formatted, eg "The Big Trucks"
+  label.control-label for="name" Artist Name
+  div class='controls'
+    = f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    .help-block Properly formatted, eg "The Big Trucks"
 
 / slug
 fieldset.control-group
-	label.control-label for="slug" Artist Slug (url)
-	div class='controls'
-		= f.text_field :slug, :class => 'form-control input-large input-with-feedback', "data-parsley-type" => 'alphanum'
-		.help-block Easy to type, eg "trucks"
+  label.control-label for="slug" Artist Slug (url)
+  div class='controls'
+    = f.text_field :slug, :class => 'form-control input-large input-with-feedback', "data-parsley-type" => 'alphanum'
+    .help-block Easy to type, eg "trucks"
 
 / real_namecount > 0
 fieldset.control-group
-	label.control-label for="real_name" Artist Real Name, if applicable
-	div class='controls'
-		= f.text_field :real_name, :class => 'form-control input-large input-with-feedback'
-		.help-block 
+  label.control-label for="real_name" Artist Real Name, if applicable
+  div class='controls'
+    = f.text_field :real_name, :class => 'form-control input-large input-with-feedback'
+    .help-block 
 
 / soundcloudcount > 0
 fieldset.control-group
-	label.control-label for="soundcloud" Soundcloud Name
-	div class='controls'
-		= f.text_field :soundcloud, :class => 'form-control input-large input-with-feedback'
-		.help-block This should be the name used in your soundcloud URL
+  label.control-label for="soundcloud" Soundcloud Name
+  div class='controls'
+    = f.text_field :soundcloud, :class => 'form-control input-large input-with-feedback'
+    .help-block This should be the name used in your soundcloud URL
 
 / bio
 fieldset.control-group
-	label.control-label for="bio" Artist Bio
-	div class='controls'
-		= f.text_area :bio, :class => 'form-control input-large input-with-feedback'
-		.help-block You can use Markdown formatting
+  label.control-label for="bio" Artist Bio
+  div class='controls'
+    = f.text_area :bio, :class => 'form-control input-large input-with-feedback'
+    .help-block You can use Markdown formatting
 
 / image_urlcount > 0
 fieldset.control-group
-	label.control-label for="image_url" Image URL
-	div class='controls'
-		= f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :id=> 'image'
-		.help-block eg http://i.imgur.com/TUvQfGd.png
+  label.control-label for="image_url" Image URL
+  div class='controls'
+    = f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :id=> 'image'
+    .help-block eg http://i.imgur.com/TUvQfGd.png
 
 / members
 = label_tag "Members (if artist is a band)", :class => 'control-label'
 - Artist.where(:groups => @artist).order(:name, :name, :slug).each do |artist|
-	fieldset.control-group.checkbox
-		label
-			= check_box_tag 'members[' + artist.id.to_s + ']', :checked => true
-			= artist.name
+  fieldset.control-group.checkbox
+    label
+      = check_box_tag 'members[' + artist.id.to_s + ']', :checked => true
+      = artist.name
 - Artist.exclude(:groups => @artist).each do |artist|
-	fieldset.control-group.checkbox
-		label
-			= check_box_tag 'members[' + artist.id.to_s + ']', :checked => false
-			= artist.name
+  fieldset.control-group.checkbox
+    label
+      = check_box_tag 'members[' + artist.id.to_s + ']', :checked => false
+      = artist.name
 
 div class="form-actions"
-	= f.submit pat(:save), :class => 'btn btn-primary'
-	|&nbsp;
-	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-	|&nbsp;
-	= link_to pat(:cancel), url(:artists, :index), :class => 'btn btn-default'
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:artists, :index), :class => 'btn btn-default'
 
 javascript:
-	var editor = new Editor();
-	editor.render();
+  var editor = new Editor();
+  editor.render();

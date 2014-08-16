@@ -57,7 +57,7 @@ Wafelijzer::Admin.controllers :artists do
         params[:save_and_continue] ?
           redirect(url(:artists, :index)) :
           redirect(url(:artists, :edit, :id => @artist.id))
-      else
+        else
         flash.now[:error] = pat(:update_error, :model => 'artist')
         render 'artists/edit'
       end
@@ -68,7 +68,6 @@ Wafelijzer::Admin.controllers :artists do
   end
 
   delete :destroy, :with => :id do
-
     @title = "Artists"
     artist = Artist[params[:id]]
     AlbumsArtists.where(:artist_id => artist.id).destroy
@@ -79,7 +78,7 @@ Wafelijzer::Admin.controllers :artists do
       else
         flash[:error] = pat(:delete_error, :model => 'artist')
       end
-      redirect url(:artists, :index)
+        redirect url(:artists, :index)
     else
       flash[:warning] = pat(:delete_warning, :model => 'artist', :id => "#{params[:id]}")
       halt 404
@@ -101,7 +100,6 @@ Wafelijzer::Admin.controllers :artists do
     end
     
     if artists.destroy
-    
       flash[:success] = pat(:destroy_many_success, :model => 'Artists', :ids => "#{ids.to_sentence}")
     end
     redirect url(:artists, :index)

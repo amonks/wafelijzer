@@ -1,6 +1,6 @@
 Sequel.migration do
   up do
-  	alter_table :albums do
+    alter_table :albums do
       set_column_type :release_date, Date
     end
   end

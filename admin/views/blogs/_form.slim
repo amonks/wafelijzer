@@ -1,57 +1,57 @@
 / title
 fieldset.control-group
-	label.control-label Entry Title
-	.controls
-		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
-		.help-block eg New Writeup In P4K
+  label.control-label Entry Title
+  .controls
+    = f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    .help-block eg New Writeup In P4K
 
 / type
 fieldset.control-group
-	label.control-label Type
-	.controls
-		= f.text_field :type, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
-		.help-block eg 'press', 'event', 'news'. Each type becomes a link in the navigation bar up top.
+  label.control-label Type
+  .controls
+    = f.text_field :type, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    .help-block eg 'press', 'event', 'news'. Each type becomes a link in the navigation bar up top.
 
 / release_date
 fieldset.control-group
-	label.control-label Release Date
-	.controls
-		input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@blog.release_date}"
-		.help-block
-		
+  label.control-label Release Date
+  .controls
+    input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@blog.release_date}"
+    .help-block
+    
 / image_url
 fieldset.control-group
-	label.control-label Image Url
-	.controls
-		= f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :autofocus => true
-		.help-block eg http://i.imgur.com/TUvQfGd.png
+  label.control-label Image Url
+  .controls
+    = f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    .help-block eg http://i.imgur.com/TUvQfGd.png
 
 / body (markdown)
 fieldset.control-group
-	label.control-label Entry Content
-	.controls
-		= f.text_area :body
-		.help-block You can use Markdown formatting here.
+  label.control-label Entry Content
+  .controls
+    = f.text_area :body
+    .help-block You can use Markdown formatting here.
 
 / artists
 = label_tag "artists", :class => 'control-label'
 - Artist.where(:blogs => @blog).order(:name, :name, :slug).each do |artist|
-	fieldset.control-group.checkbox
-		label
-			= check_box_tag 'artists[' + artist.id.to_s + ']', :checked => true
-			= artist.name
+  fieldset.control-group.checkbox
+    label
+      = check_box_tag 'artists[' + artist.id.to_s + ']', :checked => true
+      = artist.name
 - Artist.exclude(:blogs => @blog).each do |artist|
-	fieldset.control-group.checkbox
-		label
-			= check_box_tag 'artists[' + artist.id.to_s + ']'
-			= artist.name
+  fieldset.control-group.checkbox
+    label
+      = check_box_tag 'artists[' + artist.id.to_s + ']'
+      = artist.name
 
 div class="form-actions"
-	= f.submit pat(:save), :class => 'btn btn-primary'
-	|&nbsp;
-	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-	|&nbsp;
-	= link_to pat(:cancel), url(:blogs, :index), :class => 'btn btn-default'
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:blogs, :index), :class => 'btn btn-default'
 javascript:
-	var editor = new Editor();
-	editor.render();
+  var editor = new Editor();
+  editor.render();

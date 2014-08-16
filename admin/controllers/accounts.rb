@@ -40,10 +40,10 @@ Wafelijzer::Admin.controllers :accounts do
     @account = Account[params[:id]]
     if @account
       if @account.modified! && @account.update(params[:account])
-        flash[:success] = pat(:update_success, :model => 'Account', :id =>  "#{params[:id]}")
-        params[:save_and_continue] ?
-          redirect(url(:accounts, :index)) :
-          redirect(url(:accounts, :edit, :id => @account.id))
+      flash[:success] = pat(:update_success, :model => 'Account', :id =>  "#{params[:id]}")
+      params[:save_and_continue] ?
+        redirect(url(:accounts, :index)) :
+        redirect(url(:accounts, :edit, :id => @account.id))
       else
         flash.now[:error] = pat(:update_error, :model => 'account')
         render 'accounts/edit'
@@ -78,11 +78,9 @@ Wafelijzer::Admin.controllers :accounts do
     end
     ids = params[:account_ids].split(',').map(&:strip)
     accounts = Account.where(:id => ids)
-    
     if accounts.include? current_account
       flash[:error] = pat(:delete_error, :model => 'account')
     elsif accounts.destroy
-    
       flash[:success] = pat(:destroy_many_success, :model => 'Accounts', :ids => "#{ids.to_sentence}")
     end
     redirect url(:accounts, :index)

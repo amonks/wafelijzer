@@ -42,6 +42,12 @@
 .navbar-brand {
   margin-top: 0;
 }
+.name {
+  display: inline-block;
+}
+.logo {
+  display: inline-block;
+}
 
 .item {
   width: 100%;

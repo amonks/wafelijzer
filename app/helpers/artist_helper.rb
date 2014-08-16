@@ -4,13 +4,13 @@
 # Helper methods defined here can be accessed in any controller or view in the application
 
 module Wafelijzer
-	class App
-		module ArtistHelper
+  class App
+    module ArtistHelper
 
-			# methods go here
-			
-		end
+      # methods go here
+      
+    end
 
-		helpers ArtistHelper
-	end
+    helpers ArtistHelper
+  end
 end

@@ -10,14 +10,17 @@ ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.9'
 
 
 # ## Server requirements
-# 
+#
 
 # puma is a threading-enabled server that works well in a `jruby` environment.
-gem 'puma' 	
+gem 'puma'
 
-# we'll use memcached for caching. 
-# In development we'll use the standard memcached gem
-gem 'jruby-memcached', :groups => [:development]
+# we'll use memcached for caching.
+# In development we'll use the standard memcached gem.
+# To turn caching on in development, uncomment the following lines and also
+# the relevant lines in `app/app.rb` and `admin/app.rb`
+#
+# gem 'jruby-memcached', :groups => [:development]
 
 # And on Heroku we'll use `dalli` to connect to their memcached-cloud server.
 gem 'dalli', :groups => [:production]
@@ -25,7 +28,7 @@ gem 'dalli', :groups => [:production]
 
 
 # ## Project requirements
-# 
+#
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.2'
@@ -45,7 +48,7 @@ gem 'pry', :groups => [:development, :test]
 
 
 # ## Component requirements
-# 
+#
 
 # We use bcrypt for hashing passwords in the admin app.
 gem 'bcrypt'
@@ -77,7 +80,7 @@ gem 'typhoeus'
 
 
 # # Test requirements
-# 
+#
 
 # We'll use minitest to run tests
 gem 'minitest', :require => 'minitest/autorun', :group => 'test'

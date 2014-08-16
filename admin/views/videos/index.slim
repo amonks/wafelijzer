@@ -4,64 +4,64 @@ ul class="nav nav-tabs"
 
 div class="tabs-content"
   table class="table table-striped table-hover table-condensed" id="list"
-    thead
-      tr
-        th class='header list-menu'
-          div class='dropdown'
-            a href='#' class='list-menu-toggle.dropdown-toggle dropdown-toggle' data-toggle='dropdown'
-              = tag_icon :magic
-              span class='caret'
-            ul class='list-menu dropdown-menu' role='dropdown'
-              li class='list-menu-wrapper' = link_to tag_icon(:check, pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
-              li class='list-menu-wrapper list-menu-wrapper-disabled' = link_to tag_icon('check-empty', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
-              li class='list-menu-divider divider'
-              li class='list-menu-wrapper list-menu-wrapper-disabled'
-                = link_to tag_icon(:trash, pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
-                div class='list-menu-popover-delete-selected popover right'
-                  div class='arrow'
-                  h3 class='popover-title' = pat(:delete_selected_title)
-                  div class='popover-content'
-                    = form_tag url(:videos, :destroy_many), :method => :delete do
-                      = hidden_field_tag :video_ids, :'data-delete-many-ids' => true
-                      = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
-                      div class='btn btn-default btn-small cancel' = pat(:cancel)
-        th class='header' = mat(:video, :id)
-        th class='header' = mat(:video, :created_at)
-        th class='header' = mat(:video, :updated_at)
-        th class='header' = mat(:video, :type)
-        th class='header' = mat(:video, :title)
-        th class='header' = mat(:video, :release_date)
-        th class='header' = mat(:video, :service)
-        th class='header' = mat(:video, "vimeo id")
-        th class='header' = mat(:video, "youtube id")
-        th class='header' = mat(:video, :about)
-        th class='header' = mat(:video, "personnel")
-        th class='header list-row-action-header'
+  thead
+    tr
+    th class='header list-menu'
+      div class='dropdown'
+      a href='#' class='list-menu-toggle.dropdown-toggle dropdown-toggle' data-toggle='dropdown'
+        = tag_icon :magic
+        span class='caret'
+      ul class='list-menu dropdown-menu' role='dropdown'
+        li class='list-menu-wrapper' = link_to tag_icon(:check, pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+        li class='list-menu-wrapper list-menu-wrapper-disabled' = link_to tag_icon('check-empty', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+        li class='list-menu-divider divider'
+        li class='list-menu-wrapper list-menu-wrapper-disabled'
+        = link_to tag_icon(:trash, pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+        div class='list-menu-popover-delete-selected popover right'
+          div class='arrow'
+          h3 class='popover-title' = pat(:delete_selected_title)
+          div class='popover-content'
+          = form_tag url(:videos, :destroy_many), :method => :delete do
+            = hidden_field_tag :video_ids, :'data-delete-many-ids' => true
+            = submit_tag  pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+            div class='btn btn-default btn-small cancel' = pat(:cancel)
+    th class='header' = mat(:video, :id)
+    th class='header' = mat(:video, :created_at)
+    th class='header' = mat(:video, :updated_at)
+    th class='header' = mat(:video, :type)
+    th class='header' = mat(:video, :title)
+    th class='header' = mat(:video, :release_date)
+    th class='header' = mat(:video, :service)
+    th class='header' = mat(:video, "vimeo id")
+    th class='header' = mat(:video, "youtube id")
+    th class='header' = mat(:video, :about)
+    th class='header' = mat(:video, "personnel")
+    th class='header list-row-action-header'
 
-    tbody
-      -@videos.each do |video|
-        tr class='list-row'
-          td class='list-column list-selectable' = check_box_tag 'video_ids[]', :value => video.id, :class => 'list-selectable-checkbox'
-          td class='list-column' = video.id
-          td class='list-column' = video.created_at
-          td class='list-column' = video.updated_at
-          td class='list-column' = video.type
-          td class='list-column' = video.title
-          td class='list-column' = video.release_date
-          td class='list-column' = video.service
-          td class='list-column' = video.vimeo_id
-          td class='list-column' = video.youtube_id
-          td class='list-column' = video.about
-          td class='list-column' = video.artists.map {|a| a.name + ": " + ArtistsVideos.where(:video_id => video.id, :artist_id => a.id).first.role }.join(", ")
+  tbody
+    -@videos.each do |video|
+    tr class='list-row'
+      td class='list-column list-selectable' = check_box_tag 'video_ids[]', :value => video.id, :class => 'list-selectable-checkbox'
+      td class='list-column' = video.id
+      td class='list-column' = video.created_at
+      td class='list-column' = video.updated_at
+      td class='list-column' = video.type
+      td class='list-column' = video.title
+      td class='list-column' = video.release_date
+      td class='list-column' = video.service
+      td class='list-column' = video.vimeo_id
+      td class='list-column' = video.youtube_id
+      td class='list-column' = video.about
+      td class='list-column' = video.artists.map {|a| a.name + ": " + ArtistsVideos.where(:video_id => video.id, :artist_id => a.id).first.role }.join(", ")
 
-          td class='list-column list-row-action'
-            div class='list-row-action-wrapper'
-              = link_to tag_icon(:edit), :href => url(:videos, :edit, :id => video.id), :rel => :tooltip, :title => "#{pat(:edit)} video", :class => 'list-row-action-wrapper-link'
-              = link_to tag_icon(:trash), :rel => :tooltip, :title => "#{pat(:delete)} video", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
-              div class='popover list-row-action-popover-delete-one left'
-                div class='arrow'
-                h3 class='popover-title' = pat(:delete, :model => "video")
-                div class='popover-content'
-                  = form_tag url(:videos, :destroy, :id => video.id), :method => :delete do
-                    = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
-                    div class='btn btn-default btn-small cancel' = pat(:cancel)
+      td class='list-column list-row-action'
+      div class='list-row-action-wrapper'
+        = link_to tag_icon(:edit), :href => url(:videos, :edit, :id => video.id), :rel => :tooltip, :title => "#{pat(:edit)} video", :class => 'list-row-action-wrapper-link'
+        = link_to tag_icon(:trash), :rel => :tooltip, :title => "#{pat(:delete)} video", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+        div class='popover list-row-action-popover-delete-one left'
+        div class='arrow'
+        h3 class='popover-title' = pat(:delete, :model => "video")
+        div class='popover-content'
+          = form_tag url(:videos, :destroy, :id => video.id), :method => :delete do
+          = submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+          div class='btn btn-default btn-small cancel' = pat(:cancel)

@@ -1,21 +1,21 @@
 article.thumbnail
-	- if video.service == "youtube"
-		== youtube_embed_from_id video.youtube_id
-	- if video.service == "vimeo"
-		== vimeo_embed_from_id video.vimeo_id
-	.caption
-		h3
-			a href="#{video_url(video)}" = video.title
-			span.small
-				- if video.type
-					= " " + video.type.titlecase
-			.small
-				- if video.release_date
-					= video.release_date
-		- video.artists.each do |artist|
-			p
-				a href="/#{artist.slug}" = artist.name
-				' :
-				= ArtistsVideos.where(:video_id => video.id, :artist_id => artist.id).first.role
-		-if video.about && video.about.length > 0
-			== Kramdown::Document.new(video.about).to_html
+  - if video.service == "youtube"
+    == youtube_embed_from_id video.youtube_id
+  - if video.service == "vimeo"
+    == vimeo_embed_from_id video.vimeo_id
+  .caption
+    h3
+      a href="#{video_url(video)}" = video.title
+      span.small
+        - if video.type
+          = " " + video.type.titlecase
+      .small
+        - if video.release_date
+          = video.release_date
+    - video.artists.each do |artist|
+      p
+        a href="/#{artist.slug}" = artist.name
+        ' :
+        = ArtistsVideos.where(:video_id => video.id, :artist_id => artist.id).first.role
+    -if video.about && video.about.length > 0
+      == Kramdown::Document.new(video.about).to_html

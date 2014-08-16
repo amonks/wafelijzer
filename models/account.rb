@@ -10,16 +10,16 @@ class Account < Sequel::Model
   attr_accessor :password, :password_confirmation
 
   def validate
-    validates_presence     :email
-    validates_presence     :role
-    validates_presence     :password if password_required
-    validates_presence     :password_confirmation if password_required
+    validates_presence   :email
+    validates_presence   :role
+    validates_presence   :password if password_required
+    validates_presence   :password_confirmation if password_required
     validates_length_range 4..40, :password unless password.blank?
     errors.add(:password_confirmation, 'must confirm password') if !password.blank? && password != password_confirmation
     validates_length_range 3..100, :email unless email.blank?
-    validates_unique       :email unless email.blank?
-    validates_format       /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :email unless email.blank?
-    validates_format       /[A-Za-z]/, :role unless role.blank?
+    validates_unique     :email unless email.blank?
+    validates_format     /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :email unless email.blank?
+    validates_format     /[A-Za-z]/, :role unless role.blank?
   end
 
   # Callbacks

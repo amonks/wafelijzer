@@ -46,7 +46,7 @@ Wafelijzer::Admin.controllers :themes do
         params[:save_and_continue] ?
           redirect(url(:themes, :index)) :
           redirect(url(:themes, :edit, :id => @theme.id))
-      else
+        else
         flash.now[:error] = pat(:update_error, :model => 'theme')
         render 'themes/edit'
       end
@@ -82,7 +82,6 @@ Wafelijzer::Admin.controllers :themes do
     themes = Theme.where(:id => ids)
     
     if themes.destroy
-    
       flash[:success] = pat(:destroy_many_success, :model => 'Themes', :ids => "#{ids.to_sentence}")
     end
     redirect url(:themes, :index)

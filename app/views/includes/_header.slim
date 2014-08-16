@@ -1,34 +1,34 @@
 nav.navbar.navbar-default.navbar-static-top.plain-navbar role="navigation"
-	.container-fluid
-		.navbar-header
-			button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle"
-				span.sr-only Toggle navigation
-				span.icon-bar
-				span.icon-bar
-				span.icon-bar
-			.navbar-brand
-				a href="/"
-					- if logo = settingValue('logo')
-						img src='#{logo}'
-					- else
-						- if name = settingValue('label_name')
-							= name
-						- else
-							| Wafelijzer
-		#navbar.collapse.navbar-collapse
-			ul.nav.navbar-nav.navbar-right
-				- if Artist.all.length > 0
-					li = link_to "Artists", url_for(:artist, :index)
-				- if types = Blog.distinct(:type)
-					- types.each do |type|
-						li = link_to type.type.titleize, "/news/" + type.type
-				- if Album.all.length > 0
-					li = link_to "Albums", "/albums"
-				- if Video.all.length > 0
-					li = link_to "Videos", "/videos"
-				- if Merch.all.length > 0
-					li = link_to "Merch", "/merch"
-				- if store = settingValue('store_url')
-					li = link_to "Store", store
-				- if facebook = settingValue('facebook')
-					li = link_to "Facebook", "http://facebook.com/" + facebook
+  .container-fluid
+    .navbar-header
+      button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      .navbar-brand
+        a href="/"
+          - if logo = setting_value('logo')
+            img src='#{logo}'
+          - else
+            - if name = setting_value('label_name')
+              = name
+            - else
+              | Wafelijzer
+    #navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        - if Artist.all.length > 0
+          li = link_to "Artists", url_for(:artist, :index)
+        - if types = Blog.distinct(:type)
+          - types.each do |type|
+            li = link_to type.type.titleize, "/news/" + type.type
+        - if Album.all.length > 0
+          li = link_to "Albums", "/albums"
+        - if Video.all.length > 0
+          li = link_to "Videos", "/videos"
+        - if Merch.all.length > 0
+          li = link_to "Merch", "/merch"
+        - if store = setting_value('store_url')
+          li = link_to "Store", store
+        - if facebook = setting_value('facebook')
+          li = link_to "Facebook", "http://facebook.com/" + facebook

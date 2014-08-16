@@ -1,29 +1,29 @@
 article.thumbnail
-	- if merch.image_url
-		img.img-responsive src="#{merch.image_url}"
-	.caption
-		- if merch.slug.length > 0
-			h3
-				a href="/merch/#{merch.slug}" = merch.title
-				- if merch.type.length > 0
-					span.small = " " + merch.type
-				- if quantity = merch.quantity
-					.quantity.small
-						- if quantity > 0
-							= quantity.to_s + " remaining"
-						- else 
-							| Sold out :(
-				- else quantity = 1
-		- else
-			h3 == merch.title
-		- if merch.about.length > 0
-			.description
-				== Kramdown::Document.new(merch.about).to_html
-		- if amount = merch.price_in_cents
-			.amount
-				== render_price amount
-		- if amount && quantity > 0 && stripe_publishable_key = check_for_stripe
-			form.pay action="/merch" method="post"
-				input style="display:none" name="merch-id" value="#{merch.id}"
-				input style="display:none" name="authenticity_token" value="#{session[:csrf]}"
-				script src="https://checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="#{stripe_publishable_key}"
+  - if merch.image_url
+    img.img-responsive src="#{merch.image_url}"
+  .caption
+    - if merch.slug.length > 0
+      h3
+        a href="/merch/#{merch.slug}" = merch.title
+        - if merch.type.length > 0
+          span.small = " " + merch.type
+        - if quantity = merch.quantity
+          .quantity.small
+            - if quantity > 0
+              = quantity.to_s + " remaining"
+            - else 
+              | Sold out :(
+        - else quantity = 1
+    - else
+      h3 == merch.title
+    - if merch.about.length > 0
+      .description
+        == Kramdown::Document.new(merch.about).to_html
+    - if amount = merch.price_in_cents
+      .amount
+        == render_price amount
+    - if amount && quantity > 0 && stripe_publishable_key = check_for_stripe
+      form.pay action="/merch" method="post"
+        input style="display:none" name="merch-id" value="#{merch.id}"
+        input style="display:none" name="authenticity_token" value="#{session[:csrf]}"
+        script src="https://checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="#{stripe_publishable_key}"

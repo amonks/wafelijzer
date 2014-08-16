@@ -46,7 +46,7 @@ Wafelijzer::Admin.controllers :settings do
         params[:save_and_continue] ?
           redirect(url(:settings, :index)) :
           redirect(url(:settings, :edit, :id => @setting.id))
-      else
+        else
         flash.now[:error] = pat(:update_error, :model => 'setting')
         render 'settings/edit'
       end
@@ -80,9 +80,7 @@ Wafelijzer::Admin.controllers :settings do
     end
     ids = params[:setting_ids].split(',').map(&:strip)
     settings = Setting.where(:id => ids)
-    
     if settings.destroy
-    
       flash[:success] = pat(:destroy_many_success, :model => 'Settings', :ids => "#{ids.to_sentence}")
     end
     redirect url(:settings, :index)

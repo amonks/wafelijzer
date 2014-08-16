@@ -1,8 +1,8 @@
 .item
-	== partial 'artist/artist', :object => @artist
+  == partial 'artist/artist', :object => @artist
 - if @artist.soundcloud && @artist.soundcloud.length > 0
-	.item
-		== soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
+  .item
+    == soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
 - @combined = (@artist.albums + @artist.videos + @artist.blogs).sort_by(&:release_date).reverse
 - @combined.each do |item|
-	== partial 'partials/item', :object => item
+  == partial 'partials/item', :object => item

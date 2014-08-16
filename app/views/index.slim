@@ -1,16 +1,16 @@
 .item
-	.thumbnail
-		.caption
-			- if name = settingValue('label_name')
-				h1 = name
-			- if databasePartial 'description'
-				== databasePartial 'description'
+  .thumbnail
+    .caption
+      - if name = setting_value('label_name')
+        h1 = name
+      - if database_partial 'description'
+        == database_partial 'description'
 
-- if name = settingValue("soundcloud_name")
-	.item
-		.thumbnail
-			== soundcloud_embed_last_favorite_from_name(name)
-- count = settingValue("frontpage_item_count") || "10"
+- if name = setting_value("soundcloud_name")
+  .item
+    .thumbnail
+      == soundcloud_embed_last_favorite_from_name(name)
+- count = setting_value("frontpage_item_count") || "10"
 - @combined = (Album.all + Video.all + Blog.all).sort_by(&:release_date).reverse
 - @combined[0..count.to_i - 1].each do |item|
-	== partial 'partials/item', :object => item
+  == partial 'partials/item', :object => item

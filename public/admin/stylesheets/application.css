@@ -12,7 +12,7 @@ body {
   padding: 0 10px;
 }
 .main-wrapper {
-  padding-top: 70px /* same as footer's height */
+  padding-top: 70px; /* same as footer's height */
 }
 .main-wrapper-push {
   height: 70px; /* same as the footer */
@@ -89,37 +89,37 @@ footer p {
 /* iPad */
 @media (max-device-height: 1024px) and (orientation:landscape) {
   .login {
-    margin-top: 30px;
+  margin-top: 30px;
   }
 }
 /* Android Google Galaxy Nexus, add others! */
 /* @media (-webkit-device-pixel-ratio: 2) and (orientation:landscape) { */
 /*   .login { */
-/*     margin-top: 10px; */
+/*   margin-top: 10px; */
 /*   } */
 /*   .login-header { */
-/*     display: none; */
+/*   display: none; */
 /*   } */
 /*   .login-body { */
-/*     padding: 10px 20px !important; */
+/*   padding: 10px 20px !important; */
 /*   } */
 /*   .login-controls { */
-/*     margin-left: 0px; */ 
+/*   margin-left: 0px; */ 
 /*   } */
 /* } */
 @media (-webkit-device-pixel-ratio: 2) and (orientation:portrait) {
   .login {
-    margin-top: 30px;
-    width: 320px;
+  margin-top: 30px;
+  width: 320px;
   }
   .login-header {
-    display: none;
+  display: none;
   }
   .login-body {
-    padding: 10px 20px !important;
+  padding: 10px 20px !important;
   }
   .login-controls {
-    margin-left: 0px; 
+  margin-left: 0px; 
   }
 }
 /* -- End Login -- */
@@ -150,7 +150,7 @@ footer p {
 /* Android Google Galaxy Nexus, add others! */
 @media (-webkit-device-pixel-ratio: 2) and (orientation:landscape) {
   .custom-error {
-    margin: 0 auto;
+  margin: 0 auto;
   }
 }
 /* -- End Errors -- */
@@ -329,25 +329,25 @@ footer p {
 /* Android Google Galaxy Nexus, add others! */
 @media (-webkit-device-pixel-ratio: 2) {
   .navbar-fixed-top {
-    position: relative !important;
-    margin: 0 0 20px 0;
-    padding: 0;
+  position: relative !important;
+  margin: 0 0 20px 0;
+  padding: 0;
   }
   .navbar-brand, .navbar-module, .navbar-edit-account, .navbar-logout {
-    float: left;
+  float: left;
   }
   .navbar .nav {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
   }
   .main-wrapper {
-    padding-top: 0;
+  padding-top: 0;
   }
   .main-wrapper .row {
-    padding: 0 20px;
+  padding: 0 20px;
   }
   footer {
-    display: none;
+  display: none;
   }
 }
 /* -- End Application -- */

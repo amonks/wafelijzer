@@ -1,15 +1,15 @@
 Sequel.migration do
   up do
     create_table :blogs do
-      primary_key	:id
+      primary_key  :id
 
       # utility
       DateTime  :created_at
       DateTime  :updated_at
 
       # content
-      String	:title
-      String	:body, 	:text => true
+      String  :title
+      String  :body,   :text => true
     end
   end
 

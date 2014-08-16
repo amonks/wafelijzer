@@ -1,25 +1,25 @@
 
 fieldset.control-group
-	label.control-label Theme Title
-	div class='controls'
-		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
-		.help-block eg 'belgianman'. Create a setting 'theme': '[theme-title]' to choose the theme.
+  label.control-label Theme Title
+  div class='controls'
+    = f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    .help-block eg 'belgianman'. Create a setting 'theme': '[theme-title]' to choose the theme.
 
 fieldset.control-group
-	label.control-label Theme CSS
-	div class='controls'
-		= f.text_area :css, :class => 'form-control input-large input-with-feedback'
-		.help-block	This is injected into every page.
+  label.control-label Theme CSS
+  div class='controls'
+    = f.text_area :css, :class => 'form-control input-large input-with-feedback'
+    .help-block  This is injected into every page.
 
 fieldset.control-group
-	label.control-label Theme Javascript
-	div class='controls'
-		= f.text_area :js, :class => 'form-control input-large input-with-feedback'
-		.help-block	This is injected into every page.
+  label.control-label Theme Javascript
+  div class='controls'
+    = f.text_area :js, :class => 'form-control input-large input-with-feedback'
+    .help-block  This is injected into every page.
 
 div class="form-actions"
-	= f.submit pat(:save), :class => 'btn btn-primary'
-	|&nbsp;
-	= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
-	|&nbsp;
-	= link_to pat(:cancel), url(:themes, :index), :class => 'btn btn-default'
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:themes, :index), :class => 'btn btn-default'

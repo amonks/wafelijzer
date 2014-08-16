@@ -4,4 +4,4 @@ ul class="nav nav-tabs"
 
 div class="tabs-content"
   = form_for :album, url(:albums, :create), :class => 'form-horizontal' do |f|
-    = partial 'albums/form', :locals => { :f => f }
+  = partial 'albums/form', :locals => { :f => f }
