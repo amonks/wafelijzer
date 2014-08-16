@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Developers &middot; Wafelijzer
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><img src="/public/logo-black.png" alt="Logo" id="logo"></a>
+      <p class="lead">Brought to you by <a href="http://belgianman.com">Belgian Man Records</a></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/customization/">Customization</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item active" href="/developers/">Developers</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/install/">5-Minute Install</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/updates/">Updates</a>
+          
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.com/belgianman/wafelijzer">GitHub Repo</a>
+      <span class="sidebar-nav-item">Currently v0.1.0</span>
+    </nav>
+
+    <p>&copy; 2014. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="page">
+  <h1 class="page-title">Developers</h1>
+  <p>If you’re into this kind of thing, and you’d like to hack on Wafelijzer, please do!</p>
+
+<p><a href="https://github.com/belgianman/wafelijzer/fork">Fork</a> the project repository, make and commit your changes, and submit a pull request if you make anything cool.</p>
+
+<p>Wafelijzer is built with Ruby, using the <a href="http://www.padrinorb.com/">Padrino</a> framework. It uses <a href="http://slim-lang.com/">Slim</a> and <a href="http://sass-lang.com/">Sass</a> for templating. It uses <a href="http://sequel.jeremyevans.net/">Sequel</a> to connect to a PostgreSQL database.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="memcached">memcached</h3>
+
+<p>Wafelijzer uses memcached for caching.</p>
+
+<p>Install it using <a href="https://github.com/Homebrew/homebrew">Homebrew</a></p>
+
+<h3 id="ruby">ruby</h3>
+
+<p>Wafelijzer uses ruby version 1.9.3, hosted by version 1.7.9 of the jruby engine.</p>
+
+<p>You’ll probably want to use <a href="https://github.com/sstephenson/rbenv">rbenv</a> to handle installng jruby. You can install it using homebrew.</p>
+
+<p>Run <code>bundle install</code> from the wafelijzer root folder to install all the dependencies, which are listed in the <code>Gemfile</code></p>
+
+<h3 id="postgres">postgres</h3>
+
+<p>First, you’ll need postgres running. If you’re on a mac, install <a href="http://postgresapp.com/">postgres.app</a></p>
+
+<h4 id="start-from-scratch-with-a-local-postgres-database">Start from scratch with a local postgres database</h4>
+
+<p>from the wafelijzer root folder:</p>
+
+<pre><code>bundle exec padrino rake sq:migrate:auto
+</code></pre>
+
+<h4 id="reference-a-remote-postgres-database">Reference a remote postgres database</h4>
+
+<h5 id="pull-remote-database-to-local-postgresql">Pull remote database to local PostgreSQL</h5>
+
+<p>From the wafelijzer root folder:</p>
+
+<pre><code>heroku pg:pull DATABASE_URL wafelijzer_development
+</code></pre>
+
+<h5 id="push-local-database-to-remote-postgresql">Push local database to remote PostgreSQL</h5>
+
+<p>from the wafelijzer root folder:</p>
+
+<pre><code>heroku pg:reset
+heroku pg:push wafelijzer_development DATABASE_URL
+</code></pre>
+
+<h2 id="front-end-assets">Front-End Assets</h2>
+
+<p>The front-end assets are compiled and minified from the <code>app/assets</code> folder.</p>
+
+<h3 id="compiling-assets">Compiling Assets</h3>
+
+<p>compiling the assets requires Grunt, a javascript task runner.</p>
+
+<p>First, install <a href="http://nodejs.org/">node.js</a>. You can also install it using Homebrew.</p>
+
+<p>Then run <code>npm install -g grunt-cli</code> to install grunt.</p>
+
+<p>Then, run <code>npm install</code> from <code>wafelijzer/grunt</code> to install the build dependencies.</p>
+
+<p>Finally, run <code>grunt</code> as needed to compile, or <code>grunt watch</code> to automatically build when the assets are changed.</p>
+
+</div>
+
+    </div>
+
+  </body>
+</html>

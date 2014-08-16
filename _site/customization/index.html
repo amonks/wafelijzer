@@ -34,7 +34,7 @@
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <img src="/public/logo-black.png" id="logo" />
+      <a href="/"><img src="/public/logo-black.png" alt="Logo" id="logo"></a>
       <p class="lead">Brought to you by <a href="http://belgianman.com">Belgian Man Records</a></p>
     </div>
 
@@ -59,6 +59,12 @@
       
         
           
+            <a class="sidebar-nav-item" href="/developers/">Developers</a>
+          
+        
+      
+        
+          
         
       
         
@@ -67,8 +73,14 @@
           
         
       
+        
+          
+            <a class="sidebar-nav-item" href="/updates/">Updates</a>
+          
+        
+      
 
-      <a class="sidebar-nav-item" href="https://github.com/belgianman/wafelijzer">GitHub project</a>
+      <a class="sidebar-nav-item" href="https://github.com/belgianman/wafelijzer">GitHub Repo</a>
       <span class="sidebar-nav-item">Currently v0.1.0</span>
     </nav>
 
@@ -105,7 +117,7 @@
       <td>If you’ve added a theme, you can enter its title here.</td>
     </tr>
     <tr>
-      <td>google_analytics_code</td>
+      <td>google_analytics_id</td>
       <td>If you use google analytics, you can enter your code here. It looks something like <code>UA-22952798-15</code>.</td>
     </tr>
     <tr>
@@ -149,7 +161,7 @@
 
 <h3 id="themes">Themes</h3>
 
-<p>A theme is some custom CSS and/or Javascript that gets added to every page of your site. </p>
+<p>A theme is some custom CSS and/or Javascript that gets added to every page of your site.</p>
 
 <h3 id="artists">Artists</h3>
 
@@ -162,6 +174,8 @@
 <h3 id="blogs">Blogs</h3>
 
 <p>This is for stuff like events, press, news, or what have you. They can be affiliated with a particular artist, so they show up on that artist’s page, or not, so they show up on just the home page.</p>
+
+<p>If you give a blog a <code>type</code> (eg ‘press’), Wafelijzer will round up all the blogs of that type and make a link for them at the top of every page.</p>
 
 <h3 id="accounts">Accounts</h3>
 

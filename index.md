@@ -25,6 +25,7 @@ There's a demo running at [http://wafelijzer-demo.herokuapp.com/](http://wafelij
 
 You can log into the [admin page](http://wafelijzer-demo.herokuapp.com/) with the username `admin@example.com` and the password `password`.
 
+Wafelijzer also powers [belgianman.com](http://www.belgianman.com)
 
 ## Help
 

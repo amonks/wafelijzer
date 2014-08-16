@@ -34,7 +34,7 @@
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <img src="/public/logo-black.png" id="logo" />
+      <a href="/"><img src="/public/logo-black.png" alt="Logo" id="logo"></a>
       <p class="lead">Brought to you by <a href="http://belgianman.com">Belgian Man Records</a></p>
     </div>
 
@@ -59,6 +59,12 @@
       
         
           
+            <a class="sidebar-nav-item" href="/developers/">Developers</a>
+          
+        
+      
+        
+          
         
       
         
@@ -67,8 +73,14 @@
           
         
       
+        
+          
+            <a class="sidebar-nav-item" href="/updates/">Updates</a>
+          
+        
+      
 
-      <a class="sidebar-nav-item" href="https://github.com/belgianman/wafelijzer">GitHub project</a>
+      <a class="sidebar-nav-item" href="https://github.com/belgianman/wafelijzer">GitHub Repo</a>
       <span class="sidebar-nav-item">Currently v0.1.0</span>
     </nav>
 
@@ -80,7 +92,7 @@
     <div class="content container">
       <div class="page">
   <h1 class="page-title">5-Minute Install</h1>
-  <p>To set up Wafelijzer you’ll need a Mac. Or any other computer, provided it has <a href="http://git-scm.com/downloads">git</a> installed, and a working <code>ruby</code> environment. </p>
+  <p>To set up Wafelijzer you’ll need a Mac. Or any other computer, provided it has <a href="http://git-scm.com/downloads">git</a> installed.</p>
 
 <p>First off, you’ll need a free <a href="https://www.heroku.com/">Heroku</a> account and to install the <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a>.</p>
 
@@ -92,18 +104,36 @@
 
 <p>One by one, copy-and-paste the following lines into the Terminal, pressing enter after each.</p>
 
-<p>git clone https://github.com/belgianman/wafelijzer.git
-  heroku create
-  git push heroku master
-  heroku run rake sq:migrate:up
-  heroku restart
-  heroku open</p>
+<pre><code>git clone https://github.com/belgianman/wafelijzer.git
+heroku create
+git push heroku master
+heroku addons:add heroku-postgresql
+heroku run rake sq:migrate:up
+heroku addons:add memcachedcloud
+heroku addons:add newrelic:stark
+heroku restart
+</code></pre>
+
+<p>It’ll take a minute or so to start the server…</p>
+
+<pre><code>heroku open
+</code></pre>
 
 <p>Boom! Safari (or Chrome, or some browser) just opened and you can see a really empty-lookin’ website. Add <code>/bootstrap</code> to the URL in your browser’s location bar to add some content and set up your account.</p>
 
 <h3 id="youre-done">You’re done!</h3>
 
 <p>You should click the “Admin Page” link on the bottom right and log in. Your username is <code>admin@example.com</code> and your password is <code>password</code>. Change them.</p>
+
+<h3 id="one-more-thing">One more thing…</h3>
+
+<p>Heroku automatically puts apps to sleep that don’t get any traffic for a few minutes.</p>
+
+<p>Fortunately, they make it easy to set up a service to visit your website every minute to keep it awake.</p>
+
+<p>Go to your Heroku dashboard, click on the app, and click New Relic. This takes you to the New Relic dashboard, where you can monitor your website’s performance.</p>
+
+<p>Now go to settings &gt; availability monitoring, and enter your website’s url (that opened up when you ran ‘heroku open’) and save.</p>
 
 </div>
 

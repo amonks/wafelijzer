@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <img src="/public/logo-black.png" id="logo" />
+      <a href="/"><img src="/public/logo-black.png" alt="Logo" id="logo"></a>
       <p class="lead">{{ site.description }}</p>
     </div>
 
@@ -22,7 +22,7 @@
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub Repo</a>
       <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
     </nav>
 
