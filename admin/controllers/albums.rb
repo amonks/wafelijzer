@@ -11,15 +11,15 @@ Wafelijzer::Admin.controllers :albums do
     render 'albums/new'
   end
 
-  post :create do    
+  post :create do
     @album = Album.new(params[:album])
     if (@album.save rescue false)
       Wafelijzer::Admin.cache.flush
       params['artists'].each do |artist_id, role|
         if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
-          if role.length > 0  
+          if role.length > 0
             AlbumsArtists.where(:artist_id => artist_id, :album_id => @album.id).destroy
-            AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
+            AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)
           elsif role.length == 0
             AlbumsArtists.where(:artist_id => artist_id, :album_id => @album.id).destroy
           end
@@ -55,9 +55,9 @@ Wafelijzer::Admin.controllers :albums do
         Wafelijzer::Admin.cache.flush
         params['artists'].each do |artist_id, role|
           if params['artistsEnabled'] && params['artistsEnabled'][artist_id]
-            if role.length > 0  
+            if role.length > 0
               AlbumsArtists.where(:artist_id => artist_id, :album_id => @album.id).destroy
-              AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)    
+              AlbumsArtists.create(:artist_id => artist_id, :album_id => @album.id, :role => role)
             elsif role.length == 0
               AlbumsArtists.where(:artist_id => artist_id, :album_id => @album.id).destroy
             end
