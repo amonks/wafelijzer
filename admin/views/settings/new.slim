@@ -3,5 +3,5 @@ ul.nav.nav-tabs
 	li.active = link_to tag_icon(:plus, pat(:new)), url(:settings, :new)
 
 .tabs-content
-	= form_for :setting, url(:settings, :create), 'parsley-validate' => '',  :class => 'form-horizontal' do |f|
+	= form_for :setting, url(:settings, :create)wafelijzer,  :class => 'form-horizontal' do |f|
 		= partial 'settings/form', :locals => { :f => f }

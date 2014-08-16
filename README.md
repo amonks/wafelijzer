@@ -1,9 +1,3 @@
-[![Wafelijzer Logo](http://wafelijzer.belgianman.com/public/logo-white.png)](http://wafelijzer.belgianman.com)
-
-Brought to you by [Belgian Man Records](http://belgianman.com)
-
-### Check out the [Wafelijzer website](http://wafelijzer.belgianman.com) for documentation and more info.
-
 Wafelijzer is web software you can use to make a beautiful and easy-to-run website for your record label or collective.
 
 You can get it up and running in 5 minutes or less, and add artists, albums, news, videos, or even sell merch using the simple online interface.
@@ -25,6 +19,8 @@ Wafelijzer's development is guided by 3 principles:
 There's a demo running at [http://wafelijzer-demo.herokuapp.com/](http://wafelijzer-demo.herokuapp.com/)
 
 You can log into the [admin page](http://wafelijzer-demo.herokuapp.com/) with the username `admin@example.com` and the password `password`.
+
+Wafelijzer also powers [belgianman.com](http://www.belgianman.com)
 
 ## Help
 

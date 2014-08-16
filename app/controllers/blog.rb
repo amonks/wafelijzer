@@ -1,31 +1,24 @@
+# # This is our blog controller
+# 
+# We'll use this file to handle routing for blogs.
+# 
+# blogs could be press, news, events, or anything else.
+# Each distinct `blog.type` creates a link up in the navbar to an index of all blogs of that type, eg `press`.
+
 Wafelijzer::App.controllers :news do
-  
-  get :index, :cache => true, :map => '/news/:type' do
-    @title = @page_header = params[:type].titleize
-    @blogs = Blog.where(:type => params[:type]).order(Sequel.desc(:release_date), :id).all
-    render 'blog/index'
-  end
+	
+	# This route is for the pages for each `blog.type`.
+	# We'll map it to `/news/:type` because `/blogs/events` or `blogs/press` sounds weird.
+	get :index, :cache => true, :map => '/news/:type' do
 
-  # get :sample, :map => '/sample/url', :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
+		# Set the title.
+		@title = @page_header = params[:type].titleize
 
-  get :index, :cache => true, :map => "/:slug", :priority => :low do
-    if @artist = Artist.where(:slug => params[:slug]).first
-      @title = @artist.name
-      render 'artist/show'
-    else
-      halt 404
-      render 'errors/404'
-    end
-
-  end
-
-  # get '/example' do
-  #   'Hello world!'
-  # end
-  
+		# Query the database for all blogs of this type
+		@blogs = Blog.where(:type => params[:type]).order(Sequel.desc(:release_date), :id).all
+		
+		# and render them
+		render 'blog/index'
+	end
 
 end

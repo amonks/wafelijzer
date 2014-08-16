@@ -9,8 +9,6 @@ module Wafelijzer
 
 
     # enable caching
-
-    # enable caching
     unless Padrino.env == :test
       register Padrino::Cache
       enable :caching
