@@ -9,6 +9,8 @@ article.thumbnail
           span.small = " " + merch.type
         - if quantity = merch.quantity
           .quantity.small
+            - if quantity > 50
+              | Many remaining.
             - if quantity > 0
               = quantity.to_s + " remaining"
             - else
@@ -19,7 +21,7 @@ article.thumbnail
     - if merch.about.length > 0
       .description
         == Kramdown::Document.new(merch.about).to_html
-    - if amount = merch.price_in_cents
+    - if quantity && amount = merch.price_in_cents
       .amount
         == render_price amount
     - if amount && quantity > 0 && stripe_publishable_key = check_for_stripe
