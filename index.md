@@ -23,6 +23,12 @@ Wafelijzer's development is guided by 3 principles:
 
 3.  **Stay lazy:** You already use services like [BandCamp](https://bandcamp.com/), [SoundCloud](https://soundcloud.com/), [Vimeo](https://vimeo.com/), and [YouTube](https://www.youtube.com/). Wafelijzer automatically pulls your content from these services so you don't have to type the same shit over and over.
 
+## One-Click Install
+
+To install Wafelijzer on a free [Heroku](https://www.heroku.com/) server, click the button below. You'll be prompted to create a Heroku account, and then you'll be up and running in seconds.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/belgianman/wafelijzer)
+
 ## Demo
 
 There's a demo running at [http://wafelijzer-demo.herokuapp.com/](http://wafelijzer-demo.herokuapp.com/)
