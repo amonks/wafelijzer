@@ -9,6 +9,8 @@ article.thumbnail
           span.small = " " + merch.type
         - if quantity = merch.quantity
           .quantity.small
+            - if quantity > 50
+              | Many remaining.
             - if quantity > 0
               = quantity.to_s + " remaining"
             - else
