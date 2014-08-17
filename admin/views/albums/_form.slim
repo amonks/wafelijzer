@@ -1,6 +1,6 @@
 / bandcamp url
 fieldset.control-group
-	label.control-label for="bandcamp_url" Bandcamp Url (required):
+	label.control-label for="bandcamp_url" Bandcamp Url (required)
 	div class='controls'
 		= f.url_field :bandcamp_url, :class => 'form-control input-medium input-with-feedback', :placeholder => "http://music.belgianman.com/album/..."
 		.help-block Any Bandcamp album (not track)
@@ -8,7 +8,7 @@ fieldset.control-group
 
 / (record) label
 fieldset.control-group
-	label.control-label for="label" Record Label:
+	label.control-label for="label" Record Label (optional)
 	div class='controls'
 		- placeholder = settingValue("label_name") || ""
 		= f.text_field :label, :class => 'form-control input-medium input-with-feedback', :value => @album.label || placeholder
@@ -16,13 +16,13 @@ fieldset.control-group
 
 / type
 fieldset.control-group
-	label.control-label for="type" Release Type:
+	label.control-label for="type" Release Type (optional)
 	div class='controls'
 		= f.text_field :type, :class => 'form-control input-medium input-with-feedback'
 		.help-block 'Single', 'EP', 'Sweet Jam', 'DJ Mix', ...
 
 / personnel
-= label_tag "Personnel", :class => 'control-label'
+label.control-label Personnel (strongly recommended)
 - Artist.where(:albums => @album).order(:name, :name, :slug).each do |artist|
 	fieldset class='control-group'
 		label.control-label

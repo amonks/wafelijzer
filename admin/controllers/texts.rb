@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :texts do
   get :index do
     @title = "Texts"
-    @texts = Text.all
+    @texts = Text.order(:title).all
     render 'texts/index'
   end
 

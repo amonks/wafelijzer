@@ -17,6 +17,26 @@ Wafelijzer::App.controllers :merch do
     render 'merch/index'
   end
 
+  # This route is for individual merch pages at `/merch.slug`
+  # We need to set the priority low so it doesn't try to catch every request `/something`
+  get :index, :cache => true, :map => "/merch/:slug", :priority => :low do
+
+    # If there's a merch with that slug, get it from the database
+    if @merch = Merch.where(:slug => params[:slug]).first
+
+      # set the title
+      @title = @merch.title
+
+      # and render the page
+      render 'merch/show'
+
+    # if there is no merch with that slug, throw an error
+    else
+      halt 404
+      render 'errors/404'
+    end
+  end
+
   # This route is for charging people's credit cards.
   post :charge, :map => '/merch' do
 
@@ -27,7 +47,7 @@ Wafelijzer::App.controllers :merch do
     @merch = Merch.where(:id => params['merch-id']).first
 
     # create a new charge
-    charge = Stripe::Charge.create(
+    Stripe::Charge.create(
       :card  => params[:stripeToken],
       :amount    => @merch.price_in_cents,
       :description => @merch.about,

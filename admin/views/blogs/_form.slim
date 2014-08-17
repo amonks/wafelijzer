@@ -1,34 +1,34 @@
 / title
 fieldset.control-group
-	label.control-label Entry Title
+	label.control-label Entry Title (required)
 	.controls
 		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
 		.help-block eg New Writeup In P4K
 
 / type
 fieldset.control-group
-	label.control-label Type
+	label.control-label Type (required)
 	.controls
 		= f.text_field :type, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
 		.help-block eg 'press', 'event', 'news'. Each type becomes a link in the navigation bar up top.
 
 / release_date
 fieldset.control-group
-	label.control-label Release Date
+	label.control-label Release Date (required)
 	.controls
 		input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@blog.release_date}" required="true"
 		.help-block
 
 / image_url
 fieldset.control-group
-	label.control-label Image Url
+	label.control-label Image Url (strongly recommended)
 	.controls
 		= f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :autofocus => true
 		.help-block eg http://i.imgur.com/TUvQfGd.png
 
 / body (markdown)
 fieldset.control-group
-	label.control-label Entry Content
+	label.control-label Entry Content (required)
 	.controls
     .help-block
       ' You can use
@@ -38,13 +38,13 @@ fieldset.control-group
 		= f.text_area :body
 
 / artists
-= label_tag "artists", :class => 'control-label'
-- Artist.where(:blogs => @blog).order(:name, :name, :slug).each do |artist|
+label.control-label Artist(s) (optional)
+- Artist.where(:blogs => @blog).order(:name, :real_name, :slug).each do |artist|
 	fieldset.control-group.checkbox
 		label
 			= check_box_tag 'artists[' + artist.id.to_s + ']', :checked => true
 			= artist.name
-- Artist.exclude(:blogs => @blog).each do |artist|
+- Artist.exclude(:blogs => @blog).order(:name, :real_name, :slug).each do |artist|
 	fieldset.control-group.checkbox
 		label
 			= check_box_tag 'artists[' + artist.id.to_s + ']'

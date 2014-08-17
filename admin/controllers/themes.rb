@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :themes do
   get :index do
     @title = "Themes"
-    @themes = Theme.all
+    @themes = Theme.order(:title).all
     render 'themes/index'
   end
 

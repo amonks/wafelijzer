@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :albums do
   get :index do
     @title = "Albums"
-    @albums = Album.all
+    @albums = Album.order(:release_date).reverse.all
     render 'albums/index'
   end
 

@@ -1,18 +1,18 @@
 
 fieldset.control-group
-	label.control-label Theme Title
+	label.control-label Theme Title (required)
 	div class='controls'
-		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
+		= f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
 		.help-block eg 'belgianman'. Create a setting 'theme': '[theme-title]' to choose the theme.
 
 fieldset.control-group
-	label.control-label Theme CSS
+	label.control-label Theme CSS (optional)
 	div class='controls'
 		= f.text_area :css, :class => 'form-control input-large input-with-feedback'
 		.help-block	This is injected into every page.
 
 fieldset.control-group
-	label.control-label Theme Javascript
+	label.control-label Theme Javascript (optional)
 	div class='controls'
 		= f.text_area :js, :class => 'form-control input-large input-with-feedback'
 		.help-block	This is injected into every page.

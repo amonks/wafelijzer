@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :artists do
   get :index do
     @title = "Artists"
-    @artists = Artist.all
+    @artists = Artist.order(:name, :real_name, :slug).all
     render 'artists/index'
   end
 

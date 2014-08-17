@@ -1,56 +1,55 @@
 / title
 fieldset.control-group
-  label.control-label Merch Title
+  label.control-label Merch Title (required)
   .controls
     = f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
     .help-block eg 'Awesome Purple MAYBEWISE T-Shirt'
 
 / slug
 fieldset.control-group
-  label.control-label Slug
+  label.control-label Slug (required)
   .controls
     = f.text_field :slug, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
     .help-block This becomes the merch url /merch/[slug]
 
-
 / type
 fieldset.control-group
-  label.control-label Type
+  label.control-label Type (optional)
   .controls
-    = f.text_field :type, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    = f.text_field :type, :class => 'form-control input-large input-with-feedback', :autofocus => true
     .help-block eg 'shirt', 'poster', 'CD', ...
 
 / release_date
 fieldset.control-group
-  label.control-label Release Date
+  label.control-label Release Date (required)
   .controls
     input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@merch.release_date}" required="true"
     .help-block
 
 / image_url
 fieldset.control-group
-  label.control-label Image Url
+  label.control-label Image Url (required)
   .controls
-    = f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    = f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
     .help-block eg http://i.imgur.com/TUvQfGd.png
 
 / price in cents
 fieldset.control-group
-  label.control-label Price In Cents
+  label.control-label Price In Cents (required)
   .controls
     = f.number_field :price_in_cents, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
     .help-block eg '500' for 5 dollars.
 
 / quantity remaining (optional)
 fieldset.control-group
-  label.control-label Quantity Remaining
+  label.control-label Quantity Remaining (optional)
   .controls
     = f.number_field :quantity, :class => 'form-control input-large input-with-feedback', :autofocus => true
     .help-block Optional. It'll automatically decrease when the merch sells.
 
 / about (markdown)
 fieldset.control-group
-  label.control-label About
+  label.control-label About (required)
   .controls
     .help-block
       ' You can use
@@ -60,13 +59,13 @@ fieldset.control-group
     = f.text_area :about
 
 / artists
-= label_tag "artists", :class => 'control-label'
-- Artist.where(:merches => @merch).order(:name, :name, :slug).each do |artist|
+label.control-label Artist(s) (optional)
+- Artist.where(:merches => @merch).order(:name, :real_name, :slug).each do |artist|
   fieldset.control-group.checkbox
     label
       = check_box_tag 'artists[' + artist.id.to_s + ']', :checked => true
       = artist.name
-- Artist.exclude(:merches => @merch).each do |artist|
+- Artist.exclude(:merches => @merch).order(:name, :real_name, :slug).each do |artist|
   fieldset.control-group.checkbox
     label
       = check_box_tag 'artists[' + artist.id.to_s + ']'

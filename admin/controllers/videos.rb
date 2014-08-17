@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :videos do
   get :index do
     @title = "Videos"
-    @videos = Video.all
+    @videos = Video.order(:release_date).all
     render 'videos/index'
   end
 

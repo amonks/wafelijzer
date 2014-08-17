@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :settings do
   get :index do
     @title = "Settings"
-    @settings = Setting.all
+    @settings = Setting.order(:title).all
     render 'settings/index'
   end
 

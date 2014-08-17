@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :merches do
   get :index do
     @title = "Merches"
-    @merches = Merch.all
+    @merches = Merch.order(:release_date).all
     render 'merches/index'
   end
 

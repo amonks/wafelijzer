@@ -1,57 +1,57 @@
 / name
 fieldset.control-group
-	label.control-label for="name" Artist Name
+	label.control-label for="name" Artist Name (required)
 	div class='controls'
 		= f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
 		.help-block Properly formatted, eg "The Big Trucks"
 
 / slug
 fieldset.control-group
-	label.control-label for="slug" Artist Slug (url)
+	label.control-label for="slug" Artist Slug (url) (required)
 	div class='controls'
-		= f.text_field :slug, :class => 'form-control input-large input-with-feedback', "data-parsley-type" => 'alphanum'
-		.help-block Easy to type, eg "trucks"
+		= f.text_field :slug, :class => 'form-control input-large input-with-feedback', "data-parsley-type" => 'alphanum', :required => true
+		.help-block This will become your url, eg '/trucks'
 
 / real_namecount > 0
 fieldset.control-group
-	label.control-label for="real_name" Artist Real Name, if applicable
+	label.control-label for="real_name" Artist Real Name, if applicable (optional)
 	div class='controls'
 		= f.text_field :real_name, :class => 'form-control input-large input-with-feedback'
 		.help-block
 
+/ image_urlcount > 0
+fieldset.control-group
+  label.control-label for="image_url" Image URL (optional)
+  div class='controls'
+    = f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :id=> 'image'
+    .help-block eg http://i.imgur.com/TUvQfGd.png
+
 / soundcloudcount > 0
 fieldset.control-group
-	label.control-label for="soundcloud" Soundcloud Name
+	label.control-label for="soundcloud" SoundCloud Name (optional)
 	div class='controls'
 		= f.text_field :soundcloud, :class => 'form-control input-large input-with-feedback'
-		.help-block This should be the name used in your soundcloud URL
+		.help-block This is used in your SoundCloud URL. eg if your url is 'soundcloud.com/maybewise', put 'maybewise' here.
 
 / bio
 fieldset.control-group
-	label.control-label for="bio" Artist Bio
+	label.control-label for="bio" Artist Bio (strongly recommended)
 	div class='controls'
     .help-block
       ' You can use
       a href="http://daringfireball.net/projects/markdown/syntax"
         ' Markdown
       | formatting here.
-		= f.text_area :bio, :class => 'form-control input-large input-with-feedback'
-
-/ image_urlcount > 0
-fieldset.control-group
-	label.control-label for="image_url" Image URL
-	div class='controls'
-		= f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :id=> 'image'
-		.help-block eg http://i.imgur.com/TUvQfGd.png
+    = f.text_area :bio, :class => 'form-control input-large input-with-feedback'
 
 / members
-= label_tag "Members (if artist is a band)", :class => 'control-label'
-- Artist.where(:groups => @artist).order(:name, :name, :slug).each do |artist|
+= label_tag "Members (if artist is a band) (optional)", :class => 'control-label'
+- Artist.where(:groups => @artist).order(:name, :real_name, :slug).each do |artist|
 	fieldset.control-group.checkbox
 		label
 			= check_box_tag 'members[' + artist.id.to_s + ']', :checked => true
 			= artist.name
-- Artist.exclude(:groups => @artist).each do |artist|
+- Artist.exclude(:groups => @artist).order(:name, :real_name, :slug).each do |artist|
 	fieldset.control-group.checkbox
 		label
 			= check_box_tag 'members[' + artist.id.to_s + ']', :checked => false

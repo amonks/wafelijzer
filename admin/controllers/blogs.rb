@@ -1,7 +1,7 @@
 Wafelijzer::Admin.controllers :blogs do
   get :index do
     @title = "Blogs"
-    @blogs = Blog.all
+    @blogs = Blog.order(:release_date).all
     render 'blogs/index'
   end
 
