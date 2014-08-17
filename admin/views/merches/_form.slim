@@ -1,51 +1,76 @@
-- error = @merch.errors.key?(:title) && @merch.errors[:title].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :title, :class => 'control-label'
-  div class='controls'
-    = f.text_area :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
-    span class='help-inline' = error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
-- error = @merch.errors.key?(:slug) && @merch.errors[:slug].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :slug, :class => 'control-label'
-  div class='controls'
-    = f.text_area :slug, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:slug, :class => 'text-error') : pat(:example)
-- error = @merch.errors.key?(:release_date) && @merch.errors[:release_date].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :release_date, :class => 'control-label'
-  div class='controls'
-    = f.text_field :release_date, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:release_date, :class => 'text-error') : pat(:example)
-- error = @merch.errors.key?(:image_url) && @merch.errors[:image_url].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :image_url, :class => 'control-label'
-  div class='controls'
-    = f.text_area :image_url, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:image_url, :class => 'text-error') : pat(:example)
-- error = @merch.errors.key?(:type) && @merch.errors[:type].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :type, :class => 'control-label'
-  div class='controls'
-    = f.text_area :type, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:type, :class => 'text-error') : pat(:example)
-- error = @merch.errors.key?(:about) && @merch.errors[:about].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :about, :class => 'control-label'
-  div class='controls'
-    = f.text_area :about, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:about, :class => 'text-error') : pat(:example)
-- error = @merch.errors.key?(:price_in_cents) && @merch.errors[:price_in_cents].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :price_in_cents, :class => 'control-label'
-  div class='controls'
-    = f.text_field :price_in_cents, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:price_in_cents, :class => 'text-error') : pat(:example)
-- error = @merch.errors.key?(:quantity) && @merch.errors[:quantity].count > 0
-fieldset class='control-group#{error ? ' has-error' : ''}'
-  = f.label :quantity, :class => 'control-label'
-  div class='controls'
-    = f.text_field :quantity, :class => 'form-control input-large input-with-feedback'
-    span class='help-inline' = error ? f.error_message_on(:quantity, :class => 'text-error') : pat(:example)
+/ title
+fieldset.control-group
+  label.control-label Merch Title
+  .controls
+    = f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    .help-block eg 'Awesome Purple MAYBEWISE T-Shirt'
+
+/ slug
+fieldset.control-group
+  label.control-label Slug
+  .controls
+    = f.text_field :slug, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    .help-block This becomes the merch url /merch/[slug]
+
+
+/ type
+fieldset.control-group
+  label.control-label Type
+  .controls
+    = f.text_field :type, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    .help-block eg 'shirt', 'poster', 'CD', ...
+
+/ release_date
+fieldset.control-group
+  label.control-label Release Date
+  .controls
+    input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@merch.release_date}" required="true"
+    .help-block
+
+/ image_url
+fieldset.control-group
+  label.control-label Image Url
+  .controls
+    = f.url_field :image_url, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    .help-block eg http://i.imgur.com/TUvQfGd.png
+
+/ price in cents
+fieldset.control-group
+  label.control-label Price In Cents
+  .controls
+    = f.number_field :price_in_cents, :class => 'form-control input-large input-with-feedback', :autofocus => true, :required => true
+    .help-block eg '500' for 5 dollars.
+
+/ quantity remaining (optional)
+fieldset.control-group
+  label.control-label Quantity Remaining
+  .controls
+    = f.number_field :quantity, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    .help-block Optional. It'll automatically decrease when the merch sells.
+
+/ about (markdown)
+fieldset.control-group
+  label.control-label About
+  .controls
+    .help-block
+      ' You can use
+      a href="http://daringfireball.net/projects/markdown/syntax"
+        ' Markdown
+      | formatting here.
+    = f.text_area :about
+
+/ artists
+= label_tag "artists", :class => 'control-label'
+- Artist.where(:merches => @merch).order(:name, :name, :slug).each do |artist|
+  fieldset.control-group.checkbox
+    label
+      = check_box_tag 'artists[' + artist.id.to_s + ']', :checked => true
+      = artist.name
+- Artist.exclude(:merches => @merch).each do |artist|
+  fieldset.control-group.checkbox
+    label
+      = check_box_tag 'artists[' + artist.id.to_s + ']'
+      = artist.name
 
 div class="form-actions"
   = f.submit pat(:save), :class => 'btn btn-primary'
@@ -53,3 +78,6 @@ div class="form-actions"
   = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
   |&nbsp;
   = link_to pat(:cancel), url(:merches, :index), :class => 'btn btn-default'
+javascript:
+  var editor = new Editor();
+  editor.render();

@@ -36,6 +36,7 @@ div class="tabs-content"
         th class='header' = mat(:merch, :about)
         th class='header' = mat(:merch, :price_in_cents)
         th class='header' = mat(:merch, :quantity)
+        th class='header' = mat(:merch, :artists)
         th class='header list-row-action-header'
 
     tbody
@@ -53,6 +54,7 @@ div class="tabs-content"
           td class='list-column' = merch.about
           td class='list-column' = merch.price_in_cents
           td class='list-column' = merch.quantity
+          td class='list-column' = merch.artists.map {|a| a.name }.join(", ")
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:merches, :edit, :id => merch.id), :rel => :tooltip, :title => "#{pat(:edit)} merch", :class => 'list-row-action-wrapper-link'

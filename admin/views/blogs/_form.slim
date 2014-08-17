@@ -16,9 +16,9 @@ fieldset.control-group
 fieldset.control-group
 	label.control-label Release Date
 	.controls
-		input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@blog.release_date}"
+		input#release_date name="release_date" class="form-control input-large input-with-feedback" type="date" value="#{@blog.release_date}" required="true"
 		.help-block
-		
+
 / image_url
 fieldset.control-group
 	label.control-label Image Url
@@ -30,8 +30,12 @@ fieldset.control-group
 fieldset.control-group
 	label.control-label Entry Content
 	.controls
+    .help-block
+      ' You can use
+      a href="http://daringfireball.net/projects/markdown/syntax"
+        ' Markdown
+      | formatting here.
 		= f.text_area :body
-		.help-block You can use Markdown formatting here.
 
 / artists
 = label_tag "artists", :class => 'control-label'

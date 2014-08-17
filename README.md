@@ -1,4 +1,4 @@
-<a href="http://wafelijzer.belgianman.com"><img src="http://wafelijzer.belgianman.com/public/logo-black.png" alt="Wafelijzer Logo"></a>
+<a href="http://wafelijzer.belgianman.com"><img src="http://wafelijzer.belgianman.com/public/logo-white.png" alt="Wafelijzer Logo"></a>
 
 [Wafelijzer](http://wafelijzer.belgianman.com) is web software you can use to make a beautiful and easy-to-run website for your record label or collective.
 

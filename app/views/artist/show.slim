@@ -3,6 +3,6 @@
 - if @artist.soundcloud && @artist.soundcloud.length > 0
   .item
     == soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
-- @combined = (@artist.albums + @artist.videos + @artist.blogs).sort_by(&:release_date).reverse
+- @combined = (@artist.albums + @artist.videos + @artist.blogs + @artist.merches).sort_by(&:release_date).reverse
 - @combined.each do |item|
   == partial 'partials/item', :object => item

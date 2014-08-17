@@ -15,6 +15,12 @@ Wafelijzer::Admin.controllers :merches do
     @merch = Merch.new(params[:merch])
     if (@merch.save rescue false)
       flush_cache
+      @merch.update(:release_date => Chronic.parse(params[:release_date]))
+      if params[:artists]
+        params[:artists].each do |artist|
+          @merch.add_artist(artist.first)
+        end
+      end
       @title = pat(:create_title, :model => "merch #{@merch.id}")
       flash[:success] = pat(:create_success, :model => 'Merch')
       params[:save_and_continue] ? redirect(url(:merches, :index)) : redirect(url(:merches, :edit, :id => @merch.id))
@@ -42,6 +48,13 @@ Wafelijzer::Admin.controllers :merches do
     if @merch
       if @merch.modified! && @merch.update(params[:merch])
         flush_cache
+        @merch.update(:release_date => Chronic.parse(params[:release_date]))
+        if params[:artists]
+          @merch.remove_all_artists
+          params[:artists].each do |artist|
+            @merch.add_artist(artist.first)
+          end
+        end
         flash[:success] = pat(:update_success, :model => 'Merch', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
           redirect(url(:merches, :index)) :
