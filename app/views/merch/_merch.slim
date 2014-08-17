@@ -11,7 +11,7 @@ article.thumbnail
           .quantity.small
             - if quantity > 0
               = quantity.to_s + " remaining"
-            - else 
+            - else
               | Sold out :(
         - else quantity = 1
     - else
@@ -26,4 +26,4 @@ article.thumbnail
       form.pay action="/merch" method="post"
         input style="display:none" name="merch-id" value="#{merch.id}"
         input style="display:none" name="authenticity_token" value="#{session[:csrf]}"
-        script src="https://checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="#{stripe_publishable_key}"
+        script src="https://checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="#{stripe_publishable_key}" data-address="true" data-shipping-address="true"

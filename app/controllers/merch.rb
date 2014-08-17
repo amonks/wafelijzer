@@ -1,9 +1,9 @@
 # # This is our Merch controller
-# 
+#
 # We'll use this file to handle routing for Merches.
 
 Wafelijzer::App.controllers :merch do
-  
+
   # This route is for the merch index at `/merch`
   get :index, :cache => true, :map => '/merch' do
 
@@ -26,19 +26,23 @@ Wafelijzer::App.controllers :merch do
     # Query the database for the merch being purchased
     @merch = Merch.where(:id => params['merch-id']).first
 
-    # create a new customer
-    customer = Stripe::Customer.create(
-      :email => params['customer-email'],
-    )
-
     # create a new charge
     charge = Stripe::Charge.create(
       :card  => params[:stripeToken],
       :amount    => @merch.price_in_cents,
       :description => @merch.about,
       :currency  => 'usd',
+      :metadata => {
+        :shipping_name => params['stripeShippingName'],
+        :shipping_address_line_1 => params['stripeShippingAddressLine1'],
+        :shipping_address_zip => params['stripeShippingAddressZip'],
+        :shipping_address_city => params['stripeShippingAddressCity'],
+        :shipping_address_state => params['stripeShippingAddressState'],
+        :shipping_address_country => params['stripeShippingAddressCountry'],
+        :shipping_address_country_code => params['stripeShippingAddressCountryCode'],
+      }
     )
-     
+
     # set the alert to tell the customer it worked
     @alert = @merch.title + " successfully purchased!"
     @alert_type = 'success'
