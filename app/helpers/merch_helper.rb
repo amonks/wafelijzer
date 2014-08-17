@@ -1,5 +1,5 @@
 # # This is our helper for merch.
-# 
+#
 # This file is for useful methods related to Merch.
 # Helper methods defined here can be accessed in any controller or view in the application
 
@@ -22,7 +22,7 @@ module Wafelijzer
 
       # This method is to render a price from the database. (They're stored as an integer number of cents, but displayed as $x.xx)
       def render_price price
-        return "$" + (price / 100.0).to_s
+        return Money.new(price, "USD").format #=> "$1.00"
       end
     end
 

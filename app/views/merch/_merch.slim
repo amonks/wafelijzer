@@ -19,7 +19,7 @@ article.thumbnail
     - if merch.about.length > 0
       .description
         == Kramdown::Document.new(merch.about).to_html
-    - if amount = merch.price_in_cents
+    - if quantity && amount = merch.price_in_cents
       .amount
         == render_price amount
     - if amount && quantity > 0 && stripe_publishable_key = check_for_stripe

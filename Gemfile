@@ -68,6 +68,9 @@ gem 'newrelic_rpm', :groups => [:production]
 # Chronic for parsing dates.
 gem 'chronic'
 
+# Money for formatting money.
+gem 'money'
+
 # Titleize for automatically title-casing
 gem 'titleize'
 
