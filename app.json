@@ -1,0 +1,12 @@
+{
+  "name": "Wafelijzer",
+  "description": "A template for automatically deploying Wafelijzer instances.",
+  "website": "http://wafelijzer.belgianman.com",
+  "success_url": "/bootstrap",
+  "addons": ["heroku-postgresql:hobby-dev", "memcachedcloud:25", "newrelic:stark"],
+  "env": {
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake sq:migrate:up"
+  }
+}
