@@ -17,11 +17,11 @@ Wafelijzer looks fantastic out-of-the-box, but it's also totally customizable. T
 
 Wafelijzer's development is guided by 3 principles:
 
-1.  **Keep it easy:** You don't need any technical, web development, or coding experience to use Wafelijzer. A label shouldn't need a 'Web Dude,' artists can add easily add their own content.
+1.  **Keep it easy:** You don't need any technical, web development, or coding experience to use Wafelijzer. A label shouldn't need a 'Web Dude:' artists can add easily add their own content.
 
 2.  **Make it free:** Wafelijzer is designed to run on a free [Heroku](http://heroku.com) server.
 
-3.  **Stay lazy:** You already use services like bandcamp, soundcloud, vimeo, and youtube. Wafelijzer automatically pulls your content from these services so you don't have to type the same shit over and over.
+3.  **Stay lazy:** You already use services like [BandCamp](https://bandcamp.com/), [SoundCloud](https://soundcloud.com/), [Vimeo](https://vimeo.com/), and [YouTube](https://www.youtube.com/). Wafelijzer automatically pulls your content from these services so you don't have to type the same shit over and over.
 
 ## Demo
 
