@@ -11,7 +11,7 @@ article.thumbnail
           .quantity.small
             - if quantity > 50
               | Many remaining.
-            - if quantity > 0
+            - elsif quantity > 0
               = quantity.to_s + " remaining"
             - else
               | Sold out :(
