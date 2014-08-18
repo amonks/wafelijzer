@@ -18,7 +18,7 @@ nav.navbar.navbar-default.plain-navbar role="navigation"
       ul.nav.navbar-nav.navbar-right
         - if Artist.all.length > 0
           li = link_to "Artists", url_for(:artist, :index)
-        - if types = Blog.distinct(:type)
+        - if (types = Blog.distinct(:type)) && types.all.length > 0
           li.dropdown
             a.dropdown-toggle href="#" data-toggle="dropdown"
               | News

@@ -16,15 +16,13 @@ Wafelijzer::App.controllers :bootstrap do
     # If it hasn't, let's go!
     else
       # First create an admin account
-      account = Account.create(:email => "admin@example.com", :password => 'password', :password_confirmation => 'password', :role => "admin")
+      if Account.create(:email => "admin@example.com", :password => 'password', :password_confirmation => 'password', :role => "admin")
 
-      # If the account creation didn't work, it probably means we can't connect to the database. Let's halt now and throw an error.
-      unless account && account.valid?
-        @alert = "can't create account :("
-        @alert_type = "danger"
+        # It worked! Let's make sure nobody bootstraps this again.
+        Setting.create(:title => "bootstrapped", :body => "true")
 
-      # If the admin account worked, and we can successfully write to the database, continue creating stuff.
-      else
+        # If the admin account worked, and we can successfully write to the database, continue creating stuff.
+
         # like an artist!
         leaftype = Artist.create(
           :name => "LEAFTYPE",
@@ -33,7 +31,6 @@ Wafelijzer::App.controllers :bootstrap do
           :soundcloud => "leaftype",
           :bio => "Leaftype is Christopher Knollmeyer, an electronic musician from Lincoln, MA. He studies music technology at Calarts. He also plays keyboards and drums.",
           :image_url => "http://i.imgur.com/3XAhXnD.jpg"
-
         )
 
         # or an album!
@@ -68,7 +65,7 @@ Wafelijzer::App.controllers :bootstrap do
         # now let's make some press!
         press = Blog.create(
           :title => 'Example Blog Post about LEAFTYPE',
-          :body => '# This is an example press article. Read it on P4K!',
+          :body => 'This is an example press article. Read it on P4K!',
           :type => 'press',
           :release_date => Date.today
         )
@@ -77,9 +74,9 @@ Wafelijzer::App.controllers :bootstrap do
 
         # Let's make an event, too!
         event = Blog.create(
-          :title => 'Example Blog Post about LEAFTYPE',
-          :body => '# This is an example event. Check out our facebook page or something!',
-          :type => 'event',
+          :title => 'Example LEAFTYPE event',
+          :body => 'This is an example event. Check out our [facebook](http://facebook.com) page or something!',
+          :type => 'events',
           :release_date => Date.today
         )
         # and assign it
@@ -109,6 +106,37 @@ Wafelijzer::App.controllers :bootstrap do
           :body => "http://i.imgur.com/TUvQfGd.png",
         )
 
+        # maybe we should sell some merch
+        Setting.create(
+          :title => 'stripe_secret_key',
+          :body => "sk_test_ry0vKP7GATV26tzMpqGraNPE",
+        )
+        Setting.create(
+          :title => 'stripe_publishable_key',
+          :body => "pk_test_lf3SMglj5Ng56vcgPMvVWmaR",
+        )
+        Merch.create(
+          :title => 'purpshirt',
+          :slug => "shirt",
+          :type => "shirt",
+          :release_date => Date.today,
+          :image_url => 'http://i.imgur.com/0DnpEir.jpg',
+          :price_in_cents => 20_00,
+          :quantity => "10",
+          :about => "This is a cool purple shirt! You should buy it!",
+        )
+        cd = Merch.create(
+          :title => 'compact disc',
+          :slug => "cd",
+          :type => "cd",
+          :release_date => Date.today,
+          :image_url => 'http://i.imgur.com/sLD3b79.jpg',
+          :price_in_cents => 10_00,
+          :quantity => "100",
+          :about => "This is a cool purple CD! You should buy it RIGHT NOW!",
+        )
+        leaftype.add_merch(cd)
+
         # finally here's a theme
         Theme.create(
           :title => 'liege',
@@ -119,17 +147,16 @@ Wafelijzer::App.controllers :bootstrap do
         )
         Setting.create(:title => "theme", :body => "liege")
 
-        # It worked! Let's make sure nobody bootstraps this again.
-        Setting.create(:title => "bootstrapped", :body => "true")
-
         # Now we'll set the alert on the next page to display the newly-created username and password.
         @alert = "bootstrap successful! username: 'admin@example.com' password => 'password'"
         @alert_type = "success"
+      else
+        @alert = "already bootstrapped :("
+        @alert_type = "danger"
       end
     end
-
-    # render the newly-populated index!
-    render 'index'
+    render '/index'
   end
+
 
 end
