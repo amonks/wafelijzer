@@ -29,8 +29,6 @@ div class="tabs-content"
         th class='header' = mat(:theme, :created_at)
         th class='header' = mat(:theme, :updated_at)
         th class='header' = mat(:theme, :title)
-        th class='header' = mat(:theme, :css)
-        th class='header' = mat(:theme, :js)
         th class='header list-row-action-header'
 
     tbody
@@ -41,8 +39,6 @@ div class="tabs-content"
           td class='list-column' = theme.created_at
           td class='list-column' = theme.updated_at
           td class='list-column' = theme.title
-          td class='list-column' = theme.css
-          td class='list-column' = theme.js
           td class='list-column list-row-action'
             div class='list-row-action-wrapper'
               = link_to tag_icon(:edit), :href => url(:themes, :edit, :id => theme.id), :rel => :tooltip, :title => "#{pat(:edit)} theme", :class => 'list-row-action-wrapper-link'
