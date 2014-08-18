@@ -17,24 +17,11 @@ module.exports = function(grunt) {
           'uglify:js'
         ]
       },
-      stylus: {
-        files: ['../app/assets/stylus/*'],
-        tasks: [
-          'stylus:compile'
-        ]
-      },
-      css: {
-        files: ['../app/assets/css/*'],
-        tasks: [
-          'concat:css',
-          'cssmin:css'
-        ]
-      },
     },
     copy: {
       assets: {
         cwd: '../app/assets',
-        src: ['*.js','*.css'],
+        src: ['*.js'],
         dest: '../public',
         expand: true
       }
@@ -45,24 +32,7 @@ module.exports = function(grunt) {
         src: ["/assets"]
       }
     },
-    stylus: {
-      compile: {
-        options: {
-          use: ["nib()"],
-          compress: false
-        },
-        files: {
-          "../app/assets/css/stylus.css": "../app/assets/stylus/*.styl"
-        }
-      }
-    },
     concat: {
-      css: {
-        src: [
-          '../app/assets/css/*'
-        ],
-        dest: '../public/css.css'
-      },
       js: {
         src: [
           '../app/assets/js/*'
@@ -70,13 +40,6 @@ module.exports = function(grunt) {
         dest: '../public/js.js'
       }
     },
-    cssmin: {
-      css: {
-        src: '../public/css.css',
-        dest: '../public/css.min.css'
-      }
-    },
-
     uglify: {
       js: {
         files: {
@@ -91,14 +54,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jade');
-  grunt.loadNpmTasks('grunt-contrib-stylus');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.registerTask('default', [
     'clean:build',
-    'stylus:compile',
-    'concat:css',
-    'cssmin:css',
     'concat:js',
     'uglify:js',
     'copy:assets',

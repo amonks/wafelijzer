@@ -1,14 +1,14 @@
 script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
 script src="/js.min.js"
+== theme_js
+== typekit_tag
 javascript:
-  // layout Packery after all images have loaded
   var $container = $('#holder');
   $container.packery({
     itemSelector: '.item',
     gutter: ".gutter-sizer"
   });
   var imgLoad = imagesLoaded( $container );
-  // bind with .on()
   imgLoad.on( 'progress', function() {
     $container.packery({
       itemSelector: '.item',
@@ -31,5 +31,3 @@ javascript:
 
     ga('create', '#{code}', 'auto');
     ga('send', 'pageview');
-== theme_js
-== typekit_tag

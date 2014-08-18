@@ -1,5 +1,5 @@
 # # This is our helper for the pulling config stuff out of the database.
-# 
+#
 # This file is for useful methods related to getting database config values and for rendering in general.
 # Helper methods defined here can be accessed in any controller or view in the application
 module Wafelijzer
@@ -70,6 +70,17 @@ module Wafelijzer
       end
     end
 
+    # This is a function for getting the `<style>` tag associated with a given theme.
+    def theme_raw_css title
+      theme = Theme.where(:title => title).first
+      if theme && theme.css
+        css = theme.css
+        return css
+      else
+        return false
+      end
+    end
+
     # This is a wrapper function for checking which theme is set and getting its JS `<script>` tag.
     def theme_js
 
@@ -100,7 +111,7 @@ module Wafelijzer
         return false
       end
     end
-    
+
     # This is a method for returning the typekit kit embed tag, if a typekit id is specified in the settings.
     def typekit_tag
 
