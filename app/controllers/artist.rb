@@ -19,7 +19,7 @@ Wafelijzer::App.controllers :artist do
 
   # This route is for individual artist pages at `/artist.slug`
   # We need to set the priority low so it doesn't try to catch every request `/something`
-  get :index, :cache => true, :map => "/:slug", :priority => :low do
+  get :show, :cache => true, :map => "/:slug", :priority => :low do
 
     # If there's an artist with that slug, get it from the database
     if @artist = Artist.where(:slug => params[:slug]).first
