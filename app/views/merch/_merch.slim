@@ -12,6 +12,9 @@ article.thumbnail
             = date
     - else
       h3 == merch.title
+    - merch.artists.each do |artist|
+      p
+        a href="/#{artist.slug}" = artist.name
     - if merch.about.length > 0
       .description
         == Kramdown::Document.new(merch.about).to_html

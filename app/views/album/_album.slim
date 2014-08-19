@@ -7,7 +7,7 @@ article.thumbnail
           = album.title
       span.small
         - if album.type
-          = " " + album.type
+          = " " + album.type.titleize
       - if album.release_date
         .small
           = album.release_date
