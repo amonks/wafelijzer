@@ -1,9 +1,9 @@
-#footer.row
-  .col-xs-12
-    - if database_partial 'footer'
-      == database_partial 'footer'
-    p 
-      | Powered by 
-      a href="http://wafelijzer.belgianman.com" Wafelijzer 
-      ' &#124;
-      a href="/admin" Admin Page
+#footer
+  - if database_partial 'footer'
+    == database_partial 'footer'
+  p
+    ' Powered by
+    a href="http://wafelijzer.belgianman.com"
+      ' Wafelijzer
+    ' &#124;
+    a href="/admin" Admin Page

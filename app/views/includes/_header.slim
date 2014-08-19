@@ -1,38 +1,37 @@
 nav.navbar.navbar-default.plain-navbar role="navigation"
-  .container-fluid
-    .navbar-header
-      button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand href="/"
-        - if logo = setting_value('logo')
-          img#logo.img-responsive src='#{logo}'
+  .navbar-header
+    button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle"
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand href="/"
+      - if logo = setting_value('logo')
+        img#logo.img-responsive src='#{logo}'
+      - else
+        - if name = setting_value('label_name')
+          = name
         - else
-          - if name = setting_value('label_name')
-            = name
-          - else
-            | Wafelijzer
-    #navbar.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right
-        - if Artist.all.length > 0
-          li = link_to "Artists", url_for(:artist, :index)
-        - if (types = Blog.distinct(:type)) && types.all.length > 0
-          li.dropdown
-            a.dropdown-toggle href="#" data-toggle="dropdown"
-              | News
-              span.caret
-            ul.dropdown-menu role="menu"
-              - types.each do |type|
-                li = link_to type.type.titleize, "/news/" + type.type
-        - if Album.all.length > 0
-          li = link_to "Albums", "/albums"
-        - if Video.all.length > 0
-          li = link_to "Videos", "/videos"
-        - if Merch.all.length > 0
-          li = link_to "Merch", "/merch"
-        - if store = setting_value('store_url')
-          li = link_to "Store", store
-        - if facebook = setting_value('facebook')
-          li = link_to "Facebook", "http://facebook.com/" + facebook
+          | Wafelijzer
+  #navbar.collapse.navbar-collapse
+    ul.nav.navbar-nav.navbar-right
+      - if Artist.all.length > 0
+        li = link_to "Artists", url_for(:artist, :index)
+      - if (types = Blog.distinct(:type)) && types.all.length > 0
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+            | News
+            span.caret
+          ul.dropdown-menu role="menu"
+            - types.each do |type|
+              li = link_to type.type.titleize, "/news/" + type.type
+      - if Album.all.length > 0
+        li = link_to "Albums", "/albums"
+      - if Video.all.length > 0
+        li = link_to "Videos", "/videos"
+      - if Merch.all.length > 0
+        li = link_to "Merch", "/merch"
+      - if store = setting_value('store_url')
+        li = link_to "Store", store
+      - if facebook = setting_value('facebook')
+        li = link_to "Facebook", "http://facebook.com/" + facebook
