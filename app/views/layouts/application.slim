@@ -11,21 +11,13 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     link href="/assets/theme.css" rel="stylesheet"
   body
-    #wrap
-      == partial 'includes/header'
-      .container-fluid
-        - if @alert
-          .row
-            .col-xs-12
-              .alert class="alert-#{@alert_type}" = @alert
-        - if @title
-          .row
-            .col-xs-12
-              h2.text-center = @title
-        #holder
-          .gutter-sizer
-          == yield
-      #push
-    .container-fluid
-      == partial 'includes/footer'
+    == partial 'includes/header'
+    - if @alert
+      .alert class="alert-#{@alert_type}" = @alert
+    - if @title
+      h2.text-center = @title.titleize
+    #holder
+      .gutter-sizer
+      == yield
+    == partial 'includes/footer'
   == partial 'includes/scripts'

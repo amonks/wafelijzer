@@ -4,28 +4,38 @@ article.thumbnail
   .caption
     - if merch.slug.length > 0
       h3
-        a href="/merch/#{merch.slug}" = merch.title
+        a href="/merch/#{merch.slug}" = merch.title.titleize
         - if merch.type.length > 0
-          span.small = " " + merch.type
-        - if quantity = merch.quantity
-          .quantity.small
-            - if quantity > 50
-              | Many remaining.
-            - elsif quantity > 0
-              = quantity.to_s + " remaining"
-            - else
-              | Sold out :(
-        - else quantity = 1
+          span.small = " " + merch.type.titleize
+        - if date = merch.release_date
+          .small
+            = date
     - else
       h3 == merch.title
+    - merch.artists.each do |artist|
+      p
+        a href="/#{artist.slug}" = artist.name
     - if merch.about.length > 0
       .description
         == Kramdown::Document.new(merch.about).to_html
-    - if quantity && amount = merch.price_in_cents
-      .amount
-        == render_price amount
-    - if amount && quantity > 0 && stripe_publishable_key = check_for_stripe
-      form.pay action="/merch" method="post"
-        input style="display:none" name="merch-id" value="#{merch.id}"
-        input style="display:none" name="authenticity_token" value="#{session[:csrf]}"
-        script src="https://checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="#{stripe_publishable_key}" data-address="true" data-shipping-address="true"
+    - if ( !merch.quantity || (merch.quantity > 0) ) && amount = merch.price_in_cents
+      - unless check_for_stripe
+        span.amount.label.label-success
+          == render_price amount
+    - if quantity = merch.quantity
+      .quantity
+        - if quantity > 50
+          | Many remaining.
+        - elsif quantity > 0
+          = quantity.to_s + " Left"
+        - else
+          | Sold out :(
+    - if amount && ( !quantity || (quantity > 0) ) && stripe_publishable_key = check_for_stripe
+      .pay
+        form action="/merch" method="post"
+          input style="display:none" name="merch-id" value="#{merch.id}"
+          input style="display:none" name="authenticity_token" value="#{session[:csrf]}"
+          script src="https://checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="#{stripe_publishable_key}" data-address="true" data-shipping-address="true"
+          '
+          .amount.label.label-success
+            == render_price amount

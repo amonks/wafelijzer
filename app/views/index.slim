@@ -6,11 +6,10 @@
       - if database_partial 'description'
         == database_partial 'description'
 
-- if name = setting_value("soundcloud_name")
+- if (name = setting_value("soundcloud_name")) && setting_value("soundcloud_client_id")
   .item
     .thumbnail
       == soundcloud_embed_last_favorite_from_name(name)
 - count = setting_value("frontpage_item_count") || "10"
-- @combined = (Album.all + Video.all + Blog.all).sort_by(&:release_date).reverse
-- @combined[0..count.to_i - 1].each do |item|
+- @stuff[0..count.to_i - 1].each do |item|
   == partial 'partials/item', :object => item

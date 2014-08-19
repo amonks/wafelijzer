@@ -1,4 +1,4 @@
-# partial_helper.rb 
+# partial_helper.rb
 module Wafelijzer
   class Admin
     module PartialHelper
@@ -13,5 +13,5 @@ module Wafelijzer
     end
 
     helpers PartialHelper
-    end
+  end
 end

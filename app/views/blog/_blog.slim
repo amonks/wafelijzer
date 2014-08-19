@@ -2,7 +2,7 @@ article.thumbnail
   - if blog.image_url
     img.img-responsive src="#{blog.image_url}"
   .caption
-    h3 
+    h3
       = blog.title
       span.small
         - if blog.type
@@ -10,4 +10,7 @@ article.thumbnail
       .small
         - if blog.release_date
           = blog.release_date
+    - blog.artists.each do |artist|
+      p
+        a href="/#{artist.slug}" = artist.name
     == Kramdown::Document.new( blog.body ).to_html

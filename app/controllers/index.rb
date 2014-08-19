@@ -9,9 +9,7 @@ Wafelijzer::App.controllers do
 
   # Woo big query! Let's get EVERYTHING from the database!
   # This needs to be optimized. We're only rendering the most-recent 10 things anyway.
-  @blogs = Blog.order(Sequel.desc(:release_date), :id).all
-  @albums = Album.order(Sequel.desc(:release_date), :id).all
-  @videos = Video.order(Sequel.desc(:release_date), :id).all
+  @stuff = (Blog.all + Merch.all + Album.all + Video.all).sort_by(&:release_date).reverse
 
   # and send it to the renderer
   render 'index'
