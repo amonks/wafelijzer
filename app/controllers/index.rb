@@ -12,7 +12,7 @@ Wafelijzer::App.controllers do
   @stuff = (Blog.all + Merch.all + Album.all + Video.all).sort_by(&:release_date).reverse
 
   # and send it to the renderer
-  render 'index'
+  render 'index', :layout => !pjax?
   end
 
 end

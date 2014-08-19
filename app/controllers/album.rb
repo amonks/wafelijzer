@@ -1,5 +1,5 @@
 # # This is our Album controller
-# 
+#
 # We'll use this file to handle routing for albums.
 
 Wafelijzer::App.controllers :album do
@@ -12,9 +12,9 @@ Wafelijzer::App.controllers :album do
 
     # query the database for a list of all albums
     @albums = Album.order(Sequel.desc(:release_date), :id).all
-    
+
     # and render our album index
-    render 'album/index'
+    render 'album/index', :layout => !pjax?
   end
- 
+
 end

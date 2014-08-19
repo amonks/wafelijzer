@@ -16,8 +16,9 @@ html
       .alert class="alert-#{@alert_type}" = @alert
     - if @title
       h2.text-center = @title.titleize
-    #holder
+    #holder.pjax
       .gutter-sizer
       == yield
     == partial 'includes/footer'
+    = Time.now
   == partial 'includes/scripts'

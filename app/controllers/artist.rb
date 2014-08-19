@@ -14,7 +14,7 @@ Wafelijzer::App.controllers :artist do
     @artists = Artist.order(:name, :real_name, :slug).all
 
     # and render our artists index
-    render 'artist/index'
+    render 'artist/index', :layout => !pjax?
   end
 
   # This route is for individual artist pages at `/artist.slug`
@@ -28,12 +28,12 @@ Wafelijzer::App.controllers :artist do
       @title = @artist.name
 
       # and render the page
-      render 'artist/show'
+      render 'artist/show', :layout => !pjax?
 
     # if there is no artist with that slug, throw an error
     else
       halt 404
-      render 'errors/404'
+      render 'errors/404', :layout => !pjax?
     end
   end
 
