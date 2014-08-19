@@ -72,7 +72,7 @@ gem 'chronic'
 gem 'money'
 
 # Titleize for automatically title-casing
-gem 'titleize', :git => 'https://github.com/belgianman/titleize.git'
+gem 'titleize', :git => 'https://github.com/amonks/titleize.git'
 
 # Stripe for processing credit cards
 gem 'stripe'
