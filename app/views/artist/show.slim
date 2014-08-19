@@ -1,6 +1,6 @@
 .item
   == partial 'artist/artist', :object => @artist
-- if @artist.soundcloud && @artist.soundcloud.length > 0
+- if @artist.soundcloud && (@artist.soundcloud.length > 0) && setting_value("soundcloud_client_id")
   .item
     == soundcloud_embed_from_soundcloud_name(@artist.soundcloud)
 - @combined = (@artist.albums + @artist.videos + @artist.blogs + @artist.merches).sort_by(&:release_date).reverse
