@@ -1,7 +1,7 @@
 / service
 fieldset.control-group
   label.control-label for="service" Service (required)
-	div class='controls'
+  div class='controls'
 		label.radio-inline
 			input required='' type="radio" name="video[service]" value="vimeo" Vimeo
 		label.radio-inline
@@ -10,7 +10,7 @@ fieldset.control-group
 / type
 fieldset.control-group
   label.control-label for="album[vimeo_id]" Vimeo ID (if applicable)
-	div class='controls'
+  div class='controls'
 		= f.text_field :type, :class => 'form-control input-large input-with-feedback'
 		.help-block 'Music Video', 'Live Video', ...
 
@@ -19,7 +19,7 @@ fieldset.control-group
 	label.control-label for="album[vimeo_id]" Vimeo ID (if applicable)
 	div class='controls'
 		= f.number_field :vimeo_id, :class => 'form-control input-large input-with-feedback', :placeholder => "34479631"
-		.help-block
+    .help-block
       | Check your video's URL, it's after 'http://vimeo.com/'
 
 / youtube_idcount > 0
@@ -27,7 +27,7 @@ fieldset.control-group
 	label.control-label for="album[youtube_id]" Youtube ID (if applicable)
 	div class='controls'
 		= f.text_field :youtube_id, :class => 'form-control input-large input-with-feedback', :placeholder => "RGY9kzy0zVE"
-		.help-block
+    .help-block
       | Check your video's URL, it's after 'youtube.com/watch?v='
 
 / personnel
