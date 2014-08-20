@@ -3,33 +3,33 @@ script src="/js.min.js"
 == theme_js
 == typekit_tag
 javascript:
-  $('#holder').packery({
+  var $holder = $('#holder')
+  $holder.packery({
     itemSelector: '.item',
-    gutter: ".gutter-sizer"
+    gutter: ".gutter-sizer",
   });
-  var imgLoad = imagesLoaded( $('#holder') );
-  imgLoad.on( 'progress', function() {
-    $('#holder').packery({
-      itemSelector: '.item',
-      gutter: ".gutter-sizer"
-    });
+
+  // var imgLoad = imagesLoaded( $('#holder') );
+  // imgLoad.on( 'progress', function() {
+  //   $holder.packery({
+  //     itemSelector: '.item',
+  //     gutter: ".gutter-sizer"
+  //   });
+  // });
+
+  $holder.on( 'click', '.item', function() {
+    $holder.packery( 'remove', this ).packery();
   });
+
   $(document).pjax('a', '.pjax');
-    $(document).on('pjax:start', function() {
-      console.log("unpack");
-      $('#holder').packery( 'remove', $('.item' ));
-      // $('#holder').packery( 'destroy' );
-    })
-    $(document).on('pjax:end', function() {
-      console.log("repack");
-      // $('#holder').packery( 'addItems', $('.item' ));
-      // $('#holder').packery( 'prepended', $('.item' ));
-      setTimeout( $('#holder').packery( 'appended', $('.item' )), 5000);
-      // $('#holder').packery({
-      //   itemSelector: '.item',
-      //   gutter: ".gutter-sizer"
-      // });
-    });
+
+  $(document).on('pjax:start', function() {
+    $holder.packery( 'remove', $holder.packery('getItemElements') ).packery();
+  })
+  $(document).on('pjax:end', function() {
+    $holder.packery('appended', $('.item') );
+  });
+
 - if code = setting_value("google_analytics_id")
   javascript:
     (function(i, s, o, g, r, a, m) {

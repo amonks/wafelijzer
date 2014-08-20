@@ -14,7 +14,7 @@ Wafelijzer::App.controllers :album do
     @albums = Album.order(Sequel.desc(:release_date), :id).all
 
     # and render our album index
-    render 'album/index'
+    render_pjaxd 'album/index'
   end
 
 end
