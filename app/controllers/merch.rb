@@ -14,7 +14,7 @@ Wafelijzer::App.controllers :merch do
     @merches = Merch.order(Sequel.desc(:release_date), :id).all
 
     # and send them to the renderer.
-    render 'merch/index'
+    render_pjaxd 'merch/index'
   end
 
   # This route is for individual merch pages at `/merch.slug`
@@ -28,12 +28,12 @@ Wafelijzer::App.controllers :merch do
       @title = @merch.title
 
       # and render the page
-      render 'merch/show'
+      render_pjaxd 'merch/show'
 
     # if there is no merch with that slug, throw an error
     else
       halt 404
-      render 'errors/404'
+      render_pjaxd 'errors/404'
     end
   end
 
@@ -74,7 +74,7 @@ Wafelijzer::App.controllers :merch do
     @merches = Merch.order(Sequel.desc(:release_date), :id).all
 
     # and rerender the merch page...
-    render 'merch/index'
+    render_pjaxd 'merch/index'
   end
 
 end
