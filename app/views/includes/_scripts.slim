@@ -21,7 +21,7 @@ javascript:
     $holder.packery( 'remove', this ).packery();
   });
 
-  $(document).pjax('a', '.pjax');
+  $(document).pjax('a', '#pjax');
 
   $(document).on('pjax:start', function() {
     $holder.packery( 'remove', $holder.packery('getItemElements') ).packery();
