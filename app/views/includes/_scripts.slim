@@ -9,13 +9,10 @@ javascript:
     gutter: ".gutter-sizer",
   });
 
-  // var imgLoad = imagesLoaded( $('#holder') );
-  // imgLoad.on( 'progress', function() {
-  //   $holder.packery({
-  //     itemSelector: '.item',
-  //     gutter: ".gutter-sizer"
-  //   });
-  // });
+  var imgLoad = imagesLoaded( $('#holder') );
+  imgLoad.on( 'progress', function() {
+    $holder.packery();
+  });
 
   $holder.on( 'click', '.item', function() {
     $holder.packery( 'remove', this ).packery();
