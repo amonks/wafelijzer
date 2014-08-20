@@ -9,14 +9,19 @@ javascript:
     gutter: ".gutter-sizer",
   });
 
-  var imgLoad = imagesLoaded( $('#holder') );
-  imgLoad.on( 'progress', function() {
-    $holder.packery();
-  });
-
-  $holder.on( 'click', '.item', function() {
-    $holder.packery( 'remove', this ).packery();
-  });
+  $holder.imagesLoaded()
+    .always( function( instance ) {
+      $holder.packery();
+    })
+    .done( function( instance ) {
+      console.log('all images successfully loaded');
+    })
+    .fail( function() {
+      console.log('all images loaded, at least one is broken');
+    })
+    .progress( function( instance, image ) {
+      $holder.packery();
+    });
 
   $(document).pjax('a', '#pjax');
 
