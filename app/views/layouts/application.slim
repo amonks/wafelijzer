@@ -14,8 +14,6 @@ html
     == partial 'includes/header'
     - if @alert
       .alert class="alert-#{@alert_type}" = @alert
-    - if @title
-      h2.text-center = @title.titleize
     #holder
       .gutter-sizer
       #pjax
