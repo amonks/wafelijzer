@@ -11,6 +11,8 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     link href="/assets/theme.css" rel="stylesheet"
   body
+    - if Padrino.env == :development || ENV['DEBUG'] == 'true'
+      .cache = Time.now
     == partial 'includes/header'
     - if @alert
       .alert class="alert-#{@alert_type}" = @alert

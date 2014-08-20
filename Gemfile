@@ -45,6 +45,9 @@ gem 'rake'
 # To make development easier, we'll use [pry](http://pryrepl.org/) so we can easily open a repl anywhere in the code.
 gem 'pry', :groups => [:development, :test]
 
+# To make development easier, we'll use dotenv to load environment variables
+gem 'dotenv', :groups => [:development, :test]
+
 
 
 # ## Component requirements
