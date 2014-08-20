@@ -10,4 +10,9 @@ Wafelijzer::App.controllers :artist do
     theme_raw_css(setting_value('theme'))
   end
 
+  # This is the route at `/decor`
+  get :index, :map => '/decor' do
+    render 'blank', :layout => 'layouts/decor'
+  end
+
 end

@@ -8,7 +8,15 @@ module Wafelijzer
     module PjaxHelper
 
       def pjax?
-        env['HTTP_X_PJAX'] && !params[:layout]
+        env['HTTP_X_PJAX']
+      end
+
+      def render_pjaxd view
+        if pjax? && Padrino.env == :production
+          cache_key request.path_info + "pjax"
+        end
+
+        render view, :layout => !request.pjax?
       end
 
     end
