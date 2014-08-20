@@ -10,21 +10,13 @@ module Wafelijzer
     enable  :sessions
     disable :store_location
 
-    # enable caching
-    # uncomment the end of this line to enable caching in development
-    if Padrino.env == :production # || Padrino.env == :development
+    if cache_is_on
       register Padrino::Cache
       enable :caching
       if ENV["MEMCACHEDCLOUD_SERVERS"]
         $cache = Dalli::Client.new(ENV["MEMCACHEDCLOUD_SERVERS"].split(','), :username => ENV["MEMCACHEDCLOUD_USERNAME"], :password => ENV["MEMCACHEDCLOUD_PASSWORD"])
       end
-    end
-
-
-    case Padrino.env
-      # uncomment this line to enable caching in development
-      # when :development then set :cache, Padrino::Cache.new(:Memcached) # Uses default server at localhost
-      when :production  then set :cache, Padrino::Cache.new(:Memcached, :backend => $cache)
+      set :cache, Padrino::Cache.new(:Memcached, :backend => $cache)
     end
 
     access_control.roles_for :any do |role|

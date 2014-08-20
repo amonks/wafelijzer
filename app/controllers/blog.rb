@@ -9,7 +9,7 @@ Wafelijzer::App.controllers :news do
 
   # This route is for the pages for each `blog.type`.
   # We'll map it to `/news/:type` because `/blogs/events` or `blogs/press` sounds weird.
-  get :index, :cache => cache?, :map => '/news/:type' do
+  get :index, :cache => cache_is_on, :map => '/news/:type' do
 
     # Set the title.
     @title = @page_header = params[:type].titleize

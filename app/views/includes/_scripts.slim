@@ -20,13 +20,28 @@ javascript:
       console.log('all images loaded, at least one is broken');
     })
     .progress( function( instance, image ) {
-      $holder.packery();
+     console.log('new image loaded');
+     $holder.packery();
     });
 
   $(document).pjax('a', '#pjax');
 
   $(document).on('pjax:start', function() {
     $holder.packery( 'remove', $holder.packery('getItemElements') ).packery();
+    $holder.imagesLoaded()
+      .always( function( instance ) {
+        $holder.packery();
+      })
+      .done( function( instance ) {
+        console.log('all images successfully loaded');
+      })
+      .fail( function() {
+        console.log('all images loaded, at least one is broken');
+      })
+      .progress( function( instance, image ) {
+        console.log('new image loaded');
+        $holder.packery();
+    });
   })
   $(document).on('pjax:end', function() {
     $holder.packery('appended', $('.item') );

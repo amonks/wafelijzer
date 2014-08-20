@@ -5,7 +5,7 @@
 Wafelijzer::App.controllers :artist do
 
   # This route is for the artists index at `/artists`
-  get :index, :cache => cache?, :map => '/artists' do
+  get :index, :cache => cache_is_on, :map => '/artists' do
 
     # set the title
     @title = "Artists"
@@ -19,7 +19,7 @@ Wafelijzer::App.controllers :artist do
 
   # This route is for individual artist pages at `/artist.slug`
   # We need to set the priority low so it doesn't try to catch every request `/something`
-  get :show, :cache => cache?, :map => "/:slug", :priority => :low do
+  get :show, :cache => cache_is_on, :map => "/:slug", :priority => :low do
 
     # If there's an artist with that slug, get it from the database
     if @artist = Artist.where(:slug => params[:slug]).first
