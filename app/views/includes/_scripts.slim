@@ -22,8 +22,14 @@ javascript:
     })
     $(document).on('pjax:end', function() {
       console.log("repack");
-      $('#holder').packery( 'addItems', $('.item' ));
-    })
+      // $('#holder').packery( 'addItems', $('.item' ));
+      // $('#holder').packery( 'prepended', $('.item' ));
+      setTimeout( $('#holder').packery( 'appended', $('.item' )), 5000);
+      // $('#holder').packery({
+      //   itemSelector: '.item',
+      //   gutter: ".gutter-sizer"
+      // });
+    });
 - if code = setting_value("google_analytics_id")
   javascript:
     (function(i, s, o, g, r, a, m) {
