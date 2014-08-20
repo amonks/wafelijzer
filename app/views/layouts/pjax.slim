@@ -1,0 +1,9 @@
+title
+  - if @title && name = setting_value('label_name')
+    = @title + " | " + name
+  - elsif name = setting_value('label_name')
+    = name
+  - else
+    | Wafelijzer
+
+== yield
