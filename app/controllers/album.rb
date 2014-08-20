@@ -5,7 +5,7 @@
 Wafelijzer::App.controllers :album do
 
   # This route is for the albums index at `/albums`
-  get :index, :cache => true, :map => '/albums' do
+  get :index, :cache => cache?, :map => '/albums' do
 
     # set the title
     @title = @page_header = "Albums"
