@@ -1,9 +1,9 @@
 # # This is our Video controller
-# 
+#
 # We'll use this file to handle routing for Videos.
 
 Wafelijzer::App.controllers :video do
-  
+
   # This route is for the videos index at `/videos`.
   get :index, :cache => true, :map => "/videos" do
 
@@ -14,7 +14,7 @@ Wafelijzer::App.controllers :video do
     @videos = Video.order(Sequel.desc(:release_date), :id).all
 
     # and send it to the renderer
-    render 'video/index'
+    render_pjaxd 'video/index'
   end
 
   # # This route is for the individual video pages at `/videos/video.id`
@@ -30,5 +30,5 @@ Wafelijzer::App.controllers :video do
   #   # and send it to the renderer
   #   render 'video/show'
   # end
-  
+
 end
