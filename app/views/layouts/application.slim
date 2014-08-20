@@ -18,6 +18,7 @@ html
       h2.text-center = @title.titleize
     #holder
       .gutter-sizer
-      == yield
+      #pjax
+        == yield
     == partial 'includes/footer'
   == partial 'includes/scripts'

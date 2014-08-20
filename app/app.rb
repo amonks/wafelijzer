@@ -39,6 +39,12 @@ module Wafelijzer
     layout  :application      # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     #
 
+    class Sinatra::Request
+      def pjax?
+        env['HTTP_X_PJAX'] || self["_pjax"]
+      end
+    end
+
     ##
     # You can configure for a specified environment like:
     #
