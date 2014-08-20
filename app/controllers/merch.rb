@@ -5,7 +5,7 @@
 Wafelijzer::App.controllers :merch do
 
   # This route is for the merch index at `/merch`
-  get :index, :cache => true, :map => '/merch' do
+  get :index, :cache => cache?, :map => '/merch' do
 
     # set the title
     @title = "Merch"

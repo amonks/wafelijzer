@@ -5,7 +5,7 @@
 Wafelijzer::App.controllers do
 
   # Here's the route.
-  get :index, :cache => true do
+  get :index, :cache => cache? do
 
     # Woo big query! Let's get EVERYTHING from the database!
     # This needs to be optimized. We're only rendering the most-recent 10 things anyway.
