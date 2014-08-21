@@ -7,13 +7,13 @@ module Wafelijzer
   class App
     module CacheHelper
 
-      def cache?
-        if (ENV['CACHE_ON'] == true) && (Padrino.env == :production)
-          return true
-        else
-          return false
-        end
-      end
+      # def cache_is_on
+      #   if ENV["CACHE_ON"]  or  ( (Padrino.env == :production) && ENV["CACHE_ON"] != "false" )
+      #     return true
+      #   else
+      #     return false
+      #   end
+      # end
 
     end
 

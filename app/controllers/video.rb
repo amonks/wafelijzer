@@ -5,7 +5,7 @@
 Wafelijzer::App.controllers :video do
 
   # This route is for the videos index at `/videos`.
-  get :index, :cache => cache?, :map => "/videos" do
+  get :index, :cache => cache_is_on, :map => "/videos" do
 
     # set the title
     @title = "Videos"

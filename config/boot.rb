@@ -3,7 +3,6 @@
 # First we want to set our environment.
 # It should default to to 'development', unless it's set in ENV, like it would be on Heroku.
 RACK_ENV = ENV['RACK_ENV'] ||= 'development'  unless defined?(RACK_ENV)
-
 # Now we set our app's root directory.
 PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 
@@ -15,6 +14,10 @@ Bundler.require(:default, RACK_ENV)
 require 'date'
 require 'open-uri'
 require 'uri'
+
+# set our environment vars
+Dotenv.load unless Padrino.env == :production
+
 
 ##
 # We don't have any before (RE)load hooks here

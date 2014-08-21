@@ -1,5 +1,13 @@
 # # This file is where we'll configure global settings across both the admin app and the main app.
 
+def cache_is_on
+  if ENV["CACHE_ON"]  or  ( (Padrino.env == :production) && ENV["CACHE_ON"] != "false" )
+    return true
+  else
+    return false
+  end
+end
+
 Padrino.configure_apps do
   # enable :sessions
   set :session_secret, '03d0ee10209c5d996f373ef99737efd174258f551ee3405d283768ff3cf514de'
