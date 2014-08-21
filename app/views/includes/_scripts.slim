@@ -20,8 +20,8 @@ javascript:
       console.log('all images loaded, at least one is broken');
     })
     .progress( function( instance, image ) {
-     console.log('new image loaded');
-     $holder.packery();
+      console.log('new image loaded');
+      $holder.packery();
     });
 
   $(document).pjax('a', '#pjax');
