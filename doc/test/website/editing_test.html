@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><title>test/website/editing_test</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="test/website/editing_test"><meta name="groc-project-path" content="test/website/editing_test.rb"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">test/website/editing_test.rb</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../test_config.rb&#39;</span><span class="p">)</span>
+
+
+<span class="n">describe</span> <span class="s2">&quot;Editing&quot;</span> <span class="k">do</span>
+  <span class="n">before</span> <span class="k">do</span>
+    <span class="n">login</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">&quot;should be possible to create an artist&quot;</span> <span class="k">do</span>
+
+    <span class="n">visit</span> <span class="s2">&quot;/admin/artists/new&quot;</span>
+    <span class="n">within</span><span class="p">(</span><span class="s2">&quot;.tabs-content&quot;</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;artist_name&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s2">&quot;Bob HAMWOW!&quot;</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;artist_slug&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s2">&quot;bob&quot;</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;artist_real_name&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s2">&quot;Robert Hamilton&quot;</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;artist_soundcloud&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s2">&quot;leaftype&quot;</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;artist_bio&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s2">&quot;[bob&#39;s website](http://leaftype.tumblr.com/)&quot;</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s2">&quot;http://i.imgur.com/TUvQfGd.png&quot;</span>
+    <span class="k">end</span>
+    <span class="n">click_button</span> <span class="s1">&#39;Save&#39;</span>
+
+    <span class="n">visit</span> <span class="s1">&#39;/leaftype&#39;</span>
+    <span class="n">assert</span> <span class="n">page</span><span class="o">.</span><span class="n">has_content?</span> <span class="s1">&#39;HAMWOW!&#39;</span>
+    <span class="n">assert</span> <span class="n">page</span><span class="o">.</span><span class="n">has_content?</span> <span class="s1">&#39;Robert Hamilton&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>assert find_link("bob's website").visible?</p></div></div><div class="code"><div class="wrapper">  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">&quot;should be possible to add an album&quot;</span> <span class="k">do</span>
+    <span class="n">visit</span> <span class="s1">&#39;/admin/albums/new&#39;</span>
+    <span class="n">within</span><span class="p">(</span><span class="s2">&quot;.tabs-content&quot;</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;album_bandcamp_url&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://music.belgianman.com/album/bedroom-classics-vol-1&#39;</span>
+      <span class="n">fill_in</span> <span class="s1">&#39;artists[1]&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">&#39;Rapper&#39;</span>
+      <span class="n">check</span> <span class="s1">&#39;artistsEnabled[1]&#39;</span>
+    <span class="k">end</span>
+    <span class="n">click_button</span> <span class="s1">&#39;Save&#39;</span>
+
+    <span class="n">visit</span> <span class="s1">&#39;/albums&#39;</span>
+    <span class="n">assert</span> <span class="n">page</span><span class="o">.</span><span class="n">has_content?</span> <span class="s1">&#39;Bedroom&#39;</span>
+    <span class="n">assert</span> <span class="n">page</span><span class="o">.</span><span class="n">has_content?</span> <span class="s1">&#39;LEAFTYPE: Rapper&#39;</span>
+  <span class="k">end</span>
+<span class="k">end</span></div></div></div></div></body></html>

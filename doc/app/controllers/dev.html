@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><title>app/controllers/dev</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="app/controllers/dev"><meta name="groc-project-path" content="app/controllers/dev.rb"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">app/controllers/dev.rb</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="this-is-our-dev-controller">This is our dev controller</h1>
+
+<p>We'll use this file to handle development tasks like flushing the task and displaying config variables.</p></div></div><div class="code"><div class="wrapper"><span class="ss">Wafelijzer</span><span class="p">:</span><span class="ss">:App</span><span class="o">.</span><span class="n">controllers</span> <span class="ss">:dev</span> <span class="k">do</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We'll use this route to handle flushing the cache when /flush is visited.</p></div></div><div class="code"><div class="wrapper">  <span class="n">get</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:map</span> <span class="o">=&gt;</span> <span class="s1">&#39;/flush&#39;</span> <span class="k">do</span>
+    <span class="k">begin</span>
+      <span class="ss">Wafelijzer</span><span class="p">:</span><span class="ss">:App</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">flush</span>
+      <span class="vi">@alert</span> <span class="o">=</span> <span class="s2">&quot;Cache flushed!&quot;</span>
+      <span class="vi">@alert_type</span> <span class="o">=</span> <span class="s2">&quot;info&quot;</span>
+    <span class="k">rescue</span>
+      <span class="vi">@alert</span> <span class="o">=</span> <span class="s2">&quot;Couldn&#39;t flush cache :/ Are you sure caching is turned on?&quot;</span>
+      <span class="vi">@alert_type</span> <span class="o">=</span> <span class="s2">&quot;danger&quot;</span>
+    <span class="k">end</span>
+    <span class="n">render</span> <span class="s1">&#39;blank&#39;</span>
+  <span class="k">end</span>
+
+  <span class="k">unless</span> <span class="no">Padrino</span><span class="o">.</span><span class="n">env</span> <span class="o">==</span> <span class="ss">:production</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>This is the route at <code>/env</code>. We'll use it to show our environment vars.</p></div></div><div class="code"><div class="wrapper">    <span class="n">get</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:map</span> <span class="o">=&gt;</span> <span class="s1">&#39;/env&#39;</span> <span class="k">do</span>
+      <span class="no">ENV</span><span class="o">.</span><span class="n">to_json</span>
+    <span class="k">end</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we'll use this route to open up a repl when /pry is visited</p></div></div><div class="code"><div class="wrapper">    <span class="n">get</span> <span class="ss">:pry</span><span class="p">,</span> <span class="ss">:map</span> <span class="o">=&gt;</span> <span class="s1">&#39;/pry&#39;</span> <span class="k">do</span>
+      <span class="nb">binding</span><span class="o">.</span><span class="n">pry</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></div></div></div></div></body></html>

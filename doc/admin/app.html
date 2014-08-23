@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><title>admin/app</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="admin/app"><meta name="groc-project-path" content="admin/app.rb"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">admin/app.rb</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="k">module</span> <span class="nn">Wafelijzer</span>
+  <span class="k">class</span> <span class="nc">Admin</span> <span class="o">&lt;</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Application</span>
+    <span class="n">register</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Mailer</span>
+    <span class="n">register</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Helpers</span>
+    <span class="n">register</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Admin</span><span class="o">::</span><span class="no">AccessControl</span>
+
+    <span class="n">set</span> <span class="ss">:admin_model</span><span class="p">,</span> <span class="s1">&#39;Account&#39;</span>
+    <span class="n">set</span> <span class="ss">:login_page</span><span class="p">,</span>  <span class="s1">&#39;/sessions/new&#39;</span>
+
+    <span class="n">enable</span>  <span class="ss">:sessions</span>
+    <span class="n">disable</span> <span class="ss">:store_location</span>
+
+    <span class="k">if</span> <span class="n">cache_is_on</span>
+      <span class="n">register</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Cache</span>
+      <span class="n">enable</span> <span class="ss">:caching</span>
+      <span class="k">if</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_SERVERS&quot;</span><span class="o">]</span>
+        <span class="vg">$cache</span> <span class="o">=</span> <span class="ss">Dalli</span><span class="p">:</span><span class="ss">:Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_SERVERS&quot;</span><span class="o">].</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span> <span class="ss">:username</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_USERNAME&quot;</span><span class="o">]</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_PASSWORD&quot;</span><span class="o">]</span><span class="p">)</span>
+      <span class="k">end</span>
+      <span class="n">set</span> <span class="ss">:cache</span><span class="p">,</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Cache</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:Memcached</span><span class="p">,</span> <span class="ss">:backend</span> <span class="o">=&gt;</span> <span class="vg">$cache</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">access_control</span><span class="o">.</span><span class="n">roles_for</span> <span class="ss">:any</span> <span class="k">do</span> <span class="o">|</span><span class="n">role</span><span class="o">|</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">protect</span> <span class="s1">&#39;/&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">allow</span>   <span class="s1">&#39;/sessions&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">access_control</span><span class="o">.</span><span class="n">roles_for</span> <span class="ss">:admin</span> <span class="k">do</span> <span class="o">|</span><span class="n">role</span><span class="o">|</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:merches</span><span class="p">,</span> <span class="s1">&#39;/merches&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:themes</span><span class="p">,</span> <span class="s1">&#39;/themes&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:blogs</span><span class="p">,</span> <span class="s1">&#39;/blogs&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:settings</span><span class="p">,</span> <span class="s1">&#39;/settings&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:texts</span><span class="p">,</span> <span class="s1">&#39;/texts&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:videos</span><span class="p">,</span> <span class="s1">&#39;/videos&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:albums</span><span class="p">,</span> <span class="s1">&#39;/albums&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:artists</span><span class="p">,</span> <span class="s1">&#39;/artists&#39;</span>
+      <span class="n">role</span><span class="o">.</span><span class="n">project_module</span> <span class="ss">:accounts</span><span class="p">,</span> <span class="s1">&#39;/accounts&#39;</span>
+    <span class="k">end</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Custom error management</p></div></div><div class="code"><div class="wrapper">    <span class="n">error</span><span class="p">(</span><span class="mi">403</span><span class="p">)</span> <span class="p">{</span> <span class="vi">@title</span> <span class="o">=</span> <span class="s2">&quot;Error 403&quot;</span><span class="p">;</span> <span class="n">render</span><span class="p">(</span><span class="s1">&#39;errors/403&#39;</span><span class="p">,</span> <span class="ss">:layout</span> <span class="o">=&gt;</span> <span class="ss">:error</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">error</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span> <span class="p">{</span> <span class="vi">@title</span> <span class="o">=</span> <span class="s2">&quot;Error 404&quot;</span><span class="p">;</span> <span class="n">render</span><span class="p">(</span><span class="s1">&#39;errors/404&#39;</span><span class="p">,</span> <span class="ss">:layout</span> <span class="o">=&gt;</span> <span class="ss">:error</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">error</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="p">{</span> <span class="vi">@title</span> <span class="o">=</span> <span class="s2">&quot;Error 500&quot;</span><span class="p">;</span> <span class="n">render</span><span class="p">(</span><span class="s1">&#39;errors/500&#39;</span><span class="p">,</span> <span class="ss">:layout</span> <span class="o">=&gt;</span> <span class="ss">:error</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span></div></div></div></div></body></html>

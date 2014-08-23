@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head><title>app/app</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="app/app"><meta name="groc-project-path" content="app/app.rb"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">app/app.rb</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="k">module</span> <span class="nn">Wafelijzer</span>
+  <span class="k">class</span> <span class="nc">App</span> <span class="o">&lt;</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Application</span>
+    <span class="n">register</span> <span class="no">SassInitializer</span>
+    <span class="n">register</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Mailer</span>
+    <span class="n">register</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Helpers</span>
+
+    <span class="n">enable</span> <span class="ss">:sessions</span>
+
+
+    <span class="k">def</span> <span class="nf">cache_is_on</span>
+      <span class="k">if</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;CACHE_ON&quot;</span><span class="o">]</span>  <span class="ow">or</span>  <span class="p">(</span> <span class="p">(</span><span class="no">Padrino</span><span class="o">.</span><span class="n">env</span> <span class="o">==</span> <span class="ss">:production</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;CACHE_ON&quot;</span><span class="o">]</span> <span class="o">!=</span> <span class="s2">&quot;false&quot;</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="kp">true</span>
+      <span class="k">else</span>
+        <span class="k">return</span> <span class="kp">false</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="k">if</span> <span class="n">cache_is_on</span>
+      <span class="n">register</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Cache</span>
+      <span class="n">enable</span> <span class="ss">:caching</span>
+      <span class="k">if</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_SERVERS&quot;</span><span class="o">]</span>
+        <span class="vg">$cache</span> <span class="o">=</span> <span class="ss">Dalli</span><span class="p">:</span><span class="ss">:Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_SERVERS&quot;</span><span class="o">].</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span> <span class="ss">:username</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_USERNAME&quot;</span><span class="o">]</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;MEMCACHEDCLOUD_PASSWORD&quot;</span><span class="o">]</span><span class="p">)</span>
+      <span class="k">end</span>
+      <span class="n">set</span> <span class="ss">:cache</span><span class="p">,</span> <span class="ss">Padrino</span><span class="p">:</span><span class="ss">:Cache</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:Memcached</span><span class="p">,</span> <span class="ss">:backend</span> <span class="o">=&gt;</span> <span class="vg">$cache</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c1">##</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Application configuration options.
+set :raise<em>errors, true     # Raise exceptions (will stop application) (default for test)
+set :dump</em>errors, true    # Exception backtraces are written to STDERR (default for production/development)
+set :show<em>exceptions, true  # Shows a stack trace in browser (default for development)
+set :logging, true      # Logging in STDOUT for development and file for production (default only for development)
+set :public</em>folder, 'foo/bar' # Location for static assets (default root/public)
+set :reload, false      # Reload application files (default in development)
+set :default<em>builder, 'foo'   # Set a custom form builder (default 'StandardFormBuilder')
+set :locale</em>path, 'bar'     # Set path for I18n translations (default your<em>apps</em>root_path/locale)
+disable :sessions       # Disabled sessions by default (enable if needed)
+disable :flash        # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)</p></div></div><div class="code"><div class="wrapper">    <span class="n">layout</span>  <span class="ss">:application</span>      <span class="c1"># Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)</span>
+
+    <span class="k">class</span> <span class="nc">Sinatra</span><span class="o">::</span><span class="no">Request</span>
+      <span class="k">def</span> <span class="nf">pjax?</span>
+        <span class="n">env</span><span class="o">[</span><span class="s1">&#39;HTTP_X_PJAX&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="nb">self</span><span class="o">[</span><span class="s2">&quot;_pjax&quot;</span><span class="o">]</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="c1">##</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>You can configure for a specified environment like:
+  configure :development do
+  set :foo, :bar
+  disable :asset_stamp # no asset timestamping for dev
+  end</p></div></div><div class="code"><div class="wrapper">    <span class="c1">##</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>You can manage errors like:</p></div></div><div class="code"><div class="wrapper">    <span class="n">error</span> <span class="mi">404</span> <span class="k">do</span>
+      <span class="n">render</span> <span class="s1">&#39;errors/404&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">error</span> <span class="mi">400</span> <span class="k">do</span>
+      <span class="n">render</span> <span class="s1">&#39;errors/404&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">error</span> <span class="mi">500</span> <span class="k">do</span>
+      <span class="n">render</span> <span class="s1">&#39;errors/404&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">error</span> <span class="mi">505</span> <span class="k">do</span>
+      <span class="n">render</span> <span class="s1">&#39;errors/404&#39;</span>
+    <span class="k">end</span>
+
+    <span class="n">error</span> <span class="ss">Sequel</span><span class="p">:</span><span class="ss">:DatabaseError</span> <span class="k">do</span>
+      <span class="n">render</span> <span class="s1">&#39;errors/404&#39;</span>
+    <span class="k">end</span>
+
+  <span class="k">end</span>
+<span class="k">end</span></div></div></div></div></body></html>
