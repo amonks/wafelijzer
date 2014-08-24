@@ -37,6 +37,20 @@ Wafelijzer::App.controllers :merch do
     end
   end
 
+  # This route is for the pages for each `merch.type`.
+  # We'll map it to `/merch/:type`
+  get :index, :cache => cache_is_on, :map => '/merch/:type' do
+
+    # Set the title.
+    @title = @page_header = params[:type].titleize
+
+    # Query the database for all blogs of this type
+    @merches = Merch.where(:type => params[:type]).order(Sequel.desc(:release_date), :id).all
+
+    # and render them
+    render_pjaxd 'merch/index'
+  end
+
   # This route is for charging people's credit cards.
   post :charge, :map => '/merch' do
 
