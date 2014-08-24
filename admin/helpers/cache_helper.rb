@@ -2,8 +2,8 @@ module Wafelijzer
   class Admin
     module CacheHelper
       def flush_cache
-        if Padrino.env == :production # || Padrino.env == :development
-          Wafelijzer::Admin.cache.flush
+        if cache_is_on
+          Wafelijzer::App.cache.flush
         end
       end
     end
