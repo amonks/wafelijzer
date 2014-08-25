@@ -7,3 +7,5 @@ branches:
     - development
 gemfile:
   - Gemfile
+before_script:
+  - psql -c 'create database wafelijzer_test;'
