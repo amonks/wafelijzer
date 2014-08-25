@@ -19,7 +19,7 @@ describe "Editing" do
     end
     click_button 'Save'
 
-    visit '/leaftype'
+    visit '/bob'
     assert page.has_content? 'HAMWOW!'
     assert page.has_content? 'Robert Hamilton'
     # assert find_link("bob's website").visible?
