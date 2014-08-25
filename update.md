@@ -11,7 +11,9 @@ You'll need to use the Terminal, but I promise it isn't all that scary. I'll tak
 
 Ready?
 
-OK. First, in the Terminal, type `cd`, space. Then drag your new folder right onto the Terminal window, and press enter.
+If you haven't yet, type `heroku login`, press enter, and type your Heroku username and password when they ask. You'll only ever have to do that once.
+
+Now, still in the Terminal, type `cd`, space. Then drag your new folder right onto the Terminal window, and press enter.
 
 Now, type `heroku git:clone -a appname`, substituting your heroku app name (whatever comes before `.herokuapp.com`) for `appname` and press enter again.
 

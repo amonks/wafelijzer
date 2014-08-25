@@ -19,7 +19,7 @@ author:
 paginate:         5
 
 # Custom vars
-version:          1.2.5
+version:          1.2.6
 
 github:
   repo:           https://github.com/belgianman/wafelijzer
