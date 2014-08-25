@@ -21,4 +21,18 @@ Wafelijzer::App.controllers :news do
     render_pjaxd 'blog/index'
   end
 
+  # This route is for the general news page.
+  # We'll map it to `/news/`.
+  get :index, :cache => cache_is_on, :map => '/news' do
+
+    # Set the title.
+    @title = @page_header = "News"
+
+    # Query the database for all blogs of this type
+    @blogs = Blog.order(Sequel.desc(:release_date), :id).all
+
+    # and render them
+    render_pjaxd 'blog/index'
+  end
+
 end
