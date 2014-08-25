@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
 # We're going to use `jruby` rather than the standard MRI implementation.
 # `jruby` is faster and supports threading, but it takes a long time to boot up.
-ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.9'
+ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.13'
 
 
 
