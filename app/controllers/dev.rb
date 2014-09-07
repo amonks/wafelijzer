@@ -7,7 +7,7 @@ Wafelijzer::App.controllers :dev do
   # We'll use this route to handle flushing the cache when /flush is visited.
   get :index, :map => '/flush' do
     begin
-      Wafelijzer::App.cache.flush
+      Wafelijzer::App.cache.clear
       @alert = "Cache flushed!"
       @alert_type = "info"
     rescue

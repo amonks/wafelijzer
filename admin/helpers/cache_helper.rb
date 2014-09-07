@@ -3,7 +3,7 @@ module Wafelijzer
     module CacheHelper
       def flush_cache
         if cache_is_on
-          Wafelijzer::App.cache.flush
+          Wafelijzer::App.cache.clear
         end
       end
     end

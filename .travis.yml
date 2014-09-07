@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - jruby-19mode # JRuby in 1.9 mode
+branches:
+  only:
+    - master
+    - development
+gemfile:
+  - Gemfile
+before_script:
+  - psql -c 'create database wafelijzer_test;' -U postgres

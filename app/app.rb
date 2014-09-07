@@ -6,15 +6,6 @@ module Wafelijzer
 
     enable :sessions
 
-
-    def cache_is_on
-      if ENV["CACHE_ON"]  or  ( (Padrino.env == :production) && ENV["CACHE_ON"] != "false" )
-        return true
-      else
-        return false
-      end
-    end
-
     if cache_is_on
       register Padrino::Cache
       enable :caching
