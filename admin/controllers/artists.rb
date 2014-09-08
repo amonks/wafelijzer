@@ -47,8 +47,8 @@ Wafelijzer::Admin.controllers :artists do
     if @artist
       if @artist.modified! && @artist.update(params[:artist])
         flush_cache
+        @artist.remove_all_members
         if params[:members]
-          @artist.remove_all_members
           params[:members].each do |member|
             @artist.add_member(member.first)
           end
