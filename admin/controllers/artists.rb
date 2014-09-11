@@ -73,6 +73,8 @@ Wafelijzer::Admin.controllers :artists do
     artist = Artist[params[:id]]
     AlbumsArtists.where(:artist_id => artist.id).destroy
     ArtistsVideos.where(:artist_id => artist.id).destroy
+    ArtistsMerches.where(:artist_id => artist.id).destroy
+    ArtistsBlogs.where(:artist_id => artist.id).destroy
     if artist
       if artist.destroy
         flush_cache
@@ -99,6 +101,8 @@ Wafelijzer::Admin.controllers :artists do
     artists.each do |artist|
       AlbumsArtists.where(:artist_id => artist.id).destroy
       ArtistsVideos.where(:artist_id => artist.id).destroy
+      ArtistsMerches.where(:artist_id => artist.id).destroy
+      ArtistsBlogs.where(:artist_id => artist.id).destroy
     end
 
     if artists.destroy

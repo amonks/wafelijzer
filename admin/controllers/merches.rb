@@ -73,6 +73,7 @@ Wafelijzer::Admin.controllers :merches do
     @title = "Merches"
     merch = Merch[params[:id]]
     if merch
+      ArtistsMerches.where(:merch_id => merch.id).destroy
       if merch.destroy
         flush_cache
         flash[:success] = pat(:delete_success, :model => 'Merch', :id => "#{params[:id]}")
@@ -94,6 +95,10 @@ Wafelijzer::Admin.controllers :merches do
     end
     ids = params[:merch_ids].split(',').map(&:strip)
     merches = Merch.where(:id => ids)
+
+    merches.each do |merch|
+      ArtistsMerches.where(:merch_id => merch.id).destroy
+    end
 
     if merches.destroy
       flush_cache
