@@ -33,7 +33,7 @@ To install Wafelijzer on a free [Heroku](https://www.heroku.com/) server, click 
 
 There's a demo running at [http://wafelijzer-demo.herokuapp.com/](http://wafelijzer-demo.herokuapp.com/)
 
-You can log into the [admin page](http://wafelijzer-demo.herokuapp.com/) with the username `admin@example.com` and the password `password`.
+You can log into the [admin page](http://wafelijzer-demo.herokuapp.com/admin) with the username `admin@example.com` and the password `password`.
 
 Wafelijzer also powers [belgianman.com](http://www.belgianman.com)
 

@@ -1,0 +1,48 @@
+## Change Log
+
+### v1.2.8 (2014/09/07 04:50 +00:00)
+- [88ac178](https://github.com/belgianman/wafelijzer/commit/88ac178a8220eb44ce839acf6279d6534221405a) fixed update instructions (@amonks)
+
+### v1.2.7 (2014/08/25 04:47 +00:00)
+- [5a1456a](https://github.com/belgianman/wafelijzer/commit/5a1456af9a9f24e161fb24ccd883b4c89a25ae3b) update (@amonks)
+
+### v1.2.5 (2014/08/24 21:04 +00:00)
+- [ceea730](https://github.com/belgianman/wafelijzer/commit/ceea730b25e8c5316d44787c2caa49114b2df7c5) update, selling (@amonks)
+- [51bba3c](https://github.com/belgianman/wafelijzer/commit/51bba3cc351ff88e70ace910aae51ca35e37d4ae) updates (@amonks)
+
+### v1.1.3 (2014/08/19 11:10 +00:00)
+- [8ab3cf1](https://github.com/belgianman/wafelijzer/commit/8ab3cf135ed0427d1c6631a1752e102754ab0d76) bump version (@amonks)
+
+### v1.1.0 (2014/08/18 07:35 +00:00)
+- [fe3a51f](https://github.com/belgianman/wafelijzer/commit/fe3a51fa5287b3b41d2ffdf9635ac6c95cf61999) bump version to v1.0.3 (@amonks)
+- [b7492f1](https://github.com/belgianman/wafelijzer/commit/b7492f1315d155863662e15b02629c04af2fecee) copyright (@amonks)
+- [5f3b396](https://github.com/belgianman/wafelijzer/commit/5f3b3969c5fa0bf24e367b8151759ce18e13cb98) service links (@amonks)
+- [69f0c61](https://github.com/belgianman/wafelijzer/commit/69f0c615ee64f09760025d7193cbdd3d86d78c5f) heroku app.json (@amonks)
+- [212176e](https://github.com/belgianman/wafelijzer/commit/212176e0033ef05d0a347e9377020cde0c67dc3d) one-click install (@amonks)
+- [6a708ea](https://github.com/belgianman/wafelijzer/commit/6a708ea9b09fdc7e0cd10f904257d9d2ece15fb6) added one click install to index (@amonks)
+- [a587c8d](https://github.com/belgianman/wafelijzer/commit/a587c8dd0ebc97188fbb85aaa88fdf48d05ab3a5) liege (@amonks)
+
+### v1.0.1 (2014/08/17 06:34 +00:00)
+- [4252a6f](https://github.com/belgianman/wafelijzer/commit/4252a6fa85acdb16933185f3696029bf8f57c19a) push version to v1.0.0 (@amonks)
+
+### v1.0.0 (2014/08/17 05:23 +00:00)
+- [07aa124](https://github.com/belgianman/wafelijzer/commit/07aa124a486a6e8eb8b40566f578a9de2d43f657) Create gh-pages branch via GitHub (@amonks)
+- [a467b45](https://github.com/belgianman/wafelijzer/commit/a467b45821ad1c8b0bf2ffb50987b28becea88e3) CNAME (@amonks)
+- [e81f6ed](https://github.com/belgianman/wafelijzer/commit/e81f6eddedb178912f265eb882fd43289fe6ebb9) Create gh-pages branch via GitHub (@amonks)
+- [5bbd900](https://github.com/belgianman/wafelijzer/commit/5bbd900607f275628a26adf05a21a2f493b985de) Create gh-pages branch via GitHub (@amonks)
+- [c7706fd](https://github.com/belgianman/wafelijzer/commit/c7706fd32122992d74f4ebc91e3216a90769e6e3) Create gh-pages branch via GitHub (@amonks)
+- [3cc4514](https://github.com/belgianman/wafelijzer/commit/3cc4514fd3fce51762ef79dfc86ec3c62a5a5867) docs (@amonks)
+- [ba36692](https://github.com/belgianman/wafelijzer/commit/ba36692c955553b56ef3935d450917387f46abc9) developers (@amonks)
+- [027fda7](https://github.com/belgianman/wafelijzer/commit/027fda73371067eb0b8465d1c2fa46ab82f84e0c) Update developers.md (@amonks)
+- [#9](https://github.com/belgianman/wafelijzer/pull/9) Update developers.md (@amonks)
+- [02acaad](https://github.com/belgianman/wafelijzer/commit/02acaadf864f686d5336484e8d78133e9e4d25ab) Create README.md (@amonks)
+- [ff59b59](https://github.com/belgianman/wafelijzer/commit/ff59b5973ae933406e15a64d50d2c281d1f788bb) favicon (@amonks)
+- [2efa2bd](https://github.com/belgianman/wafelijzer/commit/2efa2bd1a248bfbf76396fad889e4a0a74f2f6fe) jruby (@amonks)
+- [22886d4](https://github.com/belgianman/wafelijzer/commit/22886d4155dbfd7b291871734d6abb9de37077cf) jruby (@amonks)
+- [ac23ff7](https://github.com/belgianman/wafelijzer/commit/ac23ff7b6932a451916ec3cb4bf65cb3e18f0847) readme (@amonks)
+- [5dc7584](https://github.com/belgianman/wafelijzer/commit/5dc75843eb6b2c31bd5fe43c0658a1e63062e675) newrelic docs (@amonks)
+- [63ceeb8](https://github.com/belgianman/wafelijzer/commit/63ceeb81cb80f551408f2795dd0f3d47092c2ed0) newrelic docs (@amonks)
+- [ed36b64](https://github.com/belgianman/wafelijzer/commit/ed36b64217c38afece6ec5af125838febf6659c1) updates (@amonks)
+- [005ff6e](https://github.com/belgianman/wafelijzer/commit/005ff6e648445a0a5321c6d6c3962ba4073ddd8e) style, fixed links in developers.md (@amonks)
+- [e93b64e](https://github.com/belgianman/wafelijzer/commit/e93b64ef076b985ec5f5e49a15b9342f3d79b3ae) analytics (@amonks)
+- [0256d7b](https://github.com/belgianman/wafelijzer/commit/0256d7b417d48741e351d0840a5b99b961d9b7a4) liege (@amonks)

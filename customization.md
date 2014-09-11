@@ -33,7 +33,7 @@ This is where you edit the blurb that shows up on your site's front page, and th
 
 ### Themes
 
-A theme is some custom CSS and/or Javascript that gets added to every page of your site.
+A theme is some custom CSS and/or Javascript that gets added to every page of your site. You can use [Liége](/liege) to generate a new theme.
 
 ### Artists
 
@@ -59,4 +59,4 @@ Videos can be pulled from Youtube or Vimeo.
 
 ### Merches
 
-Add merch here. If you add sign up for a [Square](http://square.com) account and set the `square_publishable_key` and `square_private_key` settings, you can take credit cards right from your website.
+Add merch here. You can take credit cards if you sign up for [Stripe](https://stripe.com). More details on the [Selling Stuff](/selling) page.

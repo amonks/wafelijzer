@@ -3,7 +3,9 @@ layout: page
 title: Updates
 ---
 
+<p class="lead">
 Updating a Wafelijzer app only takes a couple minutes.
+</p>
 
 If you haven't yet done so, first install the [Heroku toolbelt](https://toolbelt.heroku.com/).
 
@@ -19,7 +21,7 @@ Now paste the following lines directly into the terminal, one-by-one. Press ente
 
 Where it says APPNAME, in the third line, substitute your Heroku app name: whatever comes before `.herokuapp.com`.
 
-    mkdir wafelijzer && cd wafelijzer
+    mkdir ~/Desktop/wafelijzer && cd ~/Desktop/wafelijzer
     git init
     git remote add heroku git@heroku.com:APPNAME.git
     git remote add github git@github.com:belgianman/wafelijzer.git
@@ -29,4 +31,4 @@ Where it says APPNAME, in the third line, substitute your Heroku app name: whate
 
 ### You're done!
 
-Visit `APPNAME.heroku.com/flush` to clear your app's cache and then you're good to go!
+Visit `APPNAME.herokuapp.com/flush` to clear your app's cache and then you're good to go!
