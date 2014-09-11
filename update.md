@@ -19,7 +19,7 @@ That was the hard part.
 
 Now paste the following lines directly into the terminal, one-by-one. Press enter after each, wait for stuff to stop happening, and then paste the next one.
 
-Where it says APPNAME, in the third line, substitute your Heroku app name: whatever comes before `.herokuapp.com`.
+Where it says APPNAME, in the third and last lines, substitute your Heroku app name: whatever comes before `.herokuapp.com`.
 
     mkdir ~/Desktop/wafelijzer && cd ~/Desktop/wafelijzer
     git init
@@ -27,6 +27,7 @@ Where it says APPNAME, in the third line, substitute your Heroku app name: whate
     git remote add github git@github.com:belgianman/wafelijzer.git
     git pull github master
     git push heroku master -f
+    heroku exec rake sq:migrate:up --app APPNAME
 
 
 ### You're done!
