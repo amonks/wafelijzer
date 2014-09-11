@@ -49,8 +49,8 @@ Wafelijzer::Admin.controllers :blogs do
       if @blog.modified! && @blog.update(params[:blog])
         flush_cache
         @blog.update(:release_date => Chronic.parse(params[:release_date]))
+        @blog.remove_all_artists
         if params[:artists]
-          @blog.remove_all_artists
           params[:artists].each do |artist|
             @blog.add_artist(artist.first)
           end
@@ -72,6 +72,7 @@ Wafelijzer::Admin.controllers :blogs do
   delete :destroy, :with => :id do
     @title = "Blogs"
     blog = Blog[params[:id]]
+    ArtistsBlogs.where(:blog_id => blog.id).destroy
     if blog
       if blog.destroy
         flush_cache
@@ -94,6 +95,10 @@ Wafelijzer::Admin.controllers :blogs do
     end
     ids = params[:blog_ids].split(',').map(&:strip)
     blogs = Blog.where(:id => ids)
+
+    blogs.each do |blog|
+      ArtistsBlogs.where(:blog_id => blog.id).destroy
+    end
 
     if blogs.destroy
       flush_cache
