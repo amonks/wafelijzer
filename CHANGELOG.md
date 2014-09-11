@@ -1,845 +1,283 @@
-### using github-changes (HEAD, development)
-
-
-
-### init changelog
-
-
-
-### clarified edit slug text. closes #27
-
-
-
-### * fixed bug when deleting objects with associations. closes #28
-
-
-
-### * fixed /admin/ bug where memberships would only update if a member was selected
-
-
-
-### * made 'editor.js' local * added jquery srcmap in admin
-
-
-
-### fixed tests
-
-
-
-### added -U postgres to travis
-
-
-
-### added postgres to travis
-
-
-
-### upgraded to jruby 1.7.13
-
-
-
-### fixed .travis.yml filename
-
-
-
-### updated travis.yml
-
-
-
-### created
-
-
-
-### * Added `/news` controller (fixes broken link)
-
-
-
-### * added settings toggle to disable artist dropdown
-
-
-
-### removed duplicate artists link
-
-
-
-### * added dropdowns in navbar for merch.type and artist * made navbar text customizable * fixed caching bug in :development
-
-
-
-### fixed collapsable navbar
-
-
-
-### fixed collapsable navbar
-
-
-
-### reallow cache flushing in production
-
-
-
-### merged script, no  controller in :production
-
-
-
-### debug flag
-
-
-
-### caching flag
-
-
-
-### imagesloaded
-
-
-
-### images loaded
-
-
-
-### stopped using link_to
-
-
-
-### imagesloaded
-
-
-
-### caching
-
-
-
-### hotfix
-
-
-
-### fixed title bugs
-
-
-
-### pjax works
-
-
-
-### demo
-
-
-
-### fleshed out demo for packery issues
-
-
-
-### demo for packery issues
-
-
-
-### demo for packery issue
-
-
-
-### demo for packery issue
-
-
-
-### demo for packery issue
-
-
-
-### first attempt
-
-
-
-### fixed video form bug
-
-
-
-### bundler
-
-
-
-### fix titleize gem source
-
-
-
-### * improved /flush view / handling * improved bootstrap
-
-
-
-### * added artists to blogs, merch * fixed indentation in settings_helper * improved views
-
-
-
-### * improved merch view * switched to custom version of titleize gem (allow 'CD', etc) * removed padrino footer from admin pages, replaced with Wafelijzer footer
-
-
-
-### optimized homepage query and added merch to homepage. closes #11
-
-
-
-### check for soundcloud client id before trying to embed soundcloud
-
-
-
-### Removed remaining unused classes from (abandoned) bootstrap grid system
-
-
-
-### improved bootstrap script
-
-
-
-### fixed theme bootstrap
-
-
-
-### liege
-
-
-
-### readme
-
-
-
-### heroku app.json
-
-
-
-### fixed blog form rendering bug
-
-
-
-### fixed quantity display bug introduced in f0eebf193743fe66fc5ff9b993dfda1c7dc3a5e2
-
-
-
-### display "many" for merch quantity if greater than 50
-
-
-
-### minor changes to merch handling
-* now using 'money' gem to format money
-* migrate release_date table in merch from datetime to date
-* only display price if not sold-out
-
-
-
-### admin improvements (tag: v1.0.0)
-*   indexes are now ordered (closes #1)
-*   better inline form documentation (closes #10)
-
-general
-
-* merch 'show' view + controller
-
-
-
-### full billing / address support for merch, closes #13
-
-
-
-### * switched readme to light-background logo * fixed bug in forms * pimped out merch form * added merch join table
-
-
-
-### better testing #3, added flush_cache method to 'destroy' and 'destroy_many' closes #15
-
-
-
-### fixed video role bug
-
-
-
-### fixed album role bug
-
-
-
-### fixed album role bug
-
-
-
-### fixed album role bug
-
-
-
-### cache-flushing controller
-
-
-
-### don't lazy load after all
-
-
-
-### added loader image
-
-
-
-### fixed bugs introduced by whitespace cleanup
-
-
-
-### better comments, consistant whitespace, lazy loading
-
-
-
-### annotated source code
-
-
-
-### artist images now link to artist pages
-
-
-
-### better bootstrap
-
-
-
-### better blog type docs, reduced sql queries
-
-
-
-### blog types in menubar
-
-
-
-### automatically set newrelic key from ENV
-
-
-
-### database connection pool
-
-
-
-### more threads!
-
-
-
-### more threads!
-
-
-
-### heroku postgres uri parsing
-
-
-
-### parse heroku database url into jdbc format
-
-
-
-### heroku postgres uri parsing
-
-
-
-### puma
-
-
-
-### puma
-
-
-
-### puma
-
-
-
-### puma
-
-
-
-### jruby
-
-
-
-### jruby
-
-
-
-### jruby
-
-
-
-### caching
-
-
-
-### caching
-
-
-
-### caching
-
-
-
-### caching
-
-
-
-### testing
-
-
-
-### logo
-
-
-
-### logo
-
-
-
-### favicon
-
-
-
-### favicon
-
-
-
-### Update README.md
-
-
-
-### Update README.md
-
-
-
-### Update README.md
-
-
-
-### readme
-
-
-
-### new wafelijzer page in footer
-
-
-
-### readme
-
-
-
-### demo in readme
-
-
-
-### Create gh-pages branch via GitHub
-
-
-
-### readme
-
-
-
-### improved forms, validation
-
-
-
-### better artist form
-
-
-
-### better artist for
-
-
-
-### fixed bootstrap bug
-
-
-
-### fixed bootstrap bug
-
-
-
-### fixed bootstrap bug
-
-
-
-### fixed bootstrap bug
-
-
-
-### better-bootstrap
-
-
-
-### better bootstrap
-
-
-
-### bootstrap
-
-
-
-### fixed bug in /videos
-
-
-
-### beginning merch support (still needs shipping address form), <title>, better ssl handling
-
-
-
-### robots.txt
-
-
-
-### improved error page
-
-
-
-### better forms, better error handling
-
-
-
-### add type to blog admin
-
-
-
-### add type to blog admin
-
-
-
-### title case, other stuff
-
-
-
-### front-page now just does the most recent 10 things of any type, rather than weird cherry-picking
-
-
-
-### add release date to blog display
-
-
-
-### add release date to blog display
-
-
-
-### removed pry binding from production code :/
-
-
-
-### artist page now sorted by recency, not type
-
-
-
-### add image to blogs
-
-
-
-### show most recent news on homepage instead of oldest lol
-
-
-
-### post date on blogs
-
-
-
-### post date on blogs
-
-
-
-### no more video show
-
-
-
-### logo out of main page
-
-
-
-### logo out of main page
-
-
-
-### logo out of main page
-
-
-
-### logo in header
-
-
-
-### blogs are now tied to artists
-
-
-
-### added type to videos
-
-
-
-### added type to videos
-
-
-
-### fixed video index
-
-
-
-### fixed video form
-
-
-
-### improved video support
-
-
-
-### alphabetized artists in forms, also made links to groups/members in artist view
-
-
-
-### alphabetized artists in forms, also made links to groups/members in artist view
-
-
-
-### alphabetized artists in forms, also made links to groups/members in artist view
-
-
-
-### viewport
-
-
-
-### handle bumstead's name
-
-
-
-### fixed duplicate associations in album creation
-
-
-
-### alphabetize artists
-
-
-
-### improved video form
-
-
-
-### no more duplicates in associations
-
-
-
-### better video show
-
-
-
-### better video show
-
-
-
-### better album partial
-
-
-
-### better album partial
-
-
-
-### prettier packing
-
-
-
-### prettier packing
-
-
-
-### improved packing
-
-
-
-### typekit, theming
-
-
-
-### removed theme-specific css and stuff
-
-
-
-### removed theme-specific css and stuff
-
-
-
-### fixed theming bug
-
-
-
-### theming support
-
-
-
-### improved packing
-
-
-
-### better packing
-
-
-
-### better packing
-
-
-
-### better packing
-
-
-
-### improved error handling
-
-
-
-### make packing not depend on google analytics lol
-
-
-
-### better packing
-
-
-
-### better error handling in views, more generalized
-
-
-
-### better error handling in views, more generalized
-
-
-
-### admin link
-
-
-
-### memberships, better _artist view, better admin for artists, albums, videos
-
-
-
-### better date handling
-
-
-
-### logo
-
-
-
-### logo
-
-
-
-### better destroy handling, better markdown admin forms
-
-
-
-### google analytics
-
-
-
-### added admin functions for relationships
-
-
-
-### added admin functions for relationships
-
-
-
-### added admin functions for relationships
-
-
-
-### better handling of title
-
-
-
-### more bandcamp automation
-
-
-
-### newrelic
-
-
-
-### better url formatting
-
-
-
-### removed newrelic
-
-
-
-### install bundle
-
-
-
-### added newrelic server monitoring in production to keep heroku app awake/alive
-
-
-
-### album info now gathered from bandcamp; soundcloud embeds on artist pages; generally better
-
-
-
-### heroku
-
-
-
-### added video and album pages
-
-
-
-### puma
-
-
-
-### heroku
-
-
-
-### heroku
-
-
-
-### heroku
-
-
-
-### heroku
-
-
-
-### heroku
-
-
-
-### readme
-
-
-
-### readme
-
-
-
-### now uses join models to allow roles on artist>thing joins (producer, remixer, cover artist, ...)
-
-
-
-### gitignore
-
-
-
-### gitignore
-
-
-
-### init
-
-
-
-### init
-
-
-
-### Initial commit
-
-
-
-### init
-
-
-
+## Change Log
+
+### v1.2.10 (2014/09/11 05:00 +00:00)
+- [487abdd](https://github.com/belgianman/wafelijzer/commit/487abdde2ee4b4571c766b5bcd7983cc46b2807e) * fixed bug when deleting objects with associations. closes #28 (@amonks)
+- [a9a32e4](https://github.com/belgianman/wafelijzer/commit/a9a32e47d5f74e54977c3efc9ff755eb07f8b001) clarified edit slug text. closes #27 (@amonks)
+- [0791cbf](https://github.com/belgianman/wafelijzer/commit/0791cbf5cc3db2fa8c5ae6c7b263d71dcdad9425) * clarified edit slug text. closes #27 * fixed bug when deleting objects with associations. closes #28 (@amonks)
+
+### v1.2.9 (2014/09/08 01:04 +00:00)
+- [6182a6d](https://github.com/belgianman/wafelijzer/commit/6182a6d6e5389d438805aeb8d1122d1f4ff0ca1e) * fixed /admin/ bug where memberships would only update if a member was selected (@amonks)
+- [0c018c2](https://github.com/belgianman/wafelijzer/commit/0c018c24f6f90b3323cc9e7b394ae6b3a21a54b8) * fixed /admin/ bug where memberships would only update if a member was selected (@amonks)
+
+### v1.2.8 (2014/09/07 04:50 +00:00)
+- [c9202f4](https://github.com/belgianman/wafelijzer/commit/c9202f4613470cc5ef6d17a3a2a4514ea372e736) Merge branch 'hotfix/v1.2.7' into development (@amonks)
+- [c946780](https://github.com/belgianman/wafelijzer/commit/c9467808d150112d651dc2b03fff03b9a0d1379f) created (@amonks)
+- [5b83bfb](https://github.com/belgianman/wafelijzer/commit/5b83bfb40a7152ab6d38c9cd2dc1932319c45ce8) updated travis.yml (@amonks)
+- [753ca6e](https://github.com/belgianman/wafelijzer/commit/753ca6edd8e8af5ec1d0ee1161fcbb7003bb248d) fixed .travis.yml filename (@amonks)
+- [5292649](https://github.com/belgianman/wafelijzer/commit/52926491c1500290777cb35e6f8a6a98b91ddeb0) upgraded to jruby 1.7.13 (@amonks)
+- [6908df4](https://github.com/belgianman/wafelijzer/commit/6908df495f8d4289632b18bf6c04ac94e6d0eb30) added postgres to travis (@amonks)
+- [8e1f74d](https://github.com/belgianman/wafelijzer/commit/8e1f74d5df464c34f1d927e60ec961cf7b512d93) added -U postgres to travis (@amonks)
+- [6180273](https://github.com/belgianman/wafelijzer/commit/61802731379dab014cedb69c62204160984fe6f8) fixed tests (@amonks)
+- [66b64d8](https://github.com/belgianman/wafelijzer/commit/66b64d824b806c6583399c5f2ca747f2ec03a317) * made 'editor.js' local (@amonks)
+- [0cc8086](https://github.com/belgianman/wafelijzer/commit/0cc808633cf3ebb9ded0749db47a11967d22746a) * added jquery srcmap to /admin (@amonks)
+
+### v1.2.7 (2014/08/25 04:47 +00:00)
+- [6b7e7dc](https://github.com/belgianman/wafelijzer/commit/6b7e7dcab10ef40d8a5446c865ac9c0cb7d1a4a3) * Added `/news` controller (fixes broken link) (@amonks)
+- [9aae5b4](https://github.com/belgianman/wafelijzer/commit/9aae5b43fc38eba214d72d84681e23ba597f7ff1) * Added `/news` controller (fixes broken link) (@amonks)
+
+### v1.2.6 (2014/08/25 02:09 +00:00)
+- [03ee14f](https://github.com/belgianman/wafelijzer/commit/03ee14fd2b729328daf4e9998351771df615e4de) * added settings toggle to disable artist dropdown (@amonks)
+- [4cc8bbd](https://github.com/belgianman/wafelijzer/commit/4cc8bbd76d6f39dfe395ba07a4c01a1f1eaaad0a) * add toggle to disable artist dropdown (@amonks)
+
+### v1.2.5 (2014/08/24 21:04 +00:00)
+- [9f3116e](https://github.com/belgianman/wafelijzer/commit/9f3116e3855fc57600f9ee6e506e3b42c7a0b413) * added dropdowns in navbar for merch.type and artist (@amonks)
+- [a3b17f4](https://github.com/belgianman/wafelijzer/commit/a3b17f4c27ac1da900e85f78dc2f73e5219a1ae3) removed duplicate artists link (@amonks)
+- [9b8e013](https://github.com/belgianman/wafelijzer/commit/9b8e0138ab6e1d7b8785653edc4f79c4b693bec5) Merge branch 'release/v1.2.5' (@amonks)
+
+### v1.2.4 (2014/08/24 20:04 +00:00)
+- [486af81](https://github.com/belgianman/wafelijzer/commit/486af818d0fc3f47d252a96167615d0d6af49e19) Merge branch 'hotfix/reallow-cache-flush' into development (@amonks)
+- [878fbc0](https://github.com/belgianman/wafelijzer/commit/878fbc0a2980981bdd89b3700564ad6804c25772) fixed collapsable navbar (@amonks)
+- [a26aa61](https://github.com/belgianman/wafelijzer/commit/a26aa617bb39dd8e7a8ceab78896e561305af164) fixed collapsable navbar (@amonks)
+- [290981b](https://github.com/belgianman/wafelijzer/commit/290981b0fedd2323b7c48cebffa196b418d62917) Fixed bug in menu collapse on small-screened devices (@amonks)
+
+### v1.2.3 (2014/08/21 00:30 +00:00)
+- [5f25fcc](https://github.com/belgianman/wafelijzer/commit/5f25fcc1dc5a45ccb63f4a4bd49be91b7015a797) * added cache_on env var, (defaults to 'true' only in `:production`) * added `dotenv` gem (to `:development` and `:test`) to easily set env vars * fixed imagesLoaded script to fire after each image even on ajax-loaded pages * moved `/flush` route into new `:dev` controller * added `/env` and `pry` methods (except :production) (@amonks)
+- [7ce9623](https://github.com/belgianman/wafelijzer/commit/7ce9623f3420b8a960fa43567433df53e47a0f74) reallow cache flushing in production (@amonks)
+- [0c2804a](https://github.com/belgianman/wafelijzer/commit/0c2804a723480e84a1e06208a6844c641e385e71) Merge branch 'hotfix/reallow-cache-flush' (@amonks)
+
+### v1.2.2 (2014/08/21 00:23 +00:00)
+- [e83ca3d](https://github.com/belgianman/wafelijzer/commit/e83ca3dcc89893958a8d2989ccd7ddd6019c8ae1) imagesloaded (@amonks)
+- [58279d2](https://github.com/belgianman/wafelijzer/commit/58279d20da3060a45758036e8c3bed07ce8941e1) caching flag (@amonks)
+- [31f5577](https://github.com/belgianman/wafelijzer/commit/31f55772be078d914a191d4bb16eaf5568790e32) debug flag (@amonks)
+- [d7f9fe1](https://github.com/belgianman/wafelijzer/commit/d7f9fe1f6179c75e09064b06913a964b5bea4009) merged script, no  controller in :production (@amonks)
+- [f9aede4](https://github.com/belgianman/wafelijzer/commit/f9aede401c164c22fd910b361781e657dcda6141) merge conflict (@amonks)
+
+### v1.2.1 (2014/08/20 21:26 +00:00)
+- [04cffc5](https://github.com/belgianman/wafelijzer/commit/04cffc5fc86666b73a6edf79ad4c09883f37f053) Merge branch 'release/v1.1.5' into development (@amonks)
+- [e268ae2](https://github.com/belgianman/wafelijzer/commit/e268ae27eef19be75867f18d1e4e8e5bdd6332dc) hotfix (@amonks)
+- [5f96779](https://github.com/belgianman/wafelijzer/commit/5f96779985319aeaca7f39561d3db0b321ec67e2) Merge branch 'hotfix/1.2.1' (@amonks)
+- [b217c6e](https://github.com/belgianman/wafelijzer/commit/b217c6e2906afea5a3aa3c33dced81e2b25f09f8) Merge branch 'hotfix/1.2.1' into development (@amonks)
+- [dfea7ce](https://github.com/belgianman/wafelijzer/commit/dfea7ce5c8f727f95ee00b4a2cec44f1cd5365d4) caching (@amonks)
+- [cfd43c4](https://github.com/belgianman/wafelijzer/commit/cfd43c4afa8a555eb090d6a7bddd499cb5cba53e) imagesloaded (@amonks)
+- [b96fff5](https://github.com/belgianman/wafelijzer/commit/b96fff51937e863edca421f1f02da7b9eb3edc99) stopped using link_to (@amonks)
+- [d870a59](https://github.com/belgianman/wafelijzer/commit/d870a598094383631da6656b30957496c9e27285) images loaded (@amonks)
+- [cda8851](https://github.com/belgianman/wafelijzer/commit/cda88512bd12e54c0de1241d422a0f3aa84358ce) Merge branch 'release/v1.2.1' (@amonks)
+
+### v1.2.0 (2014/08/20 19:25 +00:00)
+- [386d793](https://github.com/belgianman/wafelijzer/commit/386d793954954816fbe2361b06cc544324f62785) fixed video form bug (@amonks)
+- [7b1ceff](https://github.com/belgianman/wafelijzer/commit/7b1ceffb8e5753c92dfafb2d23b425dcda569e6e) first attempt (@amonks)
+- [9093b02](https://github.com/belgianman/wafelijzer/commit/9093b026dae592a41ff677d566f16cf0176e032a) demo for packery issue (@amonks)
+- [ee54325](https://github.com/belgianman/wafelijzer/commit/ee543250908872e5b2b3e5a78276bc23330502d9) demo for packery issue (@amonks)
+- [fb6c933](https://github.com/belgianman/wafelijzer/commit/fb6c9336b97095124392eafdc1ebf96ba8e3fe92) demo for packery issue (@amonks)
+- [f7a82d1](https://github.com/belgianman/wafelijzer/commit/f7a82d14a35bcb9da4ddc9add333dec01cd90d35) demo for packery issues (@amonks)
+- [bbb2747](https://github.com/belgianman/wafelijzer/commit/bbb274776634dc4f8b27b14dced8378634620132) fleshed out demo for packery issues (@amonks)
+- [cf3daed](https://github.com/belgianman/wafelijzer/commit/cf3daed51cf0797fc008f11112c831c59bf86493) demo (@amonks)
+- [ad5cf0e](https://github.com/belgianman/wafelijzer/commit/ad5cf0e47494b037c10e7540bacd5b536acc8683) pjax works (@amonks)
+- [5216188](https://github.com/belgianman/wafelijzer/commit/5216188d1af04d3d0c25a9ed81cba0e3d0843574) now uses ajax for internal page loads; making the site feel substantially faster (@amonks)
+- [18f83e1](https://github.com/belgianman/wafelijzer/commit/18f83e1c142b35a2dc2b55f0dab1f907719ee34a) fixed title bugs (@amonks)
+- [4b1e035](https://github.com/belgianman/wafelijzer/commit/4b1e03559f79e44077a014ad53d50a96eb7cc895) Wafelijzer now uses ajax (pjax) to load content when internal links are followed. (@amonks)
+
+### v1.1.4 (2014/08/19 16:55 +00:00)
+- [e48b568](https://github.com/belgianman/wafelijzer/commit/e48b5686e597e6d2ff12496baf6b9f499e06e919) update titleize gem (@amonks)
+- [fe74177](https://github.com/belgianman/wafelijzer/commit/fe74177162c940ff2590b6f80f5e78e9d0712a72) fixed video form bug (@amonks)
+- [60d8a0a](https://github.com/belgianman/wafelijzer/commit/60d8a0a682710809ac91c041dc5294dc06fea067) fixed video form bug (@amonks)
+
+### v1.1.3 (2014/08/19 11:10 +00:00)
+- [07f5642](https://github.com/belgianman/wafelijzer/commit/07f5642906904eb3d49857ee072693f5c2a9dcab) bundler (@amonks)
+- [854b7a8](https://github.com/belgianman/wafelijzer/commit/854b7a87e6f4565666142d5ff84a9d1f658b159f) update 'titleize' dependency (@amonks)
+
+### v1.1.2 (2014/08/19 09:55 +00:00)
+- [cc58e78](https://github.com/belgianman/wafelijzer/commit/cc58e78124d3b42fbb91902d3b2d011ac4238feb) fix titleize gem source (@amonks)
+- [2354694](https://github.com/belgianman/wafelijzer/commit/2354694a62290dae6e41fa495143a29e8de8990c) * update titleize gem url (@amonks)
+- [d989430](https://github.com/belgianman/wafelijzer/commit/d98943047b7abc8390a987c92c5065c840035549) update titleize gem source (@amonks)
+
+### v1.1.1 (2014/08/19 09:11 +00:00)
+- [2c5cccf](https://github.com/belgianman/wafelijzer/commit/2c5cccfd4ed77c5215195695a3feb951c7132fde) Removed remaining unused classes from (abandoned) bootstrap grid system (@amonks)
+- [3acda8e](https://github.com/belgianman/wafelijzer/commit/3acda8ecd561fc5f3eac69bd3016d5c0d1ac64a3) check for soundcloud client id before trying to embed soundcloud (@amonks)
+- [33396fa](https://github.com/belgianman/wafelijzer/commit/33396faf49aeac2e2611772bef4e5f8a84cf5347) optimized homepage query and added merch to homepage. closes #11 (@amonks)
+- [04e8b11](https://github.com/belgianman/wafelijzer/commit/04e8b11de739450a8a6b54e3d5e470f4a1fa556c) * improved merch view (@amonks)
+- [34b2624](https://github.com/belgianman/wafelijzer/commit/34b26247549cdac3887b6b245514ac8194f3913d) * added artists to blogs, merch (@amonks)
+- [c69d2d8](https://github.com/belgianman/wafelijzer/commit/c69d2d83511051700d069e52796623a40330b448) * improved /flush view / handling (@amonks)
+- [#25](https://github.com/belgianman/wafelijzer/pull/25) v1.1.0 (@belgianman)
+
+### v1.1.0 (2014/08/18 07:35 +00:00)
+- [c7620eb](https://github.com/belgianman/wafelijzer/commit/c7620eb3f8c1fa79a07c7116d0949cc98e0c813c) heroku app.json (@amonks)
+- [#20](https://github.com/belgianman/wafelijzer/pull/20) one-click install (@belgianman)
+- [#21](https://github.com/belgianman/wafelijzer/pull/21) 1.0.4 one-click install (@belgianman)
+- [484742c](https://github.com/belgianman/wafelijzer/commit/484742cfbd642f75ac06b92d1bdb8951dc639727) readme (@amonks)
+- [#22](https://github.com/belgianman/wafelijzer/pull/22) 1.0.4 One-Click Install (@belgianman)
+- [bc8ca19](https://github.com/belgianman/wafelijzer/commit/bc8ca19624e374f975109fa3269403123e5cabf1) liege (@amonks)
+- [ef18f99](https://github.com/belgianman/wafelijzer/commit/ef18f994199b3e7e3592edebfb3973d695740329) fixed theme bootstrap (@amonks)
+- [7d190d0](https://github.com/belgianman/wafelijzer/commit/7d190d056f581fe3a6e73e883c7d2ea45e533ff9) improved bootstrap script (@amonks)
+- [#23](https://github.com/belgianman/wafelijzer/pull/23) Themes (@belgianman)
+- [#24](https://github.com/belgianman/wafelijzer/pull/24) v1.1.0 Liége (@belgianman)
+
+### v1.0.3 (2014/08/17 07:06 +00:00)
+- [d5389ce](https://github.com/belgianman/wafelijzer/commit/d5389ce5e860342b6709b0291fc29edffbf3a153) fixed blog form rendering bug (@amonks)
+- [#19](https://github.com/belgianman/wafelijzer/pull/19) v1.0.3 fixed blog form rendering bug (@belgianman)
+
+### v1.0.2 (2014/08/17 06:46 +00:00)
+- [9ca082a](https://github.com/belgianman/wafelijzer/commit/9ca082a5baec380d3aa550bff4c02e02b7b1e39b) fixed quantity display bug introduced in f0eebf193743fe66fc5ff9b993dfda1c7dc3a5e2 (@amonks)
+- [#18](https://github.com/belgianman/wafelijzer/pull/18) 1.0.2 fixed quantity display bug (@belgianman)
+
+### v1.0.1 (2014/08/17 06:34 +00:00)
+- [1d9cc80](https://github.com/belgianman/wafelijzer/commit/1d9cc806ca23a8721fb9d6d7b6e2ec5b39e50b39) minor changes to merch handling (@amonks)
+- [f0eebf1](https://github.com/belgianman/wafelijzer/commit/f0eebf193743fe66fc5ff9b993dfda1c7dc3a5e2) display "many" for merch quantity if greater than 50 (@amonks)
+- [#17](https://github.com/belgianman/wafelijzer/pull/17) v1.0.1 minor changes to merch handling (@belgianman)
+
+### v1.0.0 (2014/08/17 05:23 +00:00)
+- [742093c](https://github.com/belgianman/wafelijzer/commit/742093c9ef98837ff7102c6ecf08506fa1d58d35) init (@amonks)
+- [6461f39](https://github.com/belgianman/wafelijzer/commit/6461f399a8e48f1a390b7ec2d52e5f4f10a8628d) Initial commit (@amonks)
+- [8b0c5b9](https://github.com/belgianman/wafelijzer/commit/8b0c5b9d3ae4fc44bc53adafab2d710238c885d8) Merge branch 'master' of https://github.com/amonks/wafelijzer (@amonks)
+- [29941d6](https://github.com/belgianman/wafelijzer/commit/29941d67de72f242bcb15810aa1712810b7dbfb3) init (@amonks)
+- [0abaac5](https://github.com/belgianman/wafelijzer/commit/0abaac598568bed9251c0b8877800489c2785f5b) init (@amonks)
+- [58d6dd3](https://github.com/belgianman/wafelijzer/commit/58d6dd3d75fb18be46d2c61467924c35512c271c) gitignore (@amonks)
+- [070723a](https://github.com/belgianman/wafelijzer/commit/070723a462a5d077cf3209c4630d004736dd64f4) gitignore (@amonks)
+- [0ad638d](https://github.com/belgianman/wafelijzer/commit/0ad638d59f2ebf7c0fef3ca193dd4890ea4b1865) now uses join models to allow roles on artist>thing joins (producer, remixer, cover artist, ...) (@amonks)
+- [3e8fec6](https://github.com/belgianman/wafelijzer/commit/3e8fec6a3cbd87e3570b086bc62abd14fb6c55e2) readme (@amonks)
+- [89cb206](https://github.com/belgianman/wafelijzer/commit/89cb206c9d52b3a586b5c18ac398ea96eed965b2) readme (@amonks)
+- [a58790b](https://github.com/belgianman/wafelijzer/commit/a58790b8b9084818b09564c860f803e6264a9b75) heroku (@amonks)
+- [328ab9f](https://github.com/belgianman/wafelijzer/commit/328ab9fac597465129b7c3fcc03ed4c463bf7e78) heroku (@amonks)
+- [b6eb2fc](https://github.com/belgianman/wafelijzer/commit/b6eb2fc9623fc2180c259052524ba727c3499ce3) heroku (@amonks)
+- [800737e](https://github.com/belgianman/wafelijzer/commit/800737eb94fdb0f982c3dfed562edc5bb7898d5c) heroku (@amonks)
+- [1aee41c](https://github.com/belgianman/wafelijzer/commit/1aee41cc13a28d68b1b782dc6417012ccafdeb15) heroku (@amonks)
+- [c4da8ea](https://github.com/belgianman/wafelijzer/commit/c4da8eaac4ecaf3acb4d8276f79bc4d032616804) puma (@amonks)
+- [588714c](https://github.com/belgianman/wafelijzer/commit/588714cc1f5c6f56f27292fa5f35b84c7642ba64) added video and album pages (@amonks)
+- [98bf54d](https://github.com/belgianman/wafelijzer/commit/98bf54d6d97d583d357015934610e2353863cc0a) heroku (@amonks)
+- [ad3cd70](https://github.com/belgianman/wafelijzer/commit/ad3cd701a108b7a942cc6f36dc6e7630eca6ecca) album info now gathered from bandcamp; soundcloud embeds on artist pages; generally better (@amonks)
+- [356f3e6](https://github.com/belgianman/wafelijzer/commit/356f3e6a1328b32c00b128e0562183da8330d680) added newrelic server monitoring in production to keep heroku app awake/alive (@amonks)
+- [9309bb5](https://github.com/belgianman/wafelijzer/commit/9309bb5e4118b224dcee3f1dbf84ef48bb2188be) install bundle (@amonks)
+- [ed7baf5](https://github.com/belgianman/wafelijzer/commit/ed7baf5b10e8c1252ef00428c817154bf0a7ca84) removed newrelic (@amonks)
+- [d477ef9](https://github.com/belgianman/wafelijzer/commit/d477ef958482cd951190ce80d54267bfceb50edc) better url formatting (@amonks)
+- [63e6c56](https://github.com/belgianman/wafelijzer/commit/63e6c568ca21d2da58d8a85d31df5122cc3f4077) newrelic (@amonks)
+- [b592f2c](https://github.com/belgianman/wafelijzer/commit/b592f2c730cf36c3811ad9c4083a19ab909fc016) more bandcamp automation (@amonks)
+- [d9530b6](https://github.com/belgianman/wafelijzer/commit/d9530b66eceba908d541af5009371a844c594661) better handling of title (@amonks)
+- [e3432a7](https://github.com/belgianman/wafelijzer/commit/e3432a748d6dee442b3beeecc2ab485ffb79dd98) added admin functions for relationships (@amonks)
+- [e6b4a70](https://github.com/belgianman/wafelijzer/commit/e6b4a702349ecf11edaeaabadcc08136f08b17e7) added admin functions for relationships (@amonks)
+- [3302287](https://github.com/belgianman/wafelijzer/commit/330228759791ef69b7bdd78c0061f0324a16e4d9) added admin functions for relationships (@amonks)
+- [467521b](https://github.com/belgianman/wafelijzer/commit/467521bf3e0e397171af125b3328ca138da82740) google analytics (@amonks)
+- [773a941](https://github.com/belgianman/wafelijzer/commit/773a94110e711b8332b19840e52c10531558020c) better destroy handling, better markdown admin forms (@amonks)
+- [63d9f3a](https://github.com/belgianman/wafelijzer/commit/63d9f3a7ed7403b6c53862fb7ee8845d0a2ae3b4) logo (@amonks)
+- [c95bc58](https://github.com/belgianman/wafelijzer/commit/c95bc5846c323f04a69c1cbbb09e5c4943f7408c) logo (@amonks)
+- [44f6433](https://github.com/belgianman/wafelijzer/commit/44f64337255c6a1e68839a381b98b3cba686965a) better date handling (@amonks)
+- [6af8673](https://github.com/belgianman/wafelijzer/commit/6af8673d98efa634fa0cbb5e23e7ae5dbbad87d8) memberships, better _artist view, better admin for artists, albums, videos (@amonks)
+- [5d0ec37](https://github.com/belgianman/wafelijzer/commit/5d0ec3790f1a4fe3f6ded5b58e17b0d5178f8876) admin link (@amonks)
+- [b497d2b](https://github.com/belgianman/wafelijzer/commit/b497d2b761ad3b52b3f8f3526e164cc4f08d71b2) better error handling in views, more generalized (@amonks)
+- [92f9101](https://github.com/belgianman/wafelijzer/commit/92f9101c9d6fd182b5684ef83fabc9c7658e560f) better error handling in views, more generalized (@amonks)
+- [f856e96](https://github.com/belgianman/wafelijzer/commit/f856e96ec90719544276bc19f965eaee16a5a6b1) better packing (@amonks)
+- [c89e11a](https://github.com/belgianman/wafelijzer/commit/c89e11a170a326b1d77265703df0cb4dd88ba8e4) make packing not depend on google analytics lol (@amonks)
+- [6b57711](https://github.com/belgianman/wafelijzer/commit/6b57711e83e0fbf73642bc5e08eb95d8f5770055) improved error handling (@amonks)
+- [6a77341](https://github.com/belgianman/wafelijzer/commit/6a77341574ad328649c03f0ad0e0d5c4cadfb3ea) better packing (@amonks)
+- [f79c392](https://github.com/belgianman/wafelijzer/commit/f79c392c613fb12fd3d6819761e59ffe6e65c579) better packing (@amonks)
+- [c63be68](https://github.com/belgianman/wafelijzer/commit/c63be6830012106502164902cc8219b6f459e6ea) better packing (@amonks)
+- [c7f43a2](https://github.com/belgianman/wafelijzer/commit/c7f43a2089439978852d443ad6762cd896f864e0) improved packing (@amonks)
+- [3b5bc90](https://github.com/belgianman/wafelijzer/commit/3b5bc905dac57d40d3e77408caadf56b86ee4712) theming support (@amonks)
+- [23547cb](https://github.com/belgianman/wafelijzer/commit/23547cb7abde77b7a1539f943e6f5a43c6fa83ee) fixed theming bug (@amonks)
+- [39e0fb9](https://github.com/belgianman/wafelijzer/commit/39e0fb9f2ed1b25edcd8331d656136d7c7c6f2e5) removed theme-specific css and stuff (@amonks)
+- [0cbbbab](https://github.com/belgianman/wafelijzer/commit/0cbbbab8b42d9532c7fad71b77554b3ce6570cd5) removed theme-specific css and stuff (@amonks)
+- [21b4834](https://github.com/belgianman/wafelijzer/commit/21b483434d119442169667098e8f3af29d44a698) typekit, theming (@amonks)
+- [d3ee506](https://github.com/belgianman/wafelijzer/commit/d3ee506a4f7a978a923e2a4de6cf7bb21c0d6540) improved packing (@amonks)
+- [e5c3835](https://github.com/belgianman/wafelijzer/commit/e5c383579382d15fd2fe5fa4d1a187bf489265ba) prettier packing (@amonks)
+- [ccc6b70](https://github.com/belgianman/wafelijzer/commit/ccc6b7047001a022ae6643b2a9b153670b322f1f) prettier packing (@amonks)
+- [7103731](https://github.com/belgianman/wafelijzer/commit/710373107e85bd5a3ad18433e5413f237d255bb1) better album partial (@amonks)
+- [68ed63f](https://github.com/belgianman/wafelijzer/commit/68ed63f857f0b93de668563a085df635869aec8c) better album partial (@amonks)
+- [87681f5](https://github.com/belgianman/wafelijzer/commit/87681f5dde2ec07e73ca467c9fa09a20e115068b) better video show (@amonks)
+- [9cbf96a](https://github.com/belgianman/wafelijzer/commit/9cbf96af32a5afbae95161d0fb8f1db9f8fc55b3) better video show (@amonks)
+- [c5ea782](https://github.com/belgianman/wafelijzer/commit/c5ea782b44962c38dee8153e96cf2239dd94cefa) no more duplicates in associations (@amonks)
+- [a67f383](https://github.com/belgianman/wafelijzer/commit/a67f383f91d34469cad44dc06cf74eb02cb22bd5) improved video form (@amonks)
+- [8fa2c3e](https://github.com/belgianman/wafelijzer/commit/8fa2c3eb1da39e6b13530f2759e23ca640e0d3fa) alphabetize artists (@amonks)
+- [210c847](https://github.com/belgianman/wafelijzer/commit/210c847c78ad92500116ab17e5c8da3888967af0) fixed duplicate associations in album creation (@amonks)
+- [cca164d](https://github.com/belgianman/wafelijzer/commit/cca164d3ffb4b75def067f0c6372cff947a6dcb3) handle bumstead's name (@amonks)
+- [a8faf6f](https://github.com/belgianman/wafelijzer/commit/a8faf6f22ff9c5e69be4312c1d854ff05d5e50b2) viewport (@amonks)
+- [56bdc6d](https://github.com/belgianman/wafelijzer/commit/56bdc6d9fc8e4b0aa8acea843f4751982b339f3b) alphabetized artists in forms, also made links to groups/members in artist view (@amonks)
+- [ffb2ecb](https://github.com/belgianman/wafelijzer/commit/ffb2ecb36518a0d7faeaeddc7d32daaf996646f0) alphabetized artists in forms, also made links to groups/members in artist view (@amonks)
+- [48204aa](https://github.com/belgianman/wafelijzer/commit/48204aa34a78e3c5266485f8926b7b3e5a2778e8) alphabetized artists in forms, also made links to groups/members in artist view (@amonks)
+- [bfa63a6](https://github.com/belgianman/wafelijzer/commit/bfa63a68ae6ffa0e87637850cf15250ed1b453c3) improved video support (@amonks)
+- [53ae7eb](https://github.com/belgianman/wafelijzer/commit/53ae7ebd263a63bec15c8f1d2feafdfba0e63f14) fixed video form (@amonks)
+- [07284ba](https://github.com/belgianman/wafelijzer/commit/07284ba1e9f80518f8e45da76f3f0e0375112f9c) fixed video index (@amonks)
+- [d28264b](https://github.com/belgianman/wafelijzer/commit/d28264bebef7a08098a45d485ee446d0382d4382) added type to videos (@amonks)
+- [79807f3](https://github.com/belgianman/wafelijzer/commit/79807f3d7462135bd67380e60c707b9770945bbd) added type to videos (@amonks)
+- [c39347d](https://github.com/belgianman/wafelijzer/commit/c39347d40db4f2eea7ab1247865a461a4448fd68) blogs are now tied to artists (@amonks)
+- [71f8aed](https://github.com/belgianman/wafelijzer/commit/71f8aede1ff0b7854da6f54e7a97347ac88bfaf4) logo in header (@amonks)
+- [304e779](https://github.com/belgianman/wafelijzer/commit/304e7792fb42e30cb0b52b9c31885dc4622ecd34) logo out of main page (@amonks)
+- [44c48a2](https://github.com/belgianman/wafelijzer/commit/44c48a21037a7a23d3c898f05e632d8cdf58f142) logo out of main page (@amonks)
+- [9f52454](https://github.com/belgianman/wafelijzer/commit/9f52454cd3609a5e1ef86520bc3e5d22d3b6aa55) logo out of main page (@amonks)
+- [ec5fe6a](https://github.com/belgianman/wafelijzer/commit/ec5fe6af8fb48c7f16a27f29e53ea6928203e9fd) no more video show (@amonks)
+- [a85e651](https://github.com/belgianman/wafelijzer/commit/a85e651dd749c39f055c8ee206380fdcb4188a3c) post date on blogs (@amonks)
+- [0a1c7e9](https://github.com/belgianman/wafelijzer/commit/0a1c7e933329aebea8d2ed0b8dbab4f94e8bd5e8) post date on blogs (@amonks)
+- [b928385](https://github.com/belgianman/wafelijzer/commit/b92838522c9ea88a41e27682d55e2b46a5060889) show most recent news on homepage instead of oldest lol (@amonks)
+- [c5bdf64](https://github.com/belgianman/wafelijzer/commit/c5bdf64e61b96c818ae4d2d84fc14eea0efd1310) add image to blogs (@amonks)
+- [6dab3c4](https://github.com/belgianman/wafelijzer/commit/6dab3c4790d9aed27d52e6024ab50fd7ddd286f0) artist page now sorted by recency, not type (@amonks)
+- [4f5175c](https://github.com/belgianman/wafelijzer/commit/4f5175c52e4594c31df82fa1164636d9df5166a5) removed pry binding from production code :/ (@amonks)
+- [004c6ad](https://github.com/belgianman/wafelijzer/commit/004c6ad4add10e874f7feda08ef981d83ba5eb92) add release date to blog display (@amonks)
+- [59c8ccf](https://github.com/belgianman/wafelijzer/commit/59c8ccff8496a1dbfad803b8c05219e685b3e083) add release date to blog display (@amonks)
+- [04fc08d](https://github.com/belgianman/wafelijzer/commit/04fc08d7c861dd47245990fc4ba40d2f6a68e415) front-page now just does the most recent 10 things of any type, rather than weird cherry-picking (@amonks)
+- [d67725e](https://github.com/belgianman/wafelijzer/commit/d67725e35e02a4ae0dcf34562a2aa86a955b29dd) title case, other stuff (@amonks)
+- [8309644](https://github.com/belgianman/wafelijzer/commit/8309644813642c9820a90cea6fe4850d19a69577) add type to blog admin (@amonks)
+- [286c340](https://github.com/belgianman/wafelijzer/commit/286c3409668530379acf697af9683de58054ccc7) add type to blog admin (@amonks)
+- [7c851fb](https://github.com/belgianman/wafelijzer/commit/7c851fb4ee73484fd6be5f00b1c6e1cee8301ec4) better forms, better error handling (@amonks)
+- [8a6c063](https://github.com/belgianman/wafelijzer/commit/8a6c0639e3602345ceae9f865f495b054c3d75a1) improved error page (@amonks)
+- [49af762](https://github.com/belgianman/wafelijzer/commit/49af762d412a77f175a525838330537d9b1d4cdc) robots.txt (@amonks)
+- [fd3cf1c](https://github.com/belgianman/wafelijzer/commit/fd3cf1ca0edf1229e31c5400ce5838b430a07c89) beginning merch support (still needs shipping address form), <title>, better ssl handling (@amonks)
+- [a08b4c2](https://github.com/belgianman/wafelijzer/commit/a08b4c2a296182fb9532915a4ff2a3dccdf3473a) fixed bug in /videos (@amonks)
+- [b913905](https://github.com/belgianman/wafelijzer/commit/b9139056660f554056aacfa5682c7992cbb31033) bootstrap (@amonks)
+- [5bb3957](https://github.com/belgianman/wafelijzer/commit/5bb39579c543dc2f509f2b9a3857042c670f2b37) better bootstrap (@amonks)
+- [5e1dcd3](https://github.com/belgianman/wafelijzer/commit/5e1dcd3d720e65d86bb7ace52afbd657f9d6a8bb) better-bootstrap (@amonks)
+- [7dfc6a4](https://github.com/belgianman/wafelijzer/commit/7dfc6a4214229751c55f12f088b4625a0faad36f) fixed bootstrap bug (@amonks)
+- [dafd84e](https://github.com/belgianman/wafelijzer/commit/dafd84ec96bc7ac13ff08c37bb5801c4c526718d) fixed bootstrap bug (@amonks)
+- [a2a62c4](https://github.com/belgianman/wafelijzer/commit/a2a62c4dfee4e61e4b52ace8efc45962a147f999) fixed bootstrap bug (@amonks)
+- [dcc3b65](https://github.com/belgianman/wafelijzer/commit/dcc3b655b567489966860fb9d8ac82ddb5a2e58d) fixed bootstrap bug (@amonks)
+- [e36b0ed](https://github.com/belgianman/wafelijzer/commit/e36b0edc1160c65b4c90140581ff26cdb0d451f8) better artist for (@amonks)
+- [b3112cf](https://github.com/belgianman/wafelijzer/commit/b3112cf80febfa73038e0d2ec3a3c0bbd119b9ae) better artist form (@amonks)
+- [4879d96](https://github.com/belgianman/wafelijzer/commit/4879d9669a3c0df506ecbf88067848a3d94f1f11) improved forms, validation (@amonks)
+- [c04b9e2](https://github.com/belgianman/wafelijzer/commit/c04b9e228fd66ce7f5a2ec41fe710e5b22d41544) readme (@amonks)
+- [07aa124](https://github.com/belgianman/wafelijzer/commit/07aa124a486a6e8eb8b40566f578a9de2d43f657) Create gh-pages branch via GitHub (@amonks)
+- [93b2087](https://github.com/belgianman/wafelijzer/commit/93b20870ed7aa26c2e316566e1177781b8cac83d) commit (@amonks)
+- [fe8f8bd](https://github.com/belgianman/wafelijzer/commit/fe8f8bd91995c6190cda00c892ce81ebb2c5e1ab) demo in readme (@amonks)
+- [489b6fe](https://github.com/belgianman/wafelijzer/commit/489b6fe6092b30433b29d74f0717a11077875e19) readme (@amonks)
+- [ad577b3](https://github.com/belgianman/wafelijzer/commit/ad577b3685d204e8f5a159060f1500be00cdd600) new wafelijzer page in footer (@amonks)
+- [f5a1a71](https://github.com/belgianman/wafelijzer/commit/f5a1a719ed96e15686b473c49f32a15260295ec9) readme (@amonks)
+- [2c34627](https://github.com/belgianman/wafelijzer/commit/2c34627039a5d09932601bddf9fecd388e203d10) Update README.md (@amonks)
+- [be7267c](https://github.com/belgianman/wafelijzer/commit/be7267cfa2cc2885747d35ba77fd1558fd8fb018) Update README.md (@amonks)
+- [b6e5048](https://github.com/belgianman/wafelijzer/commit/b6e504824c726838f3d4f9e2bf2a32567f16aaa0) Update README.md (@amonks)
+- [cf269ce](https://github.com/belgianman/wafelijzer/commit/cf269ceeb3192ce7d1011cf4dd3425d1e648fc05) favicon (@amonks)
+- [88653c5](https://github.com/belgianman/wafelijzer/commit/88653c5aae7454e09bed2d4114fa3cfe72496058) favicon (@amonks)
+- [bbfde8a](https://github.com/belgianman/wafelijzer/commit/bbfde8ab49e05ac46b461b2b972092c5b7678bb7) logo (@amonks)
+- [c073a50](https://github.com/belgianman/wafelijzer/commit/c073a506013c417082285e000733fa199bb4d537) logo (@amonks)
+- [b9fe04d](https://github.com/belgianman/wafelijzer/commit/b9fe04d03700d04fb7a1ea45fbd5d16ee2aa7a24) testing (@amonks)
+- [cca80b6](https://github.com/belgianman/wafelijzer/commit/cca80b66ed21d3038e60a100a824feccb5d678e5) caching (@amonks)
+- [1d43a5b](https://github.com/belgianman/wafelijzer/commit/1d43a5b7f1a24bd7da8cd6a4767ce62938c1270d) caching (@amonks)
+- [27456eb](https://github.com/belgianman/wafelijzer/commit/27456eb923db1d257a9a8b2a722d9371b3a6018e) caching (@amonks)
+- [e976d75](https://github.com/belgianman/wafelijzer/commit/e976d75036442420cc6e61a4462dd6d7aa403b89) caching (@amonks)
+- [e779e4a](https://github.com/belgianman/wafelijzer/commit/e779e4add5213193b2f2727209b20ae626d46475) jruby (@amonks)
+- [716c2f2](https://github.com/belgianman/wafelijzer/commit/716c2f2b2c9ab8439f7b1431e837a3ffc5f42439) jruby (@amonks)
+- [bc2828c](https://github.com/belgianman/wafelijzer/commit/bc2828cc249077271509c0f9f0c35a10ac6551ec) jruby (@amonks)
+- [b93238e](https://github.com/belgianman/wafelijzer/commit/b93238e5fc0c2b7a2c5606a66ac57ea315050c2e) puma (@amonks)
+- [0a4417e](https://github.com/belgianman/wafelijzer/commit/0a4417ef7f9b7ecb7a903fd13598b9e5f137f45b) puma (@amonks)
+- [4dd8a89](https://github.com/belgianman/wafelijzer/commit/4dd8a898f6d12fc887a56f4a11b95b1011d0f0f6) puma (@amonks)
+- [e6740ff](https://github.com/belgianman/wafelijzer/commit/e6740ff47b8239391cb5beed50480ca1634ad2d9) puma (@amonks)
+- [ef7f8f8](https://github.com/belgianman/wafelijzer/commit/ef7f8f86b6b4b3019863895967e0bfb03c1e5c46) heroku postgres uri parsing (@amonks)
+- [db16f5d](https://github.com/belgianman/wafelijzer/commit/db16f5dabb3bad9cc020efb908dfadc8e299e088) parse heroku database url into jdbc format (@amonks)
+- [c10efef](https://github.com/belgianman/wafelijzer/commit/c10efefd76520f4b914fa33eeb2ad90d2716374f) heroku postgres uri parsing (@amonks)
+- [0a6a6cb](https://github.com/belgianman/wafelijzer/commit/0a6a6cb40dc5a485f78ce6ec2456251699dfb3a2) more threads! (@amonks)
+- [8acdaae](https://github.com/belgianman/wafelijzer/commit/8acdaae69a2bb57f9aed34d2a0c55b81fda524d7) more threads! (@amonks)
+- [3633cce](https://github.com/belgianman/wafelijzer/commit/3633cce08469584f32fb9c927dfb31adbe8212b4) database connection pool (@amonks)
+- [d18e5da](https://github.com/belgianman/wafelijzer/commit/d18e5da14090d06b23f99e595120255f5b6b37d0) automatically set newrelic key from ENV (@amonks)
+- [9a3a1fb](https://github.com/belgianman/wafelijzer/commit/9a3a1fb85a944226b69a00293aff9b006482f5ab) blog types in menubar (@amonks)
+- [a150ae3](https://github.com/belgianman/wafelijzer/commit/a150ae38ce7bf1db5c5747166a482dbcc4227ddf) better blog type docs, reduced sql queries (@amonks)
+- [29f8bfc](https://github.com/belgianman/wafelijzer/commit/29f8bfcd9876fac43b93afd5aa7299f178e9659d) better bootstrap (@amonks)
+- [85621c7](https://github.com/belgianman/wafelijzer/commit/85621c783b3a1bd0f77f6086dd3d9946cd8a9d6e) artist images now link to artist pages (@amonks)
+- [5b57b33](https://github.com/belgianman/wafelijzer/commit/5b57b336f8099fed37a5e5203704a5be22e2db64) annotated source code (@amonks)
+- [fcfd815](https://github.com/belgianman/wafelijzer/commit/fcfd815c42a19b25ff2a6d1c984c2e3d3e5a0815) better comments, consistant whitespace, lazy loading (@amonks)
+- [8c75dfa](https://github.com/belgianman/wafelijzer/commit/8c75dfac30037904b671fe905f76570eb66f9e16) fixed bugs introduced by whitespace cleanup (@amonks)
+- [1f7eddf](https://github.com/belgianman/wafelijzer/commit/1f7eddf64b0d333a0e81a86b7ec12664f3a3e172) added loader image (@amonks)
+- [914cd5b](https://github.com/belgianman/wafelijzer/commit/914cd5b4440ddf6e05644e75345a3de30c5d81a4) don't lazy load after all (@amonks)
+- [4270e22](https://github.com/belgianman/wafelijzer/commit/4270e2268afc3145cc3c32aa54bec057ce9f81d7) cache-flushing controller (@amonks)
+- [f9e2908](https://github.com/belgianman/wafelijzer/commit/f9e2908f76b3d291e26b57edc41e6bd7b3b4ccb7) fixed album role bug (@amonks)
+- [e8b6938](https://github.com/belgianman/wafelijzer/commit/e8b6938fa022e9d1fa5e826e9a81ec393e21b95a) fixed album role bug (@amonks)
+- [9b7dfa0](https://github.com/belgianman/wafelijzer/commit/9b7dfa0f5084ee3913c3c8f307c9cafb4844961b) fixed album role bug (@amonks)
+- [1a0f0a9](https://github.com/belgianman/wafelijzer/commit/1a0f0a913e4b7afeaa1926b749ff5fce646dd46f) fixed video role bug (@amonks)
+- [7262c47](https://github.com/belgianman/wafelijzer/commit/7262c4720c23aefc70e3fb3075902d67938f6bf4) better testing #3, added flush_cache method to 'destroy' and 'destroy_many' closes #15 (@amonks)
+- [9e3bf05](https://github.com/belgianman/wafelijzer/commit/9e3bf0527fd909fa32b2da42ff581c54ff802153) * switched readme to light-background logo (@amonks)
+- [469b40c](https://github.com/belgianman/wafelijzer/commit/469b40c1f4147b4aa502a014b6971b8d08b42beb) full billing / address support for merch, closes #13 (@amonks)
+- [7b4cd84](https://github.com/belgianman/wafelijzer/commit/7b4cd8425af29d521a73fcaef00a8a3873ce5cd0) admin improvements (@amonks)
