@@ -27,7 +27,7 @@ Where it says APPNAME, in the third and last lines, substitute your Heroku app n
     git remote add github https://github.com/belgianman/wafelijzer.git
     git pull github master
     git push heroku master -f
-    heroku exec rake sq:migrate:up --app APPNAME
+    heroku run rake sq:migrate:up --app APPNAME
 
 
 ### You're done!
