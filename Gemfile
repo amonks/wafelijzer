@@ -33,6 +33,8 @@ gem 'dalli', :groups => [:production]
 # Padrino Stable Gem
 gem 'padrino', '0.12.2'
 
+gem 'active_support'
+
 # jbdc-postgresql is the java database connector for postgres databases
 gem 'jdbc-postgresql'
 
