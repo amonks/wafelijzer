@@ -53,8 +53,8 @@ div class="tabs-content"
           td class='list-column' = artist.soundcloud
           td class='list-column' = artist.bio
           td class='list-column' = artist.image_url
-          td class='list-column' = artist.albums.map {|a| a.try(:title) + ": " + AlbumsArtists.where(:album_id => a.id, :artist_id => artist.id).first.role }.join(", ")
-          td class='list-column' = artist.videos.map {|a| a.try(:title) + ": " + ArtistsVideos.where(:video_id => a.id, :artist_id => artist.id).first.role }.join(", ")
+          / td class='list-column' = artist.albums.map {|a| a.try(:title) + ": " + AlbumsArtists.where(:album_id => a.id, :artist_id => artist.id).first.role }.join(", ")
+          / td class='list-column' = artist.videos.map {|a| a.try(:title) + ": " + ArtistsVideos.where(:video_id => a.id, :artist_id => artist.id).first.role }.join(", ")
           td class='list-column' = artist.groups.map {|a| a.name }.join(", ")
           td class='list-column' = artist.members.map {|a| a.name }.join(", ")
           td class='list-column list-row-action'
