@@ -152,6 +152,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bcrypt
   capybara_minitest_spec
   chronic
